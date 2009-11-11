@@ -18,7 +18,7 @@ it under the same terms as Perl itself.
 
 =cut
 
-package LibRdf::Model::Storage  ;
+package LibRdf::Model::Storage;
 
 use strict;
 use warnings;
@@ -34,14 +34,32 @@ use MooseX::AttributeHelpers;
 use namespace::clean -except => qw(meta);
 
 BEGIN { extends 'Catalyst::Model' }
-# sub BUILDARGS {
-#     my ($self, $config, $c, $realm) = @_;
-#     warn "BUILDARGS config " . Dumper($config);
-#     warn "BUILDARGS context" . Dumper($c);
-#     warn "BUILDARGS realm" . Dumper($realm);
-#     warn "BUILDARGS  sefl" . Dumper($self);
-#     return $config;
-# }
+
+sub BUILDARGS {
+    my ($self, $config, $c, $realm) = @_;
+     warn "BUILDARGS  self:" . Dumper($self);
+     warn "BUILDARGS config: " . Dumper($config);
+     warn "BUILDARGS context : " . Dumper($c);
+     warn "BUILDARGS realm:" . Dumper($realm);
+
+     # BUILDARGS context$VAR1 = {
+     #      'write_storage' => '1',
+     #      'storage_index_predicates' => '0',
+     #      'storage_hashtype' => 'memory',
+     #      'storage_merge' => '0',
+     #      'storage_mode' => '0664',
+     #      'storage_bulk' => '0',
+     #      'new_storage' => '0',
+     #      'storage_contexts' => '0',
+     #      'catalyst_component_name' => 'LibRdf::Model::Storage',
+     #      'storage_dir' => '/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/storage'
+     #    };
+
+
+
+     return $c;
+     
+ }
 # sub COMPONENT
 # {
 #     my ($class,$name,$config) =@_;
@@ -49,16 +67,73 @@ BEGIN { extends 'Catalyst::Model' }
     
 # }
 
-# sub BUILD {
-#     my ($self) = @_;
-#     warn "BUILD" . Dumper($self);
-# #    $self->ua; # Ensure lazy value is built.
+#sub COMPONENT {
+#    my ($class, $app, @rest) = @_;
+#   my $self = $class->next::method($app, @rest);
+#    $self->_load_adapted_class;
+#    return $self->_create_instance($app);
+#}
 
-#     return $self;
+
+#      warn "BUILD" . Dumper([@_]);
+#     #    $self->ua; # Ensure lazy value is built.
+# [
+#           bless( {
+#                    'write_storage' => '1',
+#                    'storage_index_predicates' => '0',
+#                    'storage_hashtype' => 'memory',
+#                    'storage_merge' => '0',
+#                    'storage_mode' => '0664',
+#                    'storage_bulk' => '0',
+#                    'new_storage' => '0',
+#                    'storage_contexts' => '0',
+#                    'catalyst_component_name' => 'LibRdf::Model::Storage',
+#                    'storage_dir' => bless( {
+#                                              'file_spec_class' => undef,
+#                                              'volume' => '',
+#                                              'dirs' => [
+#                                                          '',
+#                                                          'media',
+#                                                          'sdd2',
+#                                                          'home',
+#                                                          'mdupont',
+#                                                          '2009',
+#                                                          '11',
+#                                                          'FirefoxMechanize',
+#                                                          'gui',
+#                                                          'LibRdf',
+#                                                          'storage'
+#                                                        ]
+#                                            }, 'Path::Class::Dir' )
+#                  }, 'LibRdf::Model::Storage' ),
+#           {
+#             'write_storage' => '1',
+#             'storage_index_predicates' => '0',
+#             'storage_hashtype' => 'memory',
+#             'storage_merge' => '0',
+#             'storage_mode' => '0664',
+#             'storage_bulk' => '0',
+#             'new_storage' => '0',
+#             'storage_contexts' => '0',
+#             'catalyst_component_name' => 'LibRdf::Model::Storage',
+#             'storage_dir' => '/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/storage'
+#           }
+#         ];
+
+ sub BUILD {
+     my ($self,$config) = @_;
+
+     my $storage=new RDF::Redland::Storage("hashes", "test", "new='yes',hash-type='memory'");
+     return $storage;
+}
+
+
+# sub _create_instance {
+#     my ($self, $app) = @_;
+#     warn "create_instance" . Dumper([@_]);
 # }
 
-
-##
+#
 # dir='DIR'
 #     Work in DIR directory when creating files.
 
@@ -120,9 +195,9 @@ has storage_dir => (
 # hash-type='TYPE' (hashes storage only)
 #     Use the TYPE hash-type for hashes storage. Current defined types are 'memory' and 'bdb' but is dependent on the hash factories available.
 
-    has storage_hashtype => (
-        isa => NonEmptySimpleStr,
-        is => 'ro',
+has storage_hashtype => (
+    isa => NonEmptySimpleStr,
+    is => 'ro',
 #        required => 1,
         coerce => 1,
 	);
@@ -139,7 +214,7 @@ has storage_dir => (
 
 # bulk='no' (mysql storage only)
 #     Whether model/storage method add_statements should be optimized, until a model/storage sync operation. Boolean.
-    has storage_bulk => (
+has storage_bulk => (
         isa => Bool,
         is => 'ro',
         required => 1,
