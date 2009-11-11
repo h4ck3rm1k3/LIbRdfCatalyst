@@ -25,6 +25,10 @@ Catalyst Controller.
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
+#    unless ($c->response->content_type) {
+#        $c->response->content_type('application/xml');
+#    }
+
     my $report  = 'Matched LibRdf::Controller::ModelAddStatement in ModelAddStatement.';
     
     $report .= ' subject. done' . $c->request->param( 'S' );
@@ -54,7 +58,7 @@ sub index :Path :Args(0) {
     $report .= ' ModelSize : ' .  $c->model("ModelAdaptor")->size() . '<p/>\n';
 
 
-    $report .= ' ModelReport : ' .  $c->model("ModelAdaptor")->to_string() . '<p/>\n';
+#    $report .= ' ModelReport : ' .  $c->model("ModelAdaptor")->to_string() . '<p/>\n';
 
     $c->response->body($report);
 
