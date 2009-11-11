@@ -39,6 +39,22 @@ sub default :Path {
     $c->response->status(404);
 }
 
+#   this is the beginning of our chain
+sub hello : PathPart('hello') Chained('/') CaptureArgs(1) {
+    my ( $self, $c, $integer ) = @_;
+    $c->stash->{ message } = "Hello ";
+    $c->stash->{ arg_sum } = $integer;
+}
+
+#   this is our endpoint, because it has no :CaptureArgs
+sub world : PathPart('world') Chained('hello') Args(1) {
+      my ( $self, $c, $integer ) = @_;
+      $c->stash->{ message } .= "World!";
+      $c->stash->{ arg_sum } += $integer;
+      
+      $c->response->body( join "<br/>\n" =>
+			  $c->stash->{ message }, $c->stash->{ arg_sum } );
+}
 =head2 end
 
 Attempt to render a view, if needed.
