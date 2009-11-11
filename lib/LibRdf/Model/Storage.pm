@@ -1,22 +1,68 @@
-use MooseX::Declare;
 
-#with Catalyst::Model
+=head1 NAME
 
-class LibRdf::Model::Storage  {
-    use MooseX::Types::Common::String qw/NonEmptySimpleStr/;
-#    use MooseX::Types::Common::Int ;
-    use MooseX::Types::Moose qw/ Num Str Maybe Bool/;
-    use MooseX::Types::Path::Class qw/Dir/;
-    use MooseX::Types::Moose qw/ArrayRef/;
+LibRdf::Model::Storage - Catalyst Model
+
+=head1 DESCRIPTION
+
+Catalyst Model.
+
+=head1 AUTHOR
+
+James Michael DuPont,,,
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+package LibRdf::Model::Storage  ;
 
 use strict;
 use warnings;
+use Data::Dumper;
+use Moose;
+#use MooseX::Declare;
+use MooseX::Types::Common::String qw/NonEmptySimpleStr/;
+use MooseX::Types::Moose qw/ Num Str Maybe Bool/;
+use MooseX::Types::Path::Class qw/Dir/;
+use MooseX::Types::Moose qw/ArrayRef/;   
+
+use MooseX::AttributeHelpers;
+use namespace::clean -except => qw(meta);
+
+BEGIN { extends 'Catalyst::Model' }
+# sub BUILDARGS {
+#     my ($self, $config, $c, $realm) = @_;
+#     warn "BUILDARGS config " . Dumper($config);
+#     warn "BUILDARGS context" . Dumper($c);
+#     warn "BUILDARGS realm" . Dumper($realm);
+#     warn "BUILDARGS  sefl" . Dumper($self);
+#     return $config;
+# }
+# sub COMPONENT
+# {
+#     my ($class,$name,$config) =@_;
+#     warn "COMPONENT  config" . Dumper($config);
+    
+# }
+
+# sub BUILD {
+#     my ($self) = @_;
+#     warn "BUILD" . Dumper($self);
+# #    $self->ua; # Ensure lazy value is built.
+
+#     return $self;
+# }
+
 
 ##
 # dir='DIR'
 #     Work in DIR directory when creating files.
 
-    has storage_dir => (
+has storage_dir => (
         isa => Dir,
         is => 'ro',
         required => 1,
@@ -45,7 +91,7 @@ use warnings;
 #     File creation mode, default is (octal) 0644 Takes decimal (123), hex (0x123) or octal (0123).
 
     has storage_mode => (
-        isa => Bool,
+        isa => Str,
         is => 'ro',
         required => 1,
         coerce => 1,
@@ -75,9 +121,9 @@ use warnings;
 #     Use the TYPE hash-type for hashes storage. Current defined types are 'memory' and 'bdb' but is dependent on the hash factories available.
 
     has storage_hashtype => (
-        isa => Bool,
+        isa => NonEmptySimpleStr,
         is => 'ro',
-        required => 1,
+#        required => 1,
         coerce => 1,
 	);
 
@@ -100,24 +146,11 @@ use warnings;
         coerce => 1,
 	);
 
-=head1 NAME
 
-LibRdf::Model::Storage - Catalyst Model
+# sub new { 
+#     warn Dumper(@_);
+# }
 
-=head1 DESCRIPTION
+#};
 
-Catalyst Model.
-
-=head1 AUTHOR
-
-James Michael DuPont,,,
-
-=head1 LICENSE
-
-This library is free software. You can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
-
-}
 1;
