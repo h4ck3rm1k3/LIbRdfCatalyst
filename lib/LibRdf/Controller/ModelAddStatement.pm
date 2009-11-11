@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use parent 'Catalyst::Controller';
 use RDF::Redland;
-
+use Data::Dumper;
 =head1 NAME
 
 LibRdf::Controller::ModelAddStatement - Catalyst Controller
@@ -25,18 +25,40 @@ Catalyst Controller.
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    $c->response->body('Matched LibRdf::Controller::ModelAddStatement in ModelAddStatement.');
-
-    $c->response->body(' subject. done' . $c->request->param( 'S' ));
-
+    my $report  = 'Matched LibRdf::Controller::ModelAddStatement in ModelAddStatement.';
+    
+    $report .= ' subject. done' . $c->request->param( 'S' );
+    
     my $s  = new RDF::Redland::URI($c->request->param( 'S' ));
     my $p  = new RDF::Redland::URI($c->request->param( 'P' ));
     my $o  = new RDF::Redland::URI($c->request->param( 'O' ));
 
-    $c->model("ModelAdaptor")->add($s,$p,$o);
+    $report .= ' Subject   :' . $s->as_string . '<p/>\n';
+    $report .= ' Predicate :' . $p->as_string . '<p/>\n';
+    $report .= ' Object    :' . $o->as_string . '<p/>\n';
 
-    $c->response->body(' ModelSize : ' . $c->model("ModelAdaptor")->size() );
-    $c->response->body(' ModelAddStatement. done');
+    my $a = new RDF::Redland::Statement ($s,$p,$o);
+
+    $report .= ' statement    :' . $a->as_string . '<p/>\n';
+
+    $report .= ' ModelSize : ' . $c->model("ModelAdaptor")->size() . '<p/>\n';
+
+    my $ret = $c->model("ModelAdaptor")->add_statement($a);
+   
+    $report .= Dumper($ret);
+
+    my $ret =     $c->model("ModelAdaptor")->sync();
+
+    $report .= Dumper($ret);
+
+    $report .= ' ModelSize : ' .  $c->model("ModelAdaptor")->size() . '<p/>\n';
+
+
+    $report .= ' ModelReport : ' .  $c->model("ModelAdaptor")->to_string() . '<p/>\n';
+
+    $c->response->body($report);
+
+
 
 
 

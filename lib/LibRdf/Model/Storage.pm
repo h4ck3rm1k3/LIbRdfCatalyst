@@ -35,31 +35,32 @@ use namespace::clean -except => qw(meta);
 
 BEGIN { extends 'Catalyst::Model' }
 
-sub BUILDARGS {
-    my ($self, $config, $c, $realm) = @_;
-     warn "BUILDARGS  self:" . Dumper($self);
-     warn "BUILDARGS config: " . Dumper($config);
-     warn "BUILDARGS context : " . Dumper($c);
-     warn "BUILDARGS realm:" . Dumper($realm);
+# sub BUILDARGS {
+#     my ($self, $config, $c, $realm) = @_;
+#      warn "BUILDARGS  self:" . Dumper($self);
+#      warn "BUILDARGS config: " . Dumper($config);
+#      warn "BUILDARGS context : " . Dumper($c);
+#      warn "BUILDARGS realm:" . Dumper($realm);
 
-     # BUILDARGS context$VAR1 = {
-     #      'write_storage' => '1',
-     #      'storage_index_predicates' => '0',
-     #      'storage_hashtype' => 'memory',
-     #      'storage_merge' => '0',
-     #      'storage_mode' => '0664',
-     #      'storage_bulk' => '0',
-     #      'new_storage' => '0',
-     #      'storage_contexts' => '0',
-     #      'catalyst_component_name' => 'LibRdf::Model::Storage',
-     #      'storage_dir' => '/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/storage'
-     #    };
+#      # BUILDARGS context$VAR1 = {
+#      #      'write_storage' => '1',
+#      #      'storage_index_predicates' => '0',
+#      #      'storage_hashtype' => 'memory',
+#      #      'storage_merge' => '0',
+#      #      'storage_mode' => '0664',
+#      #      'storage_bulk' => '0',
+#      #      'new_storage' => '0',
+#      #      'storage_contexts' => '0',
+#      #      'catalyst_component_name' => 'LibRdf::Model::Storage',
+#      #      'storage_dir' => '/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/storage'
+#      #    };
 
 
 
-     return $c;
+#      return $c;
      
- }
+#  }
+
 # sub COMPONENT
 # {
 #     my ($class,$name,$config) =@_;
@@ -120,12 +121,12 @@ sub BUILDARGS {
 #           }
 #         ];
 
- sub BUILD {
-     my ($self,$config) = @_;
+#  sub BUILD {
+#      my ($self,$config) = @_;
 
-     my $storage=new RDF::Redland::Storage("hashes", "test", "new='yes',hash-type='memory'");
-     return $storage;
-}
+#      my $storage=new RDF::Redland::Storage("hashes", "test", "new='yes',hash-type='memory'");
+#      return $storage;
+# }
 
 
 # sub _create_instance {

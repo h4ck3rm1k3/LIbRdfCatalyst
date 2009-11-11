@@ -29,8 +29,8 @@ sub index :Path :Args(0) {
 
     my $base_uri  = new RDF::Redland::URI('http://localhost:3000/ntriples/');
 
-    $c->response->body('Matched LibRdf::Controller::ModelSerializeNtriples in ModelSerializeNtriples.');
-    my $serializer=new RDF::Redland::Serializer("ntriples");   
+#    $c->response->body('Matched LibRdf::Controller::ModelSerializeNtriples in ModelSerializeNtriples.');
+    my $serializer=new RDF::Redland::Serializer("turtle");   
     my $string = $serializer->serialize_model_to_string( $base_uri, $model);
 
     $c->response->body($string);

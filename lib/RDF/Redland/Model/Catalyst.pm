@@ -8,7 +8,20 @@ extends 'RDF::Redland::Model';
 sub create
 {
     #!!!
-    my $storage=new RDF::Redland::Storage("hashes", "test", "new='yes',hash-type='memory'");
+    #my $storage=new RDF::Redland::Storage("hashes", "test", "new='yes',hash-type='memory'");
+    my $storage=new RDF::Redland::Storage
+	(
+	 "hashes", 
+	 "test", 
+	 {
+	     "new"      => 0,
+	     "hash-type"=>'bdb',
+	     "write"    => 1,
+	     "dir"      =>'.'
+	 }
+	);
+
+    
     my $model=new RDF::Redland::Model($storage, "");
     
 #    warn "BUILD  self:" . Dumper($self);
