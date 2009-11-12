@@ -30,7 +30,7 @@ sub index :Path :Args(0) {
 sub Model :PathPart('Model')  Chained('/') CaptureArgs(0)  {
     my ( $self, $c ) = @_;
 
-    $c->response->body('Matched LibRdf::Controller::Import in Import.');
+    $c->response->body('in Model. You should not see this!.');
 }
 
 
@@ -85,6 +85,107 @@ sub targets : PathPart('Targets') Chained('Model') Args(0) {
 #       $c->stash->{template} = 'arcs.html';
 	$c->stash->{message}  = 'targets are :'. $string;
 	
+} 
+
+
+sub Sources : PathPart('Sources') Chained('Model') Args(0) {
+	my ( $self, $c ) = @_;
+	my $tgt =  $c->request->param( 'TARGET' );
+	my $arc =  $c->request->param( 'ARC' );
+	my $p = undef;
+	my $string = "";
+	if ($tgt && $arc)
+	{
+	    my $tgtu =  new RDF::Redland::URI ($tgt);
+	    my $arcu =  new RDF::Redland::URI ($arc);
+	    my $model=$c->model("ModelAdaptor");
+	    $string .= " TGT:" . $tgtu->as_string();
+	    $string .= " ARC:" . $arcu->as_string();
+	    my $statement2=new RDF::Redland::Statement($tgtu,$arcu,undef);
+	    my(@sources)=  $model->find_statements ($statement2);
+	    foreach my $s (@sources)
+	    {
+		$string .= $s ->as_string(). "\n";
+	    }
+	}
+	else
+	{
+	    $c->response->body('No URI');
+	}
+	$c->stash->{message}  = 'targets are :'. $string;	
+} 
+
+
+sub SourcesRHSU : PathPart('SourcesRHSU') Chained('Model') Args(0) {
+	my ( $self, $c ) = @_;
+	my $arc =  $c->request->param( 'ARC' );
+	my $p = undef;
+	my $string = "";
+	if ( $arc)
+	{
+	    my $arcu =  new RDF::Redland::URI ($arc);
+	    my $model=$c->model("ModelAdaptor");
+	    $string .= " ARC:" . $arcu->as_string();
+	    my $statement2=new RDF::Redland::Statement(undef,$arcu,undef);
+	    my(@sources)=  $model->find_statements ($statement2);
+
+	    my %arcs;
+	    foreach my $s (@sources)
+	    {
+		$arcs{$s->object()->as_string()}++;		
+	    }
+	    foreach my $s (sort keys %arcs)
+	    {
+		my $c2 = $arcs{$s};
+		$string .= "s $s c $c2<p>";
+	    }
+
+	}
+	else
+	{
+	    $c->response->body('No URI');
+	}
+	$c->response->body('targets are :'. $string);
+	$c->stash->{message}  = 'targets are :'. $string;	
+} 
+
+sub FindAll : PathPart('FindAll') Chained('Model') Args(0) {
+	my ( $self, $c ) = @_;
+	my $src =  $c->request->param( 'SOURCE' );
+	my $arc =  $c->request->param( 'ARC' );
+	my $tgt =  $c->request->param( 'TARGET' );
+
+	my $p = undef;
+	my $string = "";
+
+	my $tgtu =undef;
+	$tgtu = new RDF::Redland::URI ($tgt) if  $tgt;
+
+	my $arcu =  undef;
+	$arcu = new RDF::Redland::URI ($arc) if $arc;
+
+	my $srcu =  undef;
+	$srcu = new RDF::Redland::URI ($src) if $src;
+
+
+	my $model=$c->model("ModelAdaptor");
+	my $statement2=new RDF::Redland::Statement($tgtu,$arcu,$srcu);
+	my(@sources)=  $model->find_statements ($statement2);
+	
+	my %arcs;
+	foreach my $s (@sources)
+	{
+	    $string .= "s ". $s->object()->as_string() . "<p>";
+	    #$arcs{$s->object()->as_string()}++;		
+	}
+
+#	foreach my $s (sort keys %arcs)
+#	{
+#	    my $c2 = $arcs{$s};
+#	    $string .= "s $s c $c2<p>";
+#	}
+	
+	$c->stash->{message}  = 'results are :'. $string;	
 } 
 
 
