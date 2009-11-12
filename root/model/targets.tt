@@ -1,21 +1,13 @@
+<h1>message</h1>
     The message is: [% message %].
 
-    # example when CATALYST_VAR is set to 'Catalyst'
-    Context is [% Catalyst %]
-    The base is [% Catalyst.req.base %]
-    The name is [% Catalyst.config.name %]
-
+<h1>example</h1>
+<p>
     # example when CATALYST_VAR isn't set
     Context is [% c %]
     The base is [% base %]
     The name is [% name %]
-
+<p>
 [% TAGS star -%]
-[% IF template.name.match('\.(css|js|txt)');
-     debug("passing page through as text: $template.name");
-     content;
-   ELSE;
-     debug("applying HTML page layout wrappers to $template.name\n");
-     content WRAPPER site/html + site/layout;
-   END;
-%]
+
+actions is [% $c->action %] [% action %]

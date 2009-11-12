@@ -54,8 +54,15 @@ sub targets : PathPart('Targets') Chained('Model') Args(0) {
 
 # targets SOURCE ARC
 #    Get all target RDF::Redland::Node objects for a given source SOURCE, arc ARC RDF::Redland :Node objects as a list of RDF::Redland::Node objects.
-	    my(@sources)=  $model->targets ($srcu, $arcu);
 
+	    $string .= " SRC:" . $srcu->as_string();
+	    $string .= " ARC:" . $arcu->as_string();
+	    my $statement2=new RDF::Redland::Statement($srcu,$arcu,undef);
+	    
+	    warn "TEST";
+	    my(@sources)=  $model->find_statements ($statement2);
+
+	    warn "TEST2";
 ## make into a new sub... view rdf serialize
 #	    unless ($c->response->content_type) {
 #		$c->response->content_type('application/xml');
@@ -75,8 +82,8 @@ sub targets : PathPart('Targets') Chained('Model') Args(0) {
 	    $c->response->body('No URI');
 	}
 
-       $c->stash->{template} = 'arcs.html';
-	$c->stash->{message}  = $string;
+#       $c->stash->{template} = 'arcs.html';
+	$c->stash->{message}  = 'targets are :'. $string;
 
 	
 } 
