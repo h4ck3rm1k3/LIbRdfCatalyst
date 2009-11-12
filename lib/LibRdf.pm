@@ -28,13 +28,25 @@ our $VERSION = '0.01';
 # with an external configuration file acting as an override for
 # local deployment.
 
-__PACKAGE__->config( name => 'LibRdf' );
+__PACKAGE__->config( name => 'LibRdf' , default_view => 'TT'  );
 
 # Start the application
 __PACKAGE__->setup();
 
 
 =head1 NAME
+How do I set a default view?
+
+One may configure a default view in their .conf or MyApp.pm. For example:
+
+__PACKAGE__->config( default_view => 'TT' );
+
+in MyApp.pm will make TT the default view. This works well in conjunction with:
+
+
+
+which is often found in Root.pm.
+
 
 LibRdf - Catalyst based application
 
