@@ -7,12 +7,12 @@ __PACKAGE__->config(
     name     => 'LibRdf',
     root     => LibRdf->path_to('root'),
 
-    INCLUDE_PATH => [
-	LibRdf->path_to( 'root', 'templates', 'lib' ),
-	LibRdf->path_to( 'root', 'templates', 'src' ),
-    ],
+#    INCLUDE_PATH => [
+#	LibRdf->path_to( 'root', 'templates', 'lib' ),
+#	LibRdf->path_to( 'root', 'templates', 'src' ),
+#    ],
     PRE_PROCESS  => 'config/main',
-    WRAPPER      => 'site/wrapper',
+#    WRAPPER      => 'site/wrapper',
     TEMPLATE_EXTENSION => '.tt'
     );
 
