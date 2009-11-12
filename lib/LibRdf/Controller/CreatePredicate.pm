@@ -3,6 +3,8 @@ package LibRdf::Controller::CreatePredicate;
 use strict;
 use warnings;
 use parent 'Catalyst::Controller';
+use RDF::Redland;
+use RDF::Redland::XMLLiteralNode;
 
 =head1 NAME
 
@@ -31,81 +33,121 @@ sub index :Path :Args(0) {
 
 sub createpredicate : PathPart('createpredicate') Chained('/') CaptureArgs(0) {
     my ( $self, $c ) = @_;
+    my $p = $c->stash->{predicate} ;
 
-
-
-    my $uri =  $c->request->param( 'URI' );
-
-    my $p = undef;
-    if ($uri)
-    {
-	$p = new RDF::Redland::URINode($uri);
-    }
-    else
-    {
-	my $l =  $c->request->param( 'LIT' );
-	if ($l)
-	{
-	    $p = new RDF::Redland::LiteralNode($l);
-	}
-	else
-	{
-	    my $x =  $c->request->param( 'XML' );
-	    if ($x)
-	    {
-		$p = new RDF::Redland::XMLLiteral($x);
-	    }
-	    else
-	    {
-		my $b =  $c->request->param( 'Blank' );
-		if ($b)
-		{
-		    $p = new RDF::Redland::BlankNode($b);
-		}	
-	    }
-	    
-	}
-    }
-
-    $c->stash->{predicate} = $p;
-
-    warn "create predicate";
     if ($p)
     {
 	$c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate.' . $p->as_string() );
     }
     else
     {
-	$c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. no p');
+	$c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. NOTHING');
     }
     
 }
 
-sub URI : PathPart('URI') Chained('createpredicate') Args(1) {
-	my ( $self, $c, $page_name ) = @_;
-	#  load the page named $page_name and put the object
-	#  into the stash
-	warn $page_name;
+
+# http://localhost:3000/createpredicate/URI?URI=http://librdf.org/docs/pod/RDF/Redland/LiteralNode.html
+sub URI : PathPart('URI') Chained('createpredicate') Args(0) {
+	my ( $self, $c, $uri ) = @_;
+	$uri =  $uri || $c->request->param( 'URI' );
+	my $p = undef;
+	
+	if ($uri)
+	{
+	    $p = new RDF::Redland::URINode($uri);
+	}
+	if ($p)
+	{
+	    $c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate.' . $p->as_string() );
+	}
+	else
+	{
+	    $c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. no p');
+	}
+	
+	$c->stash->{predicate} = $p;
+
 }
 
+sub Literal : PathPart('Literal') Chained('createpredicate') Args(1) 
+{
+    my ( $self, $c, $l ) = @_;
+#http://localhost:3000/createpredicate/Literal/LIT%20fdsgh%20test1%20!%20
+#i get this : Matched LibRdf::Controller::CreatePredicate in CreatePredicate Literal. "LIT fdsgh test1 ! "
+ 
 
-#   this is the beginning of our chain
-sub hello : PathPart('hello') Chained('createpredicate') CaptureArgs(1) {
-    my ( $self, $c, $integer ) = @_;
-    $c->stash->{ message } = "Hello ";
-    $c->stash->{ arg_sum } = $integer;
+    $l =  $l || $c->request->param( 'LIT' );
+    
+    my $p = undef;
+    if ($l)
+    {
+	$p = new RDF::Redland::LiteralNode($l);
+    }
+    if ($p)
+    {
+	$c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate Literal. "' . $p->as_string() . '"' );
+    }
+    else
+    {
+	$c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. no p');
+    }
+    
+    $c->stash->{predicate} = $p;
+    
+
 }
 
-#   this is our endpoint, because it has no :CaptureArgs
-sub world : PathPart('world') Chained('hello') Args(1) {
-      my ( $self, $c, $integer ) = @_;
-      $c->stash->{ message } .= "World!";
-      $c->stash->{ arg_sum } += $integer;
-      
-      $c->response->body( join "<br/>\n" =>
-			  $c->stash->{ message }, $c->stash->{ arg_sum } );
+#http://localhost:3000/createpredicate/XML/?XML=%3Ctag2%3ELIT%3C/tag%3E
+#Matched LibRdf::Controller::CreatePredicate in CreatePredicate.LIT^^
+sub XML : PathPart('XML') Chained('createpredicate') {
+	my ( $self, $c, $x ) = @_;
+
+	$x =  $x || $c->request->param( 'XML' );
+	my $p = undef;
+	if ($x)
+	    {
+		warn "GOT $x";
+		$p = new RDF::Redland::XMLLiteralNode($x);
+	    }
+	if ($p)
+	{
+	    $c->response->body('Matched LibRdf::Controller::CreatePredicate in XMLLiteralNode: "' . $p->as_string() . '"' );
+	}
+	else
+	{
+	    $c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. no data. ');
+	}
+	
+	$c->stash->{predicate} = $p;
+
+
 }
 
+#http://localhost:3000/createpredicate/Blank/Funky
+
+sub Blank : PathPart('Blank') Chained('createpredicate') Args(1) {
+	my ( $self, $c, $b ) = @_;
+	
+	$b = $b ||  $c->request->param( 'Blank' );
+	
+	my $p = undef;
+	if ($b)
+	{
+	    $p = new RDF::Redland::BlankNode($b);
+	}	
+	if ($p)
+	{
+	    $c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. BlankNode: "' . $p->as_string() . '"' );
+	}
+	else
+	{
+	    $c->response->body('Matched LibRdf::Controller::CreatePredicate in CreatePredicate. no p');
+	}
+	
+	$c->stash->{predicate} = $p;
+
+}
 
 sub default :Path {
     my ( $self, $c ) = @_;
