@@ -84,7 +84,56 @@ sub targets : PathPart('Targets') Chained('Model') Args(0) {
 
 #       $c->stash->{template} = 'arcs.html';
 	$c->stash->{message}  = 'targets are :'. $string;
+	
+} 
 
+
+sub with_arc : PathPart('Arcs') Chained('Model') Args(0) {
+#http://librdf.org/docs/pod/RDF/Redland/Model.html
+#http://svn.librdf.org/view/perl/trunk/perl/lib/RDF/Redland/Model.pm?view=markup
+#
+#SOURCE ARC
+	my ( $self, $c ) = @_;
+	my $arc =  $c->request->param( 'ARC' );
+	my $p = undef;
+	my $string = "";
+	if ( $arc)
+	{
+	    my $arcu =  new RDF::Redland::URI ($arc);
+
+	    my $model=$c->model("ModelAdaptor");
+
+# targets SOURCE ARC
+#    Get all target RDF::Redland::Node objects for a given source SOURCE, arc ARC RDF::Redland :Node objects as a list of RDF::Redland::Node objects.
+
+	    $string .= " ARC:" . $arcu->as_string();
+	    my $statement2=new RDF::Redland::Statement(undef,$arcu,undef);
+	    
+	    warn "TEST";
+	    my(@sources)=  $model->find_statements ($statement2);
+
+	    warn "TEST2";
+## make into a new sub... view rdf serialize
+#	    unless ($c->response->content_type) {
+#		$c->response->content_type('application/xml');
+#	    }	    
+	    foreach my $s (@sources)
+	    {
+		$string .= $s ->as_string(). "\n";
+	    }
+#	    my $serializer=new RDF::Redland::Serializer("rdfxml");   
+#	    my $string = $serializer->serialize_model_to_string( $base_uri, $model);
+	    
+	    $c->response->body($string);
+
+	}
+	else
+	{
+	    $c->response->body('No URI');
+	}
+
+#       $c->stash->{template} = 'arcs.html';
+	$c->stash->{message}  = 'arcs are :'. $string;
 	
 } 
 
