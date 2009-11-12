@@ -74,6 +74,11 @@ sub targets : PathPart('Targets') Chained('Model') Args(0) {
 	{
 	    $c->response->body('No URI');
 	}
+
+       $c->stash->{template} = 'arcs.html';
+	$c->stash->{message}  = $string;
+
+	
 } 
 
 
