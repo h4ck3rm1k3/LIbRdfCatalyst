@@ -88,7 +88,7 @@ sub targets : PathPart('Targets') Chained('Model') Args(0) {
 } 
 
 
-sub with_arc : PathPart('Arcs') Chained('Model') Args(0) {
+sub with_arc : PathPart('Arcs') Chained('Model')   Args(0) {
 #http://librdf.org/docs/pod/RDF/Redland/Model.html
 #http://svn.librdf.org/view/perl/trunk/perl/lib/RDF/Redland/Model.pm?view=markup
 #
@@ -137,6 +137,35 @@ sub with_arc : PathPart('Arcs') Chained('Model') Args(0) {
 	
 } 
 
+
+## just loop over all the objects and collect the arcs
+
+sub unique_arcs : PathPart('ArcTypes') Chained('Model') Args(0) {
+#http://librdf.org/docs/pod/RDF/Redland/Model.html
+#http://svn.librdf.org/view/perl/trunk/perl/lib/RDF/Redland/Model.pm?view=markup
+#
+#SOURCE ARC
+	my ( $self, $c ) = @_;
+	my $p = undef;
+	my $string = "";
+	my $model=$c->model("ModelAdaptor");
+	my $statement2=new RDF::Redland::Statement(undef,undef,undef);
+	my(@sources)=  $model->find_statements ($statement2);
+	my %arcs;
+	foreach my $s (@sources)
+	{
+	    $arcs{$s->predicate()->as_string()}++;
+
+	}
+	foreach my $s (sort keys %arcs)
+	{
+	    my $c2 = $arcs{$s};
+	    $string .= "s $s c $c2<p>";
+	}
+	$c->response->body($string);
+	$c->stash->{message}  = 'types are :'. $string;
+	
+} 
 
 
 =head1 AUTHOR
