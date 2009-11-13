@@ -167,15 +167,20 @@ sub FindAll : PathPart('FindAll') Chained('Model') Args(0) {
 	my $srcu =  undef;
 	$srcu = new RDF::Redland::URI ($src) if $src;
 
+	$string .= "Query TARGET ". $tgtu->as_string() . "<p>" if $tgtu;
+	$string .= "Query SOURCE ". $srcu->as_string() . "<p>" if $srcu;
+	$string .= "Query ARC "   . $arcu->as_string() . "<p>" if $arcu;
+	
 
 	my $model=$c->model("ModelAdaptor");
-	my $statement2=new RDF::Redland::Statement($tgtu,$arcu,$srcu);
+	
+	my $statement2=new RDF::Redland::Statement($srcu,$arcu,$tgtu);
 	my(@sources)=  $model->find_statements ($statement2);
 	
-	my %arcs;
+#	my %arcs;
 	foreach my $s (@sources)
 	{
-	    $string .= "s ". $s->object()->as_string() . "<p>";
+	    $string .= "s ". $s->as_string() . "<p>";
 	    #$arcs{$s->object()->as_string()}++;		
 	}
 
@@ -186,6 +191,7 @@ sub FindAll : PathPart('FindAll') Chained('Model') Args(0) {
 #	}
 	
 	$c->stash->{message}  = 'results are :'. $string;	
+	$c->response->body($string);
 } 
 
 
