@@ -51,7 +51,7 @@ sub index :Path :Args(0) {
    
     $report .= Dumper($ret);
 
-    my $ret =     $c->model("ModelAdaptor")->sync();
+    $ret =     $c->model("ModelAdaptor")->sync();
 
     $report .= Dumper($ret);
 

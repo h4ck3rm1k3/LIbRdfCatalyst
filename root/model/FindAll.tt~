@@ -1,0 +1,13 @@
+<h1>message</h1>
+    The message is: [% message %].
+
+<h1>example</h1>
+<p>
+    # example when CATALYST_VAR isn't set
+    Context is [% c %]
+    The base is [% base %]
+    The name is [% name %]
+<p>
+[% TAGS star -%]
+
+actions is [% $c->action %] [% action %]

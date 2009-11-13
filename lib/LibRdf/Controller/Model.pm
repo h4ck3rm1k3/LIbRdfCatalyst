@@ -275,6 +275,36 @@ sub unique_arcs : PathPart('ArcTypes') Chained('Model') Args(0) {
 } 
 
 
+
+sub RunQuery : PathPart('Query') Chained('Model') Args(0) {
+	my ( $self, $c ) = @_;
+	my $string ="";
+	my $query_string =  $c->request->param( 'QUERY' );
+    my $query=new RDF::Redland::Query($query_string); # default query language
+	my $model=$c->model("ModelAdaptor");
+    my $results=$query->execute($model);
+
+	if ($results)
+	{
+	    # or my $results=$model->query_execute($query);
+	    while(!$results->finished) {
+		for (my $i=0; $i < $results->bindings_count(); $i++) {
+		    my $name=$results->binding_name($i);
+		    my $value=$results->binding_value($i);
+		    # ... do something with the results
+		    $string .= "n $name v $value<p>";
+		    
+		}
+		$results->next_result;
+	    }
+	}
+	else
+	{
+	    $string = "NO RESULTS for $query_string";
+	}
+	$c->response->body($string);
+}
+
 =head1 AUTHOR
 
 James Michael DuPont,,,
