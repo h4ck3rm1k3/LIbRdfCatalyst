@@ -23,14 +23,15 @@ Catalyst Controller.
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-
+    $c->log->debug('*** INSIDE index METHOD ***');
     $c->response->body('Matched LibRdf::Controller::Model in Model.');
 }
 
 sub Model :PathPart('Model')  Chained('/') CaptureArgs(0)  {
     my ( $self, $c ) = @_;
-
-    $c->response->body('in Model. You should not see this!.');
+    $c->log->debug('*** INSIDE MODEl METHOD ***');
+    
+#    $c->response->body('in Model. You should not see this!.');
 }
 
 
@@ -280,29 +281,48 @@ sub RunQuery : PathPart('Query') Chained('Model') Args(0) {
 	my ( $self, $c ) = @_;
 	my $string ="";
 	my $query_string =  $c->request->param( 'QUERY' );
-    my $query=new RDF::Redland::Query($query_string); # default query language
-	my $model=$c->model("ModelAdaptor");
-    my $results=$query->execute($model);
 
-	if ($results)
+	$string = "QUERY STRING : $query_string<P>";
+
+	if ($query_string)
 	{
-	    # or my $results=$model->query_execute($query);
-	    while(!$results->finished) {
-		for (my $i=0; $i < $results->bindings_count(); $i++) {
-		    my $name=$results->binding_name($i);
-		    my $value=$results->binding_value($i);
+	    my $query=new RDF::Redland::Query($query_string); # default query language
+	    my $model=$c->model("ModelAdaptor");
+	    my $results=$query->execute($model);
+	    
+	    if ($results)
+	    {
+		# or my $results=$model->query_execute($query);
+		while(!$results->finished) {
+		    for (my $i=0; $i < $results->bindings_count(); $i++) {
+			my $name=$results->binding_name($i);
+			my $value=$results->binding_value($i);
 		    # ... do something with the results
-		    $string .= "n $name v $value<p>";
-		    
+			my $v = $value->as_string();
+		    $string .= "n $name v $v<p>";
+			
+		    }
+		    $results->next_result;
 		}
-		$results->next_result;
+	    }
+	    else
+	    {
+		$string = "NO RESULTS for $query_string";
 	    }
 	}
 	else
 	{
-	    $string = "NO RESULTS for $query_string";
+	    $string = "NO QUERY STRING $query_string";
 	}
-	$c->response->body($string);
+
+	    $c->response->body($string);
+}
+
+sub query_form :Chained('Model') :PathPart('QueryForm') :Args(0) {
+    my ($self, $c) = @_;
+    
+    # Set the TT template to use
+    $c->stash->{template} = 'model/query_form.tt';
 }
 
 =head1 AUTHOR
