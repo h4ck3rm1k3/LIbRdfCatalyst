@@ -284,6 +284,8 @@ sub RunQuery : PathPart('Query') Chained('Model') Args(0) {
 
 	$string = "QUERY STRING : $query_string<P>";
 
+	$c->log->debug('*** Query String : ' .  $query_string . ' ***');
+
 	if ($query_string)
 	{
 	    my $query=new RDF::Redland::Query($query_string); # default query language

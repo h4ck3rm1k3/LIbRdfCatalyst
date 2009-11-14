@@ -34,9 +34,28 @@ our $URI_owl        = new RDF::Redland::URI ("http://www.w3.org/2002/07/owl#");
 
 ##
 our $uri_rdfs_class = new RDF::Redland::URI ($uri_rdfs_str . "Class");
+
 our $uri_rdf_type   = new RDF::Redland::URI ($uri_rdf_str   ."type" );
 
 
+###################################
+#
+#rdfs:domain is an instance of rdf:Property that is used to state that any resource that has a given property is an instance of one or more classes.
+#
+#A triple of the form:
+#
+#    P rdfs:domain C
+#states that P is an instance of the class rdf:Property, that C is a instance of the class rdfs:Class and that the resources denoted by the subjects of triples whose predicate is P are instances of the class C.
+our $uri_rdfs_domain = new RDF::Redland::URI ($uri_rdfs_str . "domain");
+
+
+
+#rdf:type is an instance of rdf:Property that is used to state that a resource is an instance of a class.
+#A triple of the form:
+#
+#    R rdf:type C
+#states that C is an instance of rdfs:Class and R is an instance of C.
+our $uri_rdfs_range = new RDF::Redland::URI ($uri_rdfs_str . "range");
     
 
 sub index :Path :Args(0) {
@@ -125,10 +144,76 @@ sub TransformNodeTypes  : PathPart('Targets') Chained('Gcc') Args(0)
     $c->model("ModelAdaptor")->sync();
 }
 
+
+sub RunQuery 
+{
+    my $c=shift;
+    my $query_string =  shift;
+    
+    $c->log->debug('*** Query String : ' .  $query_string . ' ***');
+    my @res;
+    if ($query_string)
+    {
+	    my $query=new RDF::Redland::Query($query_string); # default query language
+	    my $model=$c->model("ModelAdaptor");
+	    my $results=$query->execute($model);
+	    
+	    if ($results)
+	    {
+		# or my $results=$model->query_execute($query);
+		while(!$results->finished) {
+		    my %res;
+		    for (my $i=0; $i < $results->bindings_count(); $i++) {
+			my $name=$results->binding_name($i);
+			my $value=$results->binding_value($i);
+			# ... do something with the results
+#e			my $v = $value;
+			$res{$name}=$value;
+		    }
+		    push @res,\%res;
+		    $results->next_result;
+		}
+	    }
+	    else
+	    {
+		$c->log->debug('*** No results : ' .  $query_string . ' ***');
+
+	    }
+	}
+	else
+	{
+	    $c->log->debug('*** No Query! ');
+	}
+    return @res;
+}
+
 # transform the types of data 
-#sub TransformFieldTypes  : PathPart('Arcs') Chained('/GCC/Transform/Types') Args(1) 
-#{
-#}
+sub TransformFieldTypes   : PathPart('Fields') Chained('Gcc') Args(0)
+{
+    my ( $self, $c ) = @_;
+    my $query = "SELECT ?treecoderef,?predicate WHERE (?x,  ?predicate , ?z ) (?x,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef )";
+    my @results = RunQuery ($c,$query); 
+
+    my $string = "run query $query";
+    my $model=$c->model("ModelAdaptor");
+    foreach my $x (@results)
+    {
+	my $ref   = $x->{treecoderef};
+	my $field = $x->{predicate};
+#	$string .= "Ref $ref Field $field\n";
+
+	# now we make a statement that the treecoderef is the domain of this predicate
+	    my $classtatement=new RDF::Redland::Statement($field,$uri_rdfs_domain,$ref);
+	    my $s2 = $classtatement->as_string();
+	    $string .= "s $s2 <p>";
+	    $model->add_statement($classtatement);
+	
+    }
+    $c->response->body($string);
+    $c->stash->{message}  = 'types are :'. $string;
+    $c->model("ModelAdaptor")->sync();
+
+}
 
 
 =head1 AUTHOR
