@@ -22,22 +22,32 @@ Catalyst Controller.
 =cut
 
 # the uri of the treecode
-our $uri_rdfs_str= "http://www.w3.org/2000/01/rdf-schema#";
-our $uri_rdf_str ="http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-
+our $uri_rdfs_str         = "http://www.w3.org/2000/01/rdf-schema#";
+our $uri_rdf_str          = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+our $uri_introspector_str = "http://introspector.sf.net/2003/08/16/introspector.owl#";
+our $uri_owl_str          = "http://www.w3.org/2002/07/owl#";
 
 ## urils
-our $URI_TREECODE   = new RDF::Redland::URI ('http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref');;
+our $URI_TREECODE   = new RDF::Redland::URI ($uri_introspector_str . 'tree-code-ref');;
 our $URI_rdf        = new RDF::Redland::URI ($uri_rdf_str);
 our $URI_rdfs       = new RDF::Redland::URI ($uri_rdfs_str);
-our $URI_owl        = new RDF::Redland::URI ("http://www.w3.org/2002/07/owl#");
+#our $URI_owl        = new RDF::Redland::URI ($uri_owl_str);
 
 ##
 our $uri_rdfs_class = new RDF::Redland::URI ($uri_rdfs_str . "Class");
 
-our $uri_rdf_type   = new RDF::Redland::URI ($uri_rdf_str   ."type" );
-our $uri_rdf_instanceof   = new RDF::Redland::URI ($uri_rdf_str   ."InstanceOf" );
 
+our $uri_rdf_type         = new RDF::Redland::URI ($uri_rdf_str   ."type" );
+#our $uri_rdf_instanceof   = new RDF::Redland::URI ($uri_rdf_str   ."InstanceOf" );
+
+# dont use the rdf:Property, use OWL!
+#our $uri_rdf_property       = new RDF::Redland::URI ($uri_rdf_str . "Property");
+
+our $uri_owl_objectproperty = $uri_owl_str . "ObjectProperty";
+our $uri_owl_dataproperty = $uri_owl_str . "DataProperty";
+
+#owl:[Object|Data]Property
+#http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
 
 
 ###################################
@@ -217,6 +227,36 @@ sub TransformFieldTypes   : PathPart('Fields') Chained('Gcc') Args(0)
 
 }
 
+sub TransformFieldObjectTypes   : PathPart('ObjectPropertyFields') Chained('Gcc') Args(0)
+{
+    my ( $self, $c ) = @_;
+
+    # object types have an treecode
+    my $query = "SELECT ?predicate WHERE (?x,  ?predicate , ?z ) (?x,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef ) (?z,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef2 )";
+    my @results = RunQuery ($c,$query); 
+
+    my $string = "run query $query";
+    my $model=$c->model("ModelAdaptor");
+    foreach my $x (@results)
+    {
+#	my $ref   = $x->{treecoderef};
+	my $field = $x->{predicate};
+#	$string .= "Ref $ref Field $field\n";
+
+	# now we make a statement that the treecoderef is the domain of this predicate
+	    my $classtatement=new RDF::Redland::Statement($field,$uri_rdf_type,$uri_owl_objectproperty);
+	    my $s2 = $classtatement->as_string();
+	    $string .= "s $s2 <p>";
+	    $model->add_statement($classtatement);
+	
+    }
+    $c->response->body($string);
+    $c->stash->{message}  = 'types are :'. $string;
+    $c->model("ModelAdaptor")->sync();
+
+}
+
+
 sub TransformFieldRangeTypes   : PathPart('FieldRange') Chained('Gcc') Args(0)
 {
     my ( $self, $c ) = @_;
@@ -273,7 +313,7 @@ sub AddNodeTypes  : PathPart('AddNodeTypes') Chained('Gcc') Args(0)
 	my $obj = $s->object();
 	my $subj = $s->subject();
 
-	my $classtatement=new RDF::Redland::Statement($subj,$uri_rdf_instanceof,$obj);
+	my $classtatement=new RDF::Redland::Statement($subj,$uri_rdf_type,$obj);
 	my $s2 = $classtatement->as_string();
 #	$string .= "s $s2 <p>";
 	$count++;
@@ -286,7 +326,185 @@ sub AddNodeTypes  : PathPart('AddNodeTypes') Chained('Gcc') Args(0)
 }
 
 
+
+##Predicate <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+# sub unique_arcs : PathPart('FieldTypes') Chained('Gcc') Args(0) {
+# #http://librdf.org/docs/pod/RDF/Redland/Model.html
+# #http://svn.librdf.org/view/perl/trunk/perl/lib/RDF/Redland/Model.pm?view=markup
+# #
+# #SOURCE ARC
+# 	my ( $self, $c ) = @_;
+# 	my $p = undef;
+# 	my $string = "";
+# 	my $model=$c->model("ModelAdaptor");
+# 	my $statement2=new RDF::Redland::Statement(undef,undef,undef);
+# 	my(@sources)=  $model->find_statements ($statement2);
+# 	my %arcs;
+# 	my %skip;
+# 	my $len=length($uri_introspector_str);
+	
+# 	foreach my $s (@sources)
+# 	{
+# 	    my $str=$s->predicate()->as_string();
+# 	    if (!$arcs{$str})
+# 	    {		
+# 		next if ($skip{$str}); 
+# 		my $len2=length($str);			
+# 		if ($len2 > $len) 
+# 		{
+# 		    my $substr = substr($str,1,$len);
+# 		    if ($substr eq $uri_introspector_str)
+# 		    {
+# 			$c->log->debug('*** adding : ' .  $str  . "/$substr:" .  $len . ":" . $len2 . ' ***');
+
+# 			$arcs{$str}=$s->predicate();
+# 		    }
+# 		    else
+# 		    {
+# 			$skip{$str}=$s->predicate();
+# 		    }
+# 		}
+# 		else
+# 		{
+# 		    $skip{$str}=$s->predicate();
+# 		}
+# 	    }
+# 	}
+
+# 	foreach my $s (sort keys %arcs)
+# 	{
+# 	    my $s2 = $arcs{$s};
+# 	    # only take arcss from our model! 
+# 	    my $classtatement=new RDF::Redland::Statement($s2,$uri_rdf_type,$uri_rdf_property);
+# 	    my $s = $classtatement->as_string();
+# 	    $model->add_statement($classtatement);
+# 	    $string .= $s;
+# 	}
+# 	$c->response->body($string);
+# 	$c->stash->{message}  = 'types are :'. $string;       
+# 	$c->model("ModelAdaptor")->sync();
+# } 
+
+
+## Modifiers 
+# predicate :http://introspector.sf.net/2003/08/16/introspector.owl#modifier
+# data:
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#begn
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#bitfield
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#clnp
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#end
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#extern
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#field_decl
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#function_decl
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#integer_type
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#null
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#record_type
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#register
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#static
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#struct
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#undefined
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#union
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#union_type
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#unsigned
+ # <http://introspector.sf.net/2003/08/16/introspector.owl#var_decl
+## which one of these applies to what type?
+
+## select them all :
+#
+# 
+
+sub TransformFieldModifiers   : PathPart('FieldModifiers') Chained('Gcc') Args(0)
+{
+    my ( $self, $c ) = @_;
+    my $query = "SELECT 
+?treecoderef,
+?modifier 
+WHERE 
+(?subject2,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef)
+(?subject2, <http://introspector.sf.net/2003/08/16/introspector.owl#modifier>,?modifier)
+";
+
+    my @results = RunQuery ($c,$query); 
+
+    my $string = "run query $query";
+    my $model=$c->model("ModelAdaptor");
+    foreach my $x (@results)
+    {
+	my $ref   = $x->{treecoderef};
+	my $field = $x->{modifier};
+
+	# now we make a statement that the treecoderef is the domain of this predicate
+	    my $classtatement=new RDF::Redland::Statement($field,$uri_rdfs_domain,$ref);
+	    my $s2 = $classtatement->as_string();
+	    $string .= "s $s2 <p>";
+	    $model->add_statement($classtatement);       
+    }
+    $c->response->body($string);
+    $c->stash->{message}  = 'types are :'. $string;
+    $c->model("ModelAdaptor")->sync();
+}
+
+## the datatype predicates will be :
+ # <rdfs:Property rdf:about="&introspector;algn">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+### integer/bytes
+
+
+ #  <rdfs:Property rdf:about="&introspector;high">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## large int
+
+ #  <rdfs:Property rdf:about="&introspector;line">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## line number
+
+
+ #  <rdfs:Property rdf:about="&introspector;linenumber">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## line number
+
+
+ #  <rdfs:Property rdf:about="&introspector;lngt">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## largeint
+
+ #  <rdfs:Property rdf:about="&introspector;low">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## largeint
+
+ #  <rdfs:Property rdf:about="&introspector;prec">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## size in digits
+
+
+ #  <rdfs:Property rdf:about="&introspector;strg">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## string
+
+ #  <rdfs:Property rdf:about="&introspector;used">
+ #    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+ #  </rdfs:Property>
+## boolean
+
 =head1 AUTHOR
+
+<rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+
+<rdfs:isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+<rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+
+</rdf:Property>
 
 James Michael DuPont,,,
 
