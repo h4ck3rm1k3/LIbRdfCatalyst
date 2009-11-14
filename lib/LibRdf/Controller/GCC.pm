@@ -36,6 +36,8 @@ our $URI_owl        = new RDF::Redland::URI ("http://www.w3.org/2002/07/owl#");
 our $uri_rdfs_class = new RDF::Redland::URI ($uri_rdfs_str . "Class");
 
 our $uri_rdf_type   = new RDF::Redland::URI ($uri_rdf_str   ."type" );
+our $uri_rdf_instanceof   = new RDF::Redland::URI ($uri_rdf_str   ."InstanceOf" );
+
 
 
 ###################################
@@ -213,6 +215,74 @@ sub TransformFieldTypes   : PathPart('Fields') Chained('Gcc') Args(0)
     $c->stash->{message}  = 'types are :'. $string;
     $c->model("ModelAdaptor")->sync();
 
+}
+
+sub TransformFieldRangeTypes   : PathPart('FieldRange') Chained('Gcc') Args(0)
+{
+    my ( $self, $c ) = @_;
+    my $query = "SELECT ?treecoderef,?predicate WHERE (?subject,  ?predicate , ?object ) (?object,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef )";
+    my @results = RunQuery ($c,$query); 
+
+    my $string = "run query $query";
+    my $model=$c->model("ModelAdaptor");
+    foreach my $x (@results)
+    {
+	my $ref   = $x->{treecoderef};
+	my $field = $x->{predicate};
+
+	# now we make a statement that the treecoderef is the domain of this predicate
+	    my $classtatement=new RDF::Redland::Statement($field,$uri_rdfs_range,$ref);
+	    my $s2 = $classtatement->as_string();
+	    $string .= "s $s2 <p>";
+	    $model->add_statement($classtatement);       
+    }
+    $c->response->body($string);
+    $c->stash->{message}  = 'types are :'. $string;
+    $c->model("ModelAdaptor")->sync();
+}
+
+
+
+## make all the http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref int instacnes.
+#
+#instance of
+
+# transform the types of data 
+sub AddNodeTypes  : PathPart('AddNodeTypes') Chained('Gcc') Args(0)
+{
+    ## get all the node types and convert them 
+  #http://localhost:3000/Model/Arcs?&ARC=
+
+#<rdfs:Class rdf:about="thing">
+# <rdfs:isDefinedBy rdf:resource="defined by"/>
+#  <rdfs:label>LABEL</rdfs:label>
+#  <rdfs:comment>Comment.</rdfs:comment>
+#</rdfs:Class>
+
+
+    my ( $self, $c ) = @_;
+    my $p = undef;
+    my $string = "";
+    my $model=$c->model("ModelAdaptor");
+    my $statement2=new RDF::Redland::Statement(undef,$URI_TREECODE,undef);
+    my(@sources)=  $model->find_statements ($statement2);
+    my %arcs;
+    my $count=0;
+    foreach my $s (@sources)
+    {
+	my $obj = $s->object();
+	my $subj = $s->subject();
+
+	my $classtatement=new RDF::Redland::Statement($subj,$uri_rdf_instanceof,$obj);
+	my $s2 = $classtatement->as_string();
+#	$string .= "s $s2 <p>";
+	$count++;
+	$model->add_statement($classtatement);
+    }
+    $string .= 'added count :'. $count;   
+    $c->response->body($string);
+    $c->stash->{message}  = $string;
+    $c->model("ModelAdaptor")->sync();
 }
 
 
