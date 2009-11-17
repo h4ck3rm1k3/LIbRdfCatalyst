@@ -2,8 +2,11 @@ package RedLandMySql::View::TT;
 
 use strict;
 use base 'Catalyst::View::TT';
+use Template::Constants qw( :debug );
 
-__PACKAGE__->config(TEMPLATE_EXTENSION => '.tt');
+__PACKAGE__->config(TEMPLATE_EXTENSION => '.tt',
+		     DEBUG => DEBUG_PARSER | DEBUG_PROVIDER| DEBUG_ALL
+);
 
 =head1 NAME
 

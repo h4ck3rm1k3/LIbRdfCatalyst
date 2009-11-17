@@ -67,13 +67,25 @@ sub list :   Path('/statements/list')   Args(1)
 sub DumpResults
 {
     my ($self, $c) = @_;
-   my $string = "";
+    my $string = "";
 #   local $Data::Dumper::Freezer = '_dumper_hook';
-   foreach my $c (@{$c->stash->{statements} }) {
-       $string .= 
-	   Dumper({$c->get_columns()}) .
-	   "\n<p>";
-   }
+    foreach my $s (@{$c->stash->{statements} }) {
+#       $string .= 
+#	   Dumper({$c->get_columns()}) .
+#	   "\n<p>";
+#	$string .= Dumper($s);
+#       my $testobject = $s->search_related('object_resource')->first();
+       my $testobject = $s->search_related('object_resources')->first();
+#	my $s= $s.statement_object_res.uri;
+
+       if ($testobject)
+       {
+	          $string .= $testobject->get_column("uri");
+       }
+       my $s2 =$testobject . ref($testobject);
+       
+       $string .= $s2;
+    }
    $c->response->body(   $string );
 #    return $c->stash->{statements};
 
@@ -82,29 +94,15 @@ sub DumpResults
 sub subjects :   Path('/statements/subjects')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+
     $c->stash->{statements} = [
 	$c->model('DB::Statements17546201007601059027')->search(
 	    {
-		subject => { '=', $sid },
-		
-	    },
-	    {
-#		'+select' => [
-#		'select' => [
-#		    [\'statement_object_res.uri AS statement_object_res_uri'],
-#		    [\'statement_subject_res.uri AS statement_object_res_uri'],
-#		    [\'statement_predicate_res.uri AS statement_object_res_uri']  
-#		    ],
-		join => [
-		    "statement_object_res"	,
-		    "statement_subject_res"	,
-		    "statement_predicate_res"	
-		],
-		    #prefetch => "statement_predicate_res"		     	    ,
+		subject => $sid 		
 	    }
 	)
 	];
-    $c->stash->{template} = 'statements/list.tt';
+
     # $c->stash->{literals} = [
     # 	$c->model('DB::Literals')->search(
     # 	    {
@@ -119,10 +117,13 @@ sub subjects :   Path('/statements/subjects')    Args(1)
     # 	    }
     # 	)
     # 	];
-
-
 #print $table->output();
-#DumpResults    ($self, $c);
+
+    $c->stash->{template} = 'statements/list.tt';
+
+
+    DumpResults    ($self, $c);
+
 }
 
 sub predicate :   Path('/statements/predicate')    Args(1) 

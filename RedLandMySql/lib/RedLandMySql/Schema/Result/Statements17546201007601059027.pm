@@ -47,16 +47,12 @@ __PACKAGE__->add_columns(
 __PACKAGE__->add_relationship('statment_literal', 'RedLandMySql::Schema::Result::Resources', {   'foreign.id' => 'self.object'  });
 __PACKAGE__->add_relationship('statement_subject_res', 'RedLandMySql::Schema::Result::Resources', {   'foreign.id' => 'self.subject'  },{join_type => "LEFT"});
 __PACKAGE__->add_relationship('statement_object_res', 'RedLandMySql::Schema::Result::Resources', {   'foreign.id' => 'self.object'  },{join_type => "LEFT"});
-__PACKAGE__->might_have(
-    object_resources =>
-    'RedLandMySql::Schema::Result::Resources',
-#    'object',
-    { 'foreign.id' => 'self.object' },
-
-    );
-
-
 __PACKAGE__->add_relationship('statement_predicate_res', 'RedLandMySql::Schema::Result::Resources', {   'foreign.id' => 'self.predicate'  },{join_type => "LEFT"});
+
+__PACKAGE__->might_have(  object_resources =>    'RedLandMySql::Schema::Result::Resources',    { 'foreign.id' => 'self.object' },    );
+
+
+
 
 #__PACKAGE__->has_many('actorroles' => 'MyDB::Schema::ActorRole',                                'actor');
 
