@@ -6,7 +6,9 @@ hello world
     
 [% # Provide a title -%]
 [% META title = 'Statement List' -%]
-    
+
+    [%  USE Dumper; %]
+
 <table>
   <tr><th>LiteralID</th><th>value</th></tr>
     [% FOREACH literal IN literals -%]
@@ -43,12 +45,21 @@ hello world
   <tr>
     <td>
 
-      <a href="[% c.uri_for('/')%]statements/subjects/[% statement.subject  %]">Subject [%  statement.subject %] </a>
+      <a href="[% c.uri_for('/')%]statements/subjects/[% statement.subject   %]">Subject [%  statement.subject %] </a>
+       [%  resource.uri %]
+
     </td>
 
     <td>
       <a href="[% c.uri_for('/')%]statements/predicate/[% statement.predicate  %]">Predicate [%  statement.predicate %] </a>
-</td>
+  a:    [% statement_object_res_uri %]
+  a:    [% statement.statement_object_res_uri %]
+  b:    [% statement.statement_subject_res_uri %]      
+  c:    [% statement.statement_predicate_res_uri %] 
+    D:  [% statement.statement_object_res.uri %]
+    D:  [% statement_object_res.uri %]
+
+    </td>
 
     <td>
       <a href="[% c.uri_for('/')%]statements/object/[% statement.object  %]">Object [%  statement.object %] </a>

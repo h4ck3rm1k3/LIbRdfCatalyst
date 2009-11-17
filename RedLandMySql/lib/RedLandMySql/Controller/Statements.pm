@@ -90,21 +90,17 @@ sub subjects :   Path('/statements/subjects')    Args(1)
 	    },
 	    {
 #		'+select' => [
-		'select' => [
-		    [\'statement_object_res.uri AS statement_object_res_uri'],
-		    [\'statement_subject_res.uri AS statement_object_res_uri'],
-		    [\'statement_predicate_res.uri AS statement_object_res_uri']  
-		    ],
+#		'select' => [
+#		    [\'statement_object_res.uri AS statement_object_res_uri'],
+#		    [\'statement_subject_res.uri AS statement_object_res_uri'],
+#		    [\'statement_predicate_res.uri AS statement_object_res_uri']  
+#		    ],
 		join => [
 		    "statement_object_res"	,
 		    "statement_subject_res"	,
 		    "statement_predicate_res"	
 		],
-
-#		    prefetch => [
-#    "Resources"	,
-#		    "Literals"	,
-#		],
+		    #prefetch => "statement_predicate_res"		     	    ,
 	    }
 	)
 	];
@@ -126,7 +122,7 @@ sub subjects :   Path('/statements/subjects')    Args(1)
 
 
 #print $table->output();
-DumpResults    ($self, $c);
+#DumpResults    ($self, $c);
 }
 
 sub predicate :   Path('/statements/predicate')    Args(1) 

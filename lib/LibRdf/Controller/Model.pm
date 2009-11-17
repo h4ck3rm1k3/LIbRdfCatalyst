@@ -320,11 +320,70 @@ sub RunQuery : PathPart('Query') Chained('Model') Args(0) {
 	    $c->response->body($string);
 }
 
+
+sub RunQuerySparql 
+    : 
+    PathPart('QuerySparql') 
+    Chained('Model') 
+    Args(0) 
+{
+    my ( $self, $c ) = @_;
+    my $string ="";
+    my $query_string =  $c->request->param( 'QUERY' );  
+    $string = "QUERY STRING : $query_string<P>";    
+    $c->log->debug('*** Query String : ' .  $query_string . ' ***');
+    
+    if ($query_string)
+    {
+	my $query=new RDF::Redland::Query($query_string,
+					  RDF::Redland::URI->new("http://localhost:3000/"),
+					  undef,
+					  'sparql'
+	    );
+	
+	my $model=$c->model("ModelAdaptor");
+	my $results=$query->execute($model);
+	
+	if ($results)
+	{
+	    # or my $results=$model->query_execute($query);
+	    while(!$results->finished) {
+		for (my $i=0; $i < $results->bindings_count(); $i++) {
+		    my $name=$results->binding_name($i);
+		    my $value=$results->binding_value($i);
+		    # ... do something with the results
+		    my $v = "UNDEF";		    
+		    $v =$value->as_string() if ($value);
+		    $string .= "n $name v $v<p>";		    
+		}
+		$results->next_result;
+		}
+	}
+	else
+	{
+	    $string = "NO RESULTS for $query_string";
+	}
+    }
+    else
+    {
+	$string = "NO QUERY STRING $query_string";
+    }
+    
+    $c->response->body($string);
+}
+
 sub query_form :Chained('Model') :PathPart('QueryForm') :Args(0) {
     my ($self, $c) = @_;
     
     # Set the TT template to use
     $c->stash->{template} = 'model/query_form.tt';
+}
+
+sub query_form_sparql :Chained('Model') :PathPart('QueryFormSparql') :Args(0) {
+    my ($self, $c) = @_;
+    
+    # Set the TT template to use
+    $c->stash->{template} = 'model/query_form_sparql.tt';
 }
 
 =head1 AUTHOR

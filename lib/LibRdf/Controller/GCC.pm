@@ -486,55 +486,62 @@ sub TransformDatatypeProperties   : PathPart('DatatypeProperties') Chained('Gcc'
     my @results = RunQuery ($c,$query);     
     my $model=$c->model("ModelAdaptor");
     my %ObjectProperties;
+
+    #
+    $ObjectProperties{"[http://www.w3.org/1999/02/22-rdf-syntax-ns#type]"}=1;
+    $ObjectProperties{"[http://www.w3.org/1999/02/22-rdf-syntax-ns#InstanceOf]"}=1;
+
     my $string;
     foreach my $x (@results)
     {
 	my $pred = $x->{predicate};
-	$ObjectProperties{$pred->as_string()}=$pred;
-
+	$ObjectProperties{$pred->as_string()}=1;
+	$string .= "s ".$pred->as_string() ."<p>";
 	$c->log->debug("*** ObjectProp  ***" . $pred->as_string());
-
     }
-    $query = "SELECT ?treecoderef, ?predicate WHERE (?subject2,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef)(?subject2, ?predicate,?modifier)";
+    undef @results;
 
-    $c->log->debug("*** New Query  ***" . $query);
+     $query = "
 
-    $string .= $query;
+SELECT
+ ?treecoderef,
+ ?predicate
+WHERE 
+(?subject2, ?predicate,?modifier)
+(?subject2,  <http://introspector.sf.net/2003/08/16/introspector.owl#tree-code-ref> , ?treecoderef)
 
-    @results = RunQuery ($c,$query);     
-    foreach my $x (@results)
-    {
-	my $pred = $x->{predicate}; 
-	my $tree = $x->{treecoderef};
-
-	$c->log->debug("*** results : $tree $pred  ***");
-	
-	if (!$ObjectProperties{$pred->as_string()})
-	{
-	    ###
-	# now we make a statement that the treecoderef is the domain of this predicate
-	    my $classtatement=new RDF::Redland::Statement($pred,$uri_rdfs_domain,$tree);
-	    my $s2 = $classtatement->as_string();
-	    $string .= "s $s2 <p>";
-	    $c->log->debug("*** results : $s2  ***");
-
-	    $model->add_statement($classtatement);
-
-	    ## now we declare the predicate as a datatypepredi
-	    #$uri_owl_dataproperty
-	    $classtatement=new RDF::Redland::Statement($pred,$uri_rdf_type,$uri_owl_dataproperty);
-	    $s2 = $classtatement->as_string();
-	    $string .= "s $s2 <p>";
-	    $c->log->debug("*** results : $s2  ***");
-	    $model->add_statement($classtatement);
-
-	}
-    }
+";
+     $c->log->debug("*** New Query  ***" . $query);
+     $string .= $query;
+     @results = RunQuery ($c,$query);     
+     foreach my $x (@results)
+     {
+     	my $pred = $x->{predicate}; 
+     	my $tree = $x->{treecoderef};
+     	$c->log->debug("*** results : $tree $pred  ***");	
+    # 	if (!$ObjectProperties{$pred->as_string()})
+    # 	{
+    # 	    ###
+    # 	# now we make a statement that the treecoderef is the domain of this predicate
+    # 	    my $classtatement=new RDF::Redland::Statement($pred,$uri_rdfs_domain,$tree);
+    # 	    my $s2 = $classtatement->as_string();
+    # 	    $string .= "s $s2 <p>";
+    # 	    $c->log->debug("*** results : $s2  ***");
+    # 	    $model->add_statement($classtatement);
+    # 	    ## now we declare the predicate as a datatypepredi
+    # 	    #$uri_owl_dataproperty
+    # 	    $classtatement=new RDF::Redland::Statement($pred,$uri_rdf_type,$uri_owl_dataproperty);
+    # 	    $s2 = $classtatement->as_string();
+    # 	    $string .= "s $s2 <p>";
+    # 	    $c->log->debug("*** results : $s2  ***");
+    # 	    $model->add_statement($classtatement);
+    # 	}
+     }
     
 #	    $model->add_statement($classtatement);       
     $c->response->body($string);
     $c->stash->{message}  = 'types are :'. $string;
-    $c->model("ModelAdaptor")->sync();
+#    $c->model("ModelAdaptor")->sync();
 }
 
 

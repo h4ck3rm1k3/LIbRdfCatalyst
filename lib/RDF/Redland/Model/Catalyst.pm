@@ -9,18 +9,39 @@ sub create
 {
     #!!!
     #my $storage=new RDF::Redland::Storage("hashes", "test", "new='yes',hash-type='memory'");
+    # my $storage=new RDF::Redland::Storage
+    # 	(
+    # 	 "hashes", 
+    # 	 "test", 
+    # 	 {
+    # 	     "new"      => 0,
+    # 	     "hash-type"=>'bdb',
+    # 	     "write"    => 1,
+    # 	     "dir"      =>'.'
+    # 	 }
+    # 	);
+    open PWD,".redlandpassword";
+    my $pwd;
+    while(<PWD>)
+    {
+	chomp;
+	$pwd = $_;
+    }
+    close PWD;
+    
     my $storage=new RDF::Redland::Storage
-	(
-	 "hashes", 
-	 "test", 
+     	(
+	 "mysql", 
+	 "db1", 
 	 {
 	     "new"      => 0,
-	     "hash-type"=>'bdb',
 	     "write"    => 1,
-	     "dir"      =>'.'
+	     host=>'localhost',
+	     database=>'introspector',
+	     user=>'root',
+	     password=>$pwd		 
 	 }
 	);
-
     
     my $model=new RDF::Redland::Model($storage, "");
     
