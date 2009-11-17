@@ -1,62 +1,17 @@
-hello world
-[% # This is a TT comment.  The '-' at the end "chomps" the newline.  You won't -%]
-[% # see this "chomping" in your browser because HTML ignores blank lines, but  -%]
-[% # it WILL eliminate a blank line if you view the HTML source.  It's purely   -%]
-[%- # optional, but both the beginning and the ending TT tags support chomping. -%]
-    
-[% # Provide a title -%]
 [% META title = 'Statement List' -%]
-    
-<table>
-  <tr><th>LiteralID</th><th>value</th></tr>
-    [% FOREACH literal IN literals -%]
-  <tr>
-    <td>
-      [%  literal.id %]
-    </td>
-    <td>
-      <a href="[% c.uri_for('/')%]Literals/id/[% literal.id  %]">Literal [%  literal.value %] </a>
-    </td>
-  </tr>
-  [% END -%]
-</table>
-    
-<table>
-  <tr><th>ResourceID</th><th>URI</th></tr>
-  [% FOREACH resource IN resources -%]
-  <tr>
-    <td>
-      [%  resource.uri %]
-    </td>
-    <td>
-      <a href="[% c.uri_for('/')%]Resource/id/[% resource.id  %]">Resource [%  resource.uri %] </a>
-    </td>
-  </tr>
-  [% END -%]
-
-</table>
-    
-<table>
+    [%  USE Dumper; %]
+  <table>
   <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
 
   [% FOREACH statement IN statements -%]
   <tr>
     <td>
-
-      <a href="[% c.uri_for('/')%]statements/subjects/[% statement.subject   %]">Subject [%  statement.subject %] </a>
-
-       [%  resource.uri %]
-       [%  statement_subject_res.uri %]
-       [%  statement.subject.uri %]
-    </td>
-
-    <td>
-      <a href="[% c.uri_for('/')%]statements/predicate/[% statement.predicate  %]">Predicate [%  statement.predicate %] </a>
-</td>
-
-    <td>
-      <a href="[% c.uri_for('/')%]statements/object/[% statement.object  %]">Object [%  statement.object %] </a>
-    </td>
+      [% 
+#Dumper.dump(statement) 
+      %]
+      [% FOREACH statementor IN statement.object_resources  -%]
+      [%  statementor.uri %]
+      [% END -%]
 
     <td></td>
   </tr>

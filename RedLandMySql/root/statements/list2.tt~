@@ -43,7 +43,11 @@ hello world
   <tr>
     <td>
 
-      <a href="[% c.uri_for('/')%]statements/subjects/[% statement.subject  %]">Subject [%  statement.subject %] </a>
+      <a href="[% c.uri_for('/')%]statements/subjects/[% statement.subject   %]">Subject [%  statement.subject %] </a>
+
+       [%  resource.uri %]
+       [%  statement_subject_res.uri %]
+       [%  statement.subject.uri %]
     </td>
 
     <td>

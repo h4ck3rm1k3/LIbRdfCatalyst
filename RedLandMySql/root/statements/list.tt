@@ -6,17 +6,12 @@
   [% FOREACH statement IN statements -%]
   <tr>
     <td>
-      [% Dumper.dump(statement) %]
-
-     <a href="[% c.uri_for('/')%]statements/subjects/[% statement.subject   %]">Subject [%  statement.subject %] </a>
-    </td>
-    <td>
-      <a href="[% c.uri_for('/')%]statements/predicate/[% statement.predicate  %]">Predicate [%  statement.predicate %] </a>
-    </td>
-
-    <td>
-      <a href="[% c.uri_for('/')%]statements/object/[% statement.object  %]">Object [%  statement.object %] </a>
-    </td>
+      [% 
+#Dumper.dump(statement) 
+      %]
+      [% FOREACH statementor IN statement.object_resources  -%]
+      [%  statementor.uri %]
+      [% END -%]
 
     <td></td>
   </tr>
