@@ -1,0 +1,14 @@
+<table>
+  <tr><th>ResourceID</th><th>URI</th></tr>
+  [% FOREACH resource IN resources -%]
+  <tr>
+    <td>
+      [%  resource.uri %]
+    </td>
+    <td>
+      <a href="[% c.uri_for('/')%]Resource/id/[% resource.id  %]">Resource [%  resource.uri %] </a>
+    </td>
+  </tr>
+  [% END -%]
+
+</table>

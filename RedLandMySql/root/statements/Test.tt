@@ -1,0 +1,3 @@
+      [% FOREACH Pred in statement.search_related('statement_subject_res') -%]
+      PRED:          [%  Pred.uri %]
+      [% END -%]

@@ -1,0 +1,17 @@
+  <table>
+  <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
+  [% FOREACH statement IN results -%]
+  <tr>
+    <td>
+      [%   statement.subject      %]
+    </td>
+    <td>
+      [%   statement.predicate      %]
+    </td>
+    <td>
+      [%   statement.object      %]
+     </td>
+
+  </tr>
+  [% END -%]
+</table>

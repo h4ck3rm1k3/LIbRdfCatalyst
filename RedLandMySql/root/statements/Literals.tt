@@ -1,0 +1,15 @@
+<table>
+  <tr><th>LiteralID</th><th>value</th></tr>
+    [% FOREACH literal IN literals -%]
+  <tr>
+    <td>
+      [%  literal.id %]
+    </td>
+    <td>
+      
+      <a href="[% c.uri_for_action('Literals/id')%][% literal.id  %]">Literal [%  literal.value %] </a>
+      <a href="[% c.uri_for('/')%]Literals/id/[% literal.id  %]">Literal [%  literal.value %] </a>
+    </td>
+  </tr>
+  [% END -%]
+</table>

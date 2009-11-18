@@ -1,0 +1,4 @@
+object_resources:
+     [% FOREACH pred IN statement.object_resources -%]
+      PRED:          [%  pred.uri %]
+      [% END -%]

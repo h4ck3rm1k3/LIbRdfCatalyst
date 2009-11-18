@@ -51,6 +51,14 @@ __PACKAGE__->might_have( statement_predicate_res => 'RedLandMySql::Schema::Resul
 __PACKAGE__->might_have( statement_object_res    => 'RedLandMySql::Schema::Result::Resources',    { 'foreign.id' => 'self.object' },    );
 
 
+__PACKAGE__->might_have( Chained    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    
+			 { 
+			     'foreign.subject' => 'self.object' ,
+#			     'self.predicate'  =>  4114558830764260770
+			 },    
+    );
+
+
 
 
 
