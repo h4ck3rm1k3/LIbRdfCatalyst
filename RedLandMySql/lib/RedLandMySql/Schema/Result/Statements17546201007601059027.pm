@@ -19,8 +19,8 @@ __PACKAGE__->add_columns(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-11-16 08:56:58
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:By2eeZpRreoXASiZk8Zy6w
+# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-11-18 21:35:04
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:BkW3hi16vjx+UZt3j8ZTkg
 
 # __PACKAGE__->might_have(
 #     subject_resources =>

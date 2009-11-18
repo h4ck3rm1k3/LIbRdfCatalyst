@@ -120,6 +120,7 @@ sub convertchains : Path('/statements/convertchains') Args(0)
     $c->log->debug('*** START ALL  ***');		    
     my %seen;
 
+   
     foreach my $statement (@statements)
     {
 	if ($statement)
@@ -127,23 +128,43 @@ sub convertchains : Path('/statements/convertchains') Args(0)
 	    # we record the subject id that we start with 
 	    # 
 	    my $subject = $statement->get_column("subject"); 	   
-	    if (! $seen{$subject}++)
+	    if (!$seen{$subject})
 	    {
+		$seen{$subject}++;
 		push @{$results},$statement;
-		$c->log->debug('*** START ' . $subject . ' ***');		    
+		$c->log->debug('*** START ' . $subject . ' ***' .  $seen{$subject} );
+		
+		my $position =1;
+
+		$c->model('DB::Chainednodes')->new( 
+		    {		    
+			firstnode => $subject,
+			position  => $position,
+			object => $subject,
+		    }   
+		    )->insert; # Auto-increment primary key filled in after INSERT
+		
 		while ($statement = $statement->search_related('Chained',{predicate=> '4114558830764260770'})->first())
 #	while ($statement = $statement->Chained()->first())
 		{
 		    my $subject2 = $statement->get_column("subject"); 
-		    if (! $seen{$subject2}++)
+		    if (! $seen{$subject2})
 		    {
+			$seen{$subject2}++;
 			push @{$results},$statement;			
-			$c->log->debug('*** INSIDE S:' . $subject2 . ' ***');		    
-		    }
-		    
-#		$c->log->debug('*** P:' . $statement->get_column("predicate") . ' ***');		    	    
-#		$c->log->debug('*** O: ' . $statement->get_column("object") . ' ***');		    
+			$c->log->debug('*** INSIDE S:' . $subject2 . ' ***' .  $seen{$subject2} . ' pos '. $position );		    
+			
+			$c->model('DB::Chainednodes')->new(
+			    {
+				firstnode => $subject,
+				position  => ++$position,
+				object => $subject2,
+			    }
+			    )->insert; # Auto-increment primary key filled in after INSERT
+		    }		   
 		}
+
+
 	    }
 	    $c->stash->{results} = $results;
 	    $c->stash->{template} = 'statements/chains.tt';  	     
