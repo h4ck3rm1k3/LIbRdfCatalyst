@@ -107,6 +107,54 @@ sub DumpResults
 
 }
 
+sub convertchains : Path('/statements/convertchains') Args(0)
+{
+    my ($self, $c, $sid) = @_;
+    my @statements = $c->model('DB::Statements17546201007601059027')->search(
+	    {
+		predicate=> '4114558830764260770'  # http://introspector.sf.net/2003/08/16/introspector.owl#chan 
+	    }
+	)->all();
+    my $results = []; # for the templates
+#current.statement_predicate_res.uri eq 'http://introspector.sf.net/2003/08/16/introspector.owl#chan'
+    $c->log->debug('*** START ALL  ***');		    
+    my %seen;
+
+    foreach my $statement (@statements)
+    {
+	if ($statement)
+	{
+	    # we record the subject id that we start with 
+	    # 
+	    my $subject = $statement->get_column("subject"); 	   
+	    if (! $seen{$subject}++)
+	    {
+		push @{$results},$statement;
+		$c->log->debug('*** START ' . $subject . ' ***');		    
+		while ($statement = $statement->search_related('Chained',{predicate=> '4114558830764260770'})->first())
+#	while ($statement = $statement->Chained()->first())
+		{
+		    my $subject2 = $statement->get_column("subject"); 
+		    if (! $seen{$subject2}++)
+		    {
+			push @{$results},$statement;			
+			$c->log->debug('*** INSIDE S:' . $subject2 . ' ***');		    
+		    }
+		    
+#		$c->log->debug('*** P:' . $statement->get_column("predicate") . ' ***');		    	    
+#		$c->log->debug('*** O: ' . $statement->get_column("object") . ' ***');		    
+		}
+	    }
+	    $c->stash->{results} = $results;
+	    $c->stash->{template} = 'statements/chains.tt';  	     
+	}
+	else
+	{
+	    $c->log->debug('*** No Data for ' . $sid . ' ***');		    
+	}
+    }
+}
+
 sub followchains : Path('/statements/chain') Args(1)
 {
     my ($self, $c, $sid) = @_;
