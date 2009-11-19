@@ -19,22 +19,17 @@
        [% statement.statement_object_res.uri %]
        [% statement.statment_literal.value %] 
       <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a>
-
+|
+      <a href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">as Subject [%  statement.object %] </a>
 </td>
   </tr>
   [% END -%]
-
-
-
 </table>
 
-
-  <table>
+<table>
   <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
-
   <!-- 
   for each object with the predicate chan.
 4114558830764260770 http://introspector.sf.net/2003/08/16/introspector.owl#chan Predicate 4114558830764260770	
   -->  
-
   </table>

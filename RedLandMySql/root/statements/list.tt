@@ -18,7 +18,9 @@
       [% statement.object %]
        [% statement.statement_object_res.uri %]
       [% statement.statment_literal.value %] 
-      <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a>
+      <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Objects [%  statement.object %] </a>
+
+      <a href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">Subject [%  statement.object %] </a>
 
 </td>
 

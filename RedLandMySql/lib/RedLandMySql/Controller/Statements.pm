@@ -208,6 +208,27 @@ sub followchains : Path('/statements/chain') Args(1)
     }
 }
 
+sub ListChains :   Path('/statements/listchains')    Args(1) 
+{
+    my ($self, $c, $sid) = @_;
+
+    my $chains= [
+	$c->model('DB::Chainednodes')->search(
+	    {
+		firstnode => $sid
+	    }
+	)->all()
+	];
+
+#/2003/08/16/introspector.owl#id-4314 id 559S27761647701690  	 3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu 
+#    foreach my $s (@{$chains})
+#    {
+#	$c->log->debug('*** value ' . $s . ' ***');		    
+#    }
+    $c->stash->{chains} = $chains;
+    $c->stash->{subject} = $sid;
+}
+
 sub subjects :   Path('/statements/subjects')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
