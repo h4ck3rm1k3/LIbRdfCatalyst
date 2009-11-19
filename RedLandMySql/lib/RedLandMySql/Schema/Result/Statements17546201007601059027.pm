@@ -20,6 +20,28 @@ __PACKAGE__->add_columns(
 
 __PACKAGE__->set_primary_key('subject','predicate','object');
 
+
+sub ProcessPredicate
+{
+
+    my $self =shift;
+    my $predicate=shift;
+    my $subject=shift;
+
+    return search(
+	    {
+		subject => $subject 		,
+		predicate=> $predicate
+	    }
+	)->all;
+
+}
+
+sub ProcessPredicateRecursive
+{
+
+}
+
 # Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-11-18 21:35:04
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:BkW3hi16vjx+UZt3j8ZTkg
 
@@ -49,7 +71,7 @@ __PACKAGE__->might_have( statement_object_res    =>  'RedLandMySql::Schema::Resu
 __PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
 __PACKAGE__->might_have( statement_predicate_res => 'RedLandMySql::Schema::Result::Resources',    { 'foreign.id' => 'self.predicate'  });  #,{join_type => "LEFT"}
 __PACKAGE__->might_have( statement_subject_res   => 'RedLandMySql::Schema::Result::Resources', {   'foreign.id' => 'self.subject'  }); #,{join_type => "LEFT"}
-__PACKAGE__->might_have( statment_literal        => 'RedLandMySql::Schema::Result::Literals', {   'foreign.id' => 'self.object'  }); # value
+__PACKAGE__->might_have( statement_literal        => 'RedLandMySql::Schema::Result::Literals', {   'foreign.id' => 'self.object'  }); # value
 
 
 ## CHAIN properties

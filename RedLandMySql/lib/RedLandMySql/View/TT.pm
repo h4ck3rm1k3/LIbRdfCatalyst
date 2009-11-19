@@ -5,7 +5,7 @@ use base 'Catalyst::View::TT';
 use Template::Constants qw( :debug );
 
 __PACKAGE__->config(TEMPLATE_EXTENSION => '.tt'
-#		     DEBUG => DEBUG_PARSER | DEBUG_PROVIDER
+		    ,		     DEBUG => DEBUG_PARSER | DEBUG_PROVIDER
 #| DEBUG_ALL
 );
 

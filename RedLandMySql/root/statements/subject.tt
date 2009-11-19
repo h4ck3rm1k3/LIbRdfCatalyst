@@ -8,6 +8,8 @@
     <td>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
       <a href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   id [% statement.subject %] </a>
+|     <a href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object [%  statement.object %] </a>
+
 </td>
     <td>
       [% statement.predicate %]

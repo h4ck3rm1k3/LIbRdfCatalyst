@@ -18,8 +18,24 @@
       [% TYPE.statement_object_res.uri %]
 
       [% WHILE TYPE.statement_object_res.uri == 'http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type'%]
+
+
+      [% # SIZE 622775621232078412 http://introspector.sf.net/2003/08/16/introspector.owl#size %]
+          [% SET SIZE = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'622775621232078412'}) %]
+
+      [% #10268554046076623705 http://introspector.sf.net/2003/08/16/introspector.owl#low %]
+      SIZE.s : [% SIZE.subject %]
+      SIZE.p : [% SIZE.predicate %]
+      SIZE.o : [% SIZE.object %]
+      SIZE2:  [% SIZE.statement_literal.id %]
+      SIZE3:  [% SIZE.statement_literal.value %]
+
+
           [% SET PTD = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'2676358461911161944'}) %]
           [% IF PTD %]
+
+
+
               PTD :[% PTD.statement_object_res.uri %]
              [%SET PTDTYPE = PTD.find_related('statement_object_stmt_subjs',{predicate=>'2982895206037061277'}) %]
              [% IF PTDTYPE %]
@@ -33,7 +49,7 @@
              [% END %]
           [% END %]
       [% END %]
-[% END %]
+      [% END %]
       
 
 [% #2676358461911161944 http://introspector.sf.net/2003/08/16/introspector.owl#ptd %]
@@ -42,6 +58,18 @@
 [% #3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu  %]
 [% #4114558830764260770 http://introspector.sf.net/2003/08/16/introspector.owl#chan  %]
 
+
+[% ## backtrace %]
+[% # 13628382504237426965 http://introspector.sf.net/2003/08/16/introspector.owl#prms  parameter relationship for types%]
+[% #17865787076711148416 http://introspector.sf.net/2003/08/16/introspector.owl#fn %]
+[% #11219945973304477103 http://introspector.sf.net/2003/08/16/introspector.owl#op_1 %]
+[% #15606565242626538736 http://introspector.sf.net/2003/08/16/introspector.owl#expr %]
+[% #14237244523238252727 http://introspector.sf.net/2003/08/16/introspector.owl#next %]
+[% #14920123564075139560 http://introspector.sf.net/2003/08/16/introspector.owl#body %]
+[% #14920123564075139560 http://introspector.sf.net/2003/08/16/introspector.owl#body %]
+
+
+[% #alternate: 1683516950493154650 http://introspector.sf.net/2003/08/16/introspector.owl#args   arguments declared! %]
 
 
     </td>    
