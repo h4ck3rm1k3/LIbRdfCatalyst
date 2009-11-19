@@ -21,19 +21,11 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key('subject','predicate','object');
 
 
-sub ProcessPredicate
+sub ObjectStmntPredicate
 {
-
     my $self =shift;
     my $predicate=shift;
-    my $subject=shift;
-
-    return search(
-	    {
-		subject => $subject 		,
-		predicate=> $predicate
-	    }
-	)->all;
+    return $self->find_related('statement_object_stmt_subjs',{predicate=>$predicate});
 
 }
 

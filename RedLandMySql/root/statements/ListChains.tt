@@ -3,8 +3,8 @@
 <h1>Chains for [%   subject      %]</h1>
 
 
-TEST : [% GCC.addr_expr %] : end
-[% GCC.while_stmt %]
+#TEST : [% GCC.addr_expr %] : end
+#[% GCC.while_stmt %]
 
 <table>
   <tr><th>Position</th><th>Object</th></tr>
@@ -17,65 +17,26 @@ TEST : [% GCC.addr_expr %] : end
       <a href="[% c.uri_for_action('/statements/object') %]/[% chain.object %]"> Object</a>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% chain.object %]"> as Subject</a>
      
-      [%SET CHAIN = chain.find_related('StatementObject',{predicate=>'3018755155234083761'})  %]
+      [%SET CHAIN = chain.find_related('StatementObject',{predicate=>GCC.valu})  %]
+      [%SET TYPE = CHAIN.ObjectStmntPredicate(RDF.type) %]
 
-      [%SET TYPE = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'2982895206037061277'}) %]
-      [% #2982895206037061277 http://www.w3.org/1999/02/22-rdf-syntax-ns#type %]
-      [% TYPE.statement_object_res.uri %]
+      [% WHILE TYPE.object == GCC.pointer_type %]
 
-      [% WHILE TYPE.statement_object_res.uri == 'http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type'%]
-
-
-      [% # SIZE 622775621232078412 http://introspector.sf.net/2003/08/16/introspector.owl#size %]
-          [% SET SIZE = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'622775621232078412'}) %]
-
-      [% #10268554046076623705 http://introspector.sf.net/2003/08/16/introspector.owl#low %]
-      SIZE.s : [% SIZE.subject %]
-      SIZE.p : [% SIZE.predicate %]
-      SIZE.o : [% SIZE.object %]
-      SIZE2:  [% SIZE.statement_literal.id %]
-      SIZE3:  [% SIZE.statement_literal.value %]
-
-
-          [% SET PTD = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'2676358461911161944'}) %]
-          [% IF PTD %]
-
-
-
-              PTD :[% PTD.statement_object_res.uri %]
-             [%SET PTDTYPE = PTD.find_related('statement_object_stmt_subjs',{predicate=>'2982895206037061277'}) %]
-             [% IF PTDTYPE %]
-             [% PTDTYPE.statement_object_res.uri %]
-             [% IF PTDTYPE.statement_object_res.uri == 'http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type'%]
-               TEST!
-               [%SET CHAIN = PTD %]
-               [%SET TYPE  = PTDTYPE %]
-             [%ELSE %]
-               [%SET TYPE = UNDEF %]
-             [% END %]
-          [% END %]
-      [% END %]
+          LOOP:
+          TYPE: [% TYPE.statement_object_res.uri %]
+          [% SET PTD = CHAIN.ObjectStmntPredicate(GCC.ptd) %]
+          PTD :[% PTD.statement_object_res.uri %]
+          [%SET TYPE = PTD.ObjectStmntPredicate(RDF.type) %]
+          [%SET CHAIN = PTD %]
+      
       [% END %]
       
+      END: [% TYPE.statement_object_res.uri %]
+      [% SET SIZE = CHAIN.ObjectStmntPredicate(GCC.size) %]     
+      [% SET LOW = SIZE.ObjectStmntPredicate(GCC.low) %]     
+      SIZEid:  [% LOW.statement_literal.id %]
+      SIZEval:  [% LOW.statement_literal.value %]
 
-[% #2676358461911161944 http://introspector.sf.net/2003/08/16/introspector.owl#ptd %]
-[% #10566808590568954355 http://introspector.sf.net/2003/08/16/introspector.owl#unql %]
-[% #2982895206037061277 http://www.w3.org/1999/02/22-rdf-syntax-ns#type %]
-[% #3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu  %]
-[% #4114558830764260770 http://introspector.sf.net/2003/08/16/introspector.owl#chan  %]
-
-
-[% ## backtrace %]
-[% # 13628382504237426965 http://introspector.sf.net/2003/08/16/introspector.owl#prms  parameter relationship for types%]
-[% #17865787076711148416 http://introspector.sf.net/2003/08/16/introspector.owl#fn %]
-[% #11219945973304477103 http://introspector.sf.net/2003/08/16/introspector.owl#op_1 %]
-[% #15606565242626538736 http://introspector.sf.net/2003/08/16/introspector.owl#expr %]
-[% #14237244523238252727 http://introspector.sf.net/2003/08/16/introspector.owl#next %]
-[% #14920123564075139560 http://introspector.sf.net/2003/08/16/introspector.owl#body %]
-[% #14920123564075139560 http://introspector.sf.net/2003/08/16/introspector.owl#body %]
-
-
-[% #alternate: 1683516950493154650 http://introspector.sf.net/2003/08/16/introspector.owl#args   arguments declared! %]
 
 
     </td>    
