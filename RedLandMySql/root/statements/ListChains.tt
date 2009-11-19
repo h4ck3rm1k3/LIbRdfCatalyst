@@ -1,0 +1,51 @@
+
+<h1>Chains for [%   subject      %]</h1>
+
+<table>
+  <tr><th>Position</th><th>Object</th></tr>
+  [% FOREACH chain IN chains -%]
+  <tr>
+
+    <td>      [%   chain.position      %]    </td>
+    <td>[%   chain.object      %]   
+      <a href="[% c.uri_for_action('/statements/object') %]/[% chain.object %]"> Object</a>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% chain.object %]"> as Subject</a>
+     
+      [%SET CHAIN = chain.find_related('StatementObject',{predicate=>'3018755155234083761'})  %]
+
+      [%SET TYPE = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'2982895206037061277'}) %]
+      [% #2982895206037061277 http://www.w3.org/1999/02/22-rdf-syntax-ns#type %]
+      [% TYPE.statement_object_res.uri %]
+
+      [% WHILE TYPE.statement_object_res.uri == 'http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type'%]
+          [% SET PTD = CHAIN.find_related('statement_object_stmt_subjs',{predicate=>'2676358461911161944'}) %]
+          [% IF PTD %]
+              PTD :[% PTD.statement_object_res.uri %]
+             [%SET PTDTYPE = PTD.find_related('statement_object_stmt_subjs',{predicate=>'2982895206037061277'}) %]
+             [% IF PTDTYPE %]
+             [% PTDTYPE.statement_object_res.uri %]
+             [% IF PTDTYPE.statement_object_res.uri == 'http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type'%]
+               TEST!
+               [%SET CHAIN = PTD %]
+               [%SET TYPE  = PTDTYPE %]
+             [%ELSE %]
+               [%SET TYPE = UNDEF %]
+             [% END %]
+          [% END %]
+      [% END %]
+[% END %]
+      
+
+[% #2676358461911161944 http://introspector.sf.net/2003/08/16/introspector.owl#ptd %]
+[% #10566808590568954355 http://introspector.sf.net/2003/08/16/introspector.owl#unql %]
+[% #2982895206037061277 http://www.w3.org/1999/02/22-rdf-syntax-ns#type %]
+[% #3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu  %]
+[% #4114558830764260770 http://introspector.sf.net/2003/08/16/introspector.owl#chan  %]
+
+
+
+    </td>    
+  </tr>
+  [% END -%]
+</table>
+
