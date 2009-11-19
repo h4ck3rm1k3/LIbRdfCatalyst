@@ -1,0 +1,15 @@
+
+
+package Gcc::Structure;
+
+# document the structure of the compiler.
+# include all uris 
+use Const RdfType => 2982895206037061277;# http://www.w3.org/1999/02/22-rdf-syntax-ns#type %]
+
+use Const valu_ => 3018755155234083761;
+#use Const valu_uri => 'http://introspector.sf.net/2003/08/16/introspector.owl#valu';
+use Const ptd => 2676358461911161944;# http://introspector.sf.net/2003/08/16/introspector.owl#ptd %]
+use Const unql => 10566808590568954355;# http://introspector.sf.net/2003/08/16/introspector.owl#unql %]
+use Const chan => 4114558830764260770; # http://introspector.sf.net/2003/08/16/introspector.owl#chan  %]
+
+1;

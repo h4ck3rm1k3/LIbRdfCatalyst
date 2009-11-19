@@ -1,0 +1,2 @@
+[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
+#

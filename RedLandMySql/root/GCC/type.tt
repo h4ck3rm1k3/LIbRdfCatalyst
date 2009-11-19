@@ -1,0 +1,5 @@
+[% # all the types include this %]
+
+[% INCLUDE "GCC/size.tt" # all types objects have a size?%] 
+
+[%# INCLUDE "GCC/node.tt" # all nodes are printed %]

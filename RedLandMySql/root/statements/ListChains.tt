@@ -18,27 +18,9 @@
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% chain.object %]"> as Subject</a>
      
       [%SET CHAIN = chain.find_related('StatementObject',{predicate=>GCC.valu})  %]
-      [%SET TYPE = CHAIN.ObjectStmntPredicate(RDF.type) %]
+      [%SET CURRENT = CHAIN %]
 
-      [% WHILE TYPE.object == GCC.pointer_type %]
-
-          LOOP:
-          TYPE: [% TYPE.statement_object_res.uri %]
-          [% SET PTD = CHAIN.ObjectStmntPredicate(GCC.ptd) %]
-          PTD :[% PTD.statement_object_res.uri %]
-          [%SET TYPE = PTD.ObjectStmntPredicate(RDF.type) %]
-          [%SET CHAIN = PTD %]
-      
-      [% END %]
-      
-      END: [% TYPE.statement_object_res.uri %]
-      [% SET SIZE = CHAIN.ObjectStmntPredicate(GCC.size) %]     
-      [% SET LOW = SIZE.ObjectStmntPredicate(GCC.low) %]     
-      SIZEid:  [% LOW.statement_literal.id %]
-      SIZEval:  [% LOW.statement_literal.value %]
-
-
-
+      [%INCLUDE "GCC/processnode.tt" %]
     </td>    
   </tr>
   [% END -%]

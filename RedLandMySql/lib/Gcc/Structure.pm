@@ -1,16 +1,18 @@
 
 
 package Gcc::Structure;
-
+use Data::Dumper;
 # document the structure of the compiler.
 # include all uris 
 
+our $g_stash;
 
 sub CreateStash
 {
     my $stash=shift;
 
     warn 'Creating stash'    ;
+
     $stash->{'OWL'}{'ObjectProperty'} = '1873043916455325203'; #   http://www.w3.org/2002/07/owl'; # ObjectProperty1 %]
 
     $stash->{'RDFS'}{'Class'} = '712532928204075599'; #   http://www.w3.org/2000/01/rdf-schema'; # Class1 %]
@@ -132,8 +134,31 @@ sub CreateStash
     $stash->{'GCC'}{'void_type'} = '9634342635882568798'; #   void_type1 %]
     $stash->{'GCC'}{'while_stmt'} = '16103405441176336031'; #   while_stmt1 %]
 
+    foreach my $s qw(RDF RDFS OWL GCC)
+    {
+	foreach my $k (keys %{$stash->{$s}})
+	{
+	    $stash->{'GCC_REV'}{$stash->{$s}{$k}}=$k;
+	}
+    }
+    bless ($stash->{'GCC_REV'},"Gcc::Structure");
+    $g_stash =$stash->{'GCC_REV'}; # save a pointer
 }
 
+sub GetRev
+{
+    my $value=shift;
+#    warn "getrev $value \n";
+
+#    warn Dumper($g_stash);
+    my $val = $g_stash->{$value}; # this is over a variable that is  global.
+    if (!$val)
+    {
+	return "UNKNOWN_URI";
+    }
+    return $val;
+    
+}
 
 
 # [% #2676358461911161944 http://introspector.sf.net/2003/08/16/introspector.owl#ptd %]

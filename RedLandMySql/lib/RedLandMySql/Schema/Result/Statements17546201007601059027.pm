@@ -29,9 +29,18 @@ sub ObjectStmntPredicate
 
 }
 
-sub ProcessPredicateRecursive
+sub Predicates
 {
+    my $self =shift;
 
+}
+
+sub GetRev
+{
+    my $self =shift;
+    my $value=shift;
+    warn "get $value \n";
+    return Gcc::Structure::GetRev($value);
 }
 
 # Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-11-18 21:35:04
@@ -60,11 +69,16 @@ sub ProcessPredicateRecursive
 #    subject_resources =>    '',
 #    'id',
 __PACKAGE__->might_have( statement_object_res    =>  'RedLandMySql::Schema::Result::Resources',    { 'foreign.id' => 'self.object' },    );
-__PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
+
 __PACKAGE__->might_have( statement_predicate_res => 'RedLandMySql::Schema::Result::Resources',    { 'foreign.id' => 'self.predicate'  });  #,{join_type => "LEFT"}
 __PACKAGE__->might_have( statement_subject_res   => 'RedLandMySql::Schema::Result::Resources', {   'foreign.id' => 'self.subject'  }); #,{join_type => "LEFT"}
 __PACKAGE__->might_have( statement_literal        => 'RedLandMySql::Schema::Result::Literals', {   'foreign.id' => 'self.object'  }); # value
 
+__PACKAGE__->might_have( Predicates        => 'RedLandMySql::Schema::Result::Literals', {   'foreign.id' => 'self.object'  }); # value
+
+#__PACKAGE__->many_to_many('subject' => 'actorroles', 'subject');
+__PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
+__PACKAGE__->might_have( statement_subject_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.subject' },    );
 
 ## CHAIN properties
 #3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu

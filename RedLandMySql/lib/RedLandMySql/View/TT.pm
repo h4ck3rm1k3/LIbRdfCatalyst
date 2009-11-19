@@ -4,7 +4,9 @@ use strict;
 use base 'Catalyst::View::TT';
 use Template::Constants qw( :debug );
 
-__PACKAGE__->config(TEMPLATE_EXTENSION => '.tt'
+__PACKAGE__->config(TEMPLATE_EXTENSION => '.tt',
+		    , EVAL_PERL => 1
+		    , 'RECURSION' => 1
 		    ,		     DEBUG => DEBUG_PARSER | DEBUG_PROVIDER
 #| DEBUG_ALL
 );
@@ -12,7 +14,7 @@ __PACKAGE__->config(TEMPLATE_EXTENSION => '.tt'
 =head1 NAME
 
 RedLandMySql::View::TT - TT View for RedLandMySql
-
+x
 =head1 DESCRIPTION
 
 TT View for RedLandMySql. 
