@@ -8,6 +8,8 @@ sub type {
 
 package RedLandMySql::Controller::Statements;
 
+use Gcc::Structure;
+
 sub mycatch
 {
     my ($context,$error,$output);
@@ -210,8 +212,9 @@ sub followchains : Path('/statements/chain') Args(1)
 
 sub ListChains :   Path('/statements/listchains')    Args(1) 
 {
-    my ($self, $c, $sid) = @_;
 
+    my ($self, $c, $sid) = @_;
+    
     my $chains= [
 	$c->model('DB::Chainednodes')->search(
 	    {
@@ -225,6 +228,7 @@ sub ListChains :   Path('/statements/listchains')    Args(1)
 #    {
 #	$c->log->debug('*** value ' . $s . ' ***');		    
 #    }
+    Gcc::Structure::CreateStash($c->stash);
     $c->stash->{chains} = $chains;
     $c->stash->{subject} = $sid;
 }

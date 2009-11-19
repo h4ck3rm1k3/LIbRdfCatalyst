@@ -1,10 +1,16 @@
 
+
 <h1>Chains for [%   subject      %]</h1>
+
+
+TEST : [% GCC.addr_expr %] : end
+[% GCC.while_stmt %]
 
 <table>
   <tr><th>Position</th><th>Object</th></tr>
   [% FOREACH chain IN chains -%]
   <tr>
+
 
     <td>      [%   chain.position      %]    </td>
     <td>[%   chain.object      %]   
