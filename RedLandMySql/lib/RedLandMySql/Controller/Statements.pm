@@ -222,7 +222,7 @@ sub ListChains :   Path('/statements/listchains')    Args(1)
 	    }
 	)->all()
 	];
-    $c->stash->{statements} = [$c->model('DB::Statements17546201007601059027')->all];
+    $c->stash->{statements} = [$c->model('DB::Statements17546201007601059027')];
 #/2003/08/16/introspector.owl#id-4314 id 559S27761647701690  	 3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu 
 #    foreach my $s (@{$chains})
 #    {
