@@ -26,6 +26,23 @@ sub ObjectStmntPredicate
     my $self =shift;
     my $predicate=shift;
     return $self->find_related('statement_object_stmt_subjs',{predicate=>$predicate});
+}
+
+## incoming arcs.
+sub ObjectStmntPredicate
+{
+    my $self =shift;
+    my $predicate=shift;
+    return $self->find_related('statement_subject_stmt_subjs',{predicate=>$predicate});
+#__PACKAGE__->might_have( statement_subject_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
+}
+
+sub SubjectStmntPredicate
+{
+    my $self =shift;
+    my $predicate=shift;
+    return $self->find_related('statement_subject_stmt_objs',{predicate=>$predicate});
+#      __PACKAGE__->might_have( statement_subject_stmt_objs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.object' => 'self.subject' },    );
 
 }
 
@@ -79,6 +96,7 @@ __PACKAGE__->might_have( Predicates        => 'RedLandMySql::Schema::Result::Lit
 #__PACKAGE__->many_to_many('subject' => 'actorroles', 'subject');
 __PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
 __PACKAGE__->might_have( statement_subject_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.subject' },    );
+__PACKAGE__->might_have( statement_subject_stmt_objs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.object' => 'self.subject' },    );
 
 ## CHAIN properties
 #3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu

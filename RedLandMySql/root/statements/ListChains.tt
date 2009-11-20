@@ -21,8 +21,57 @@
       [%SET CURRENT = CHAIN %]
 
       [%INCLUDE "GCC/processnode.tt" %]
+
     </td>    
   </tr>
   [% END -%]
 </table>
+
+
+<div class=variable_node style="margin-left:2cm; border:8px solid red;">
+prms subject
+predicate=> [% # GCC.prms %]
+[% SET PRMS = chain.find_related('FirstObject').SubjectStmntPredicate(GCC.prms) %]
+[%#SET PRMS = CURRENT.SubjectStmntPredicate(GCC.prms) %]
+
+[% chain.find_related('FirstObject').subject %]
+[% chain.find_related('FirstObject').statement_subject_res.uri %]
+      <a href="[% c.uri_for_action('/statements/object') %]/[% chain.find_related('FirstObject').subject %]"> Object</a>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% chain.find_related('FirstObject').subject %]"> as Subject</a>
+
+<div class=variable_node style="margin-left:2cm; border:8px solid orange;">
+ PRMS :
+  SUBJURI : [% PRMS.statement_subject_res.uri %]
+  SUBJID : [% PRMS.statement_subject_res.id %]
+      <a href="[% c.uri_for_action('/statements/object') %]/[% PRMS.statement_subject_res.id %]"> Object</a>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% PRMS.statement_subject_res.id %]"> as Subject</a>
+
+  OBJURI : [% PRMS.statement_object_res.uri %]
+  OBJID : [% PRMS.statement_object_res.id %]
+      <a href="[% c.uri_for_action('/statements/object') %]/[% PRMS.statement_object_res.id %]"> Object</a>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% PRMS.statement_object_res.id %]"> as Subject</a>
+
+</div>
+
+<div class=variable_node style="margin-left:2cm; border:8px solid yellow;">
+INCLUDE PROCESS NODE:
+[% SET CURRENT=PRMS.statement_subject_stmt_objs.first %]
+  URI : [% CURRENT.statement_subject_res.uri %]
+  ID : [% CURRENT.statement_subject_res.id %]
+
+<div class=variable_node style="margin-left:2cm; border:8px solid green;">
+[%SET TYPE = PRMS.ObjectStmntPredicate(RDF.type) %]
+[% SET template_name_s1=  TYPE.object.GetRev(TYPE.object) %]
+TYPE: [% TYPE.statement_object_res.uri %]
+ID : [% TYPE.statement_subject_res.id %]
+<a href="[% c.uri_for_action('/statements/object') %]/[% TYPE.statement_subject_res.id %]"> Object</a>
+<a href="[% c.uri_for_action('/statements/subjects') %]/[% TYPE.statement_subject_res.id %]"> as Subject</a>
+</div>
+
+[%#INCLUDE "GCC/processnode.tt" %]
+[%#INCLUDE "GCC/processnode_type.tt" %]
+</div>
+</div>
+
+
 
