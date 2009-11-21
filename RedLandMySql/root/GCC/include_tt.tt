@@ -7,6 +7,17 @@ my $tid = $stash->get("TID");
 my $val = Gcc::Structure::GetRev($tid );
 #warn('!!! test' . $tid);
 $stash->set(template_name_s =>  $val  );
+my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
+my $template_name=  $temp . "GCC/${val}_type.tt";
+if (! -f $template_name )
+{
+	warn "creating $val";
+	open OUT,">$template_name";
+	print OUT "template:$val\n";
+	close OUT;
+}
+ 
+
 [% END %]
       [% SET template_name=  "GCC/${template_name_s}_type.tt" %]
       [% INCLUDE "$template_name" %]
