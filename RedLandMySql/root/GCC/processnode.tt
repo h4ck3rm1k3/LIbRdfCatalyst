@@ -22,5 +22,6 @@ $stash->set(template_name_s =>  $val  );
 [% END %]
       [% SET template_name=  "GCC/${template_name_s}.tt" %]
 <span style="color=red" >
-      [% INCLUDE "$template_name" %]
+      [% #INCLUDE "$template_name" %]
+      #INCLUDE [%  "$template_name" %]
 </span>

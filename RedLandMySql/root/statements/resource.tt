@@ -1,0 +1,28 @@
+<h1>resource</h1>
+[% resource %]
+<h2>[% resource.id %] [% resource.uri %]</h2>
+<table>
+[% FOREACH me IN resource.metadata -%]
+# get the RedLandMySql::Schema::Result::OwlTypePredicates
+[%# me %]
+<tr>
+<td>[% me.id %]
+<td>[%  me.uri  %],
+<td>[% me.subject_uri%],
+<td>[% me.predicate_uri%],
+<td>[% me.object_uri%],
+#
+<td>[% me.subject_id%],
+[%SET TID= me.subject_id %]
+[%INCLUDE "GCC/include_tt.tt"%]
+
+<td>[% me.predicate_id%],
+[%SET TID= me.predicate_id %]
+[%INCLUDE "GCC/include_tt.tt"%]
+
+<td>[% me.object_id%],
+[%SET TID= me.object_id %]
+[%INCLUDE "GCC/include_tt.tt"%]
+
+[% END -%]
+</table>

@@ -1,0 +1,8 @@
+<span class=variable_node style="border:3px solid orange;">
+pointer
+# now the PTD is the unique data of the pointer type
+          [% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
+      PTD :[% PTD.statement_object_res.uri %]
+[%SET CURRENT=PTD %]
+[%INCLUDE "GCC/processnode_type.tt" %]
+</span>

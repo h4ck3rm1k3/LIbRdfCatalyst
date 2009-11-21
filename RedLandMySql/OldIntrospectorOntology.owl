@@ -1,0 +1,573 @@
+<rdf:RDF xmlns="http://introspector.sf.net/2003/08/16/introspector.owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:log="http://www.w3.org/2000/10/swap/log#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">​​​​​
+
+    <rdf:Description rdf:about=":">
+        <creator xmlns="dc:" rdf:resource="http://www.advogato.org/person/jahqueel"/>
+        <creator xmlns="dc:" rdf:resource="http://www.advogato.org/person/mdupont"/>
+        <type xmlns="rdf:" rdf:resource="owl:Ontology"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Access">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+        <range xmlns="owl:" rdf:resource=":private"/>
+        <range xmlns="owl:" rdf:resource=":protected"/>
+        <range xmlns="owl:" rdf:resource=":public"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":AlignedObject">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":ArrayProperty">
+        <domain xmlns="owl:" rdf:resource=":array_type"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":ChainedProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Class">
+        <comment xmlns="rdf:">Any class of object in the introspector system</comment>
+        <type xmlns="rdf:" rdf:resource="owl:Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Constant">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":CppProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":DeclProperty">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Declaration">
+        <type xmlns="rdf:" rdf:resource=":NamedObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":EnumProperty">
+        <domain xmlns="owl:" rdf:resource=":enumeral_type"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":ExpressionObject">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Integer">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":IntegerProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":List">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":ListInternalProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":ListProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Module">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":NameObject">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":NamedObject">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":NamedProperty">
+        <domain xmlns="owl:" rdf:resource=":NamedObject"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Node">
+        <comment xmlns="rdf:">Any instance of node type in the system</comment>
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+        <type xmlns="rdf:" rdf:resource="owl:Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":PointerProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Property">
+        <comment xmlns="rdf:">Any property of an introspector object</comment>
+        <type xmlns="rdf:" rdf:resource="rdf:Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":SizedObject">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":SourceLine">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":StatementObject">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":StatementProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":String">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":StructProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Type">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+        <type xmlns="rdf:" rdf:resource=":NamedObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":TypeProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":TypeRefProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":UseCase">
+        <comment xmlns="rdf:">The use case is an abstract operator</comment>
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":VariableProperty">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":VisitChain">
+        <type xmlns="rdf:" rdf:resource=":UseCase"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":Visits">
+        <type xmlns="rdf:" rdf:resource=":UseCase"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":addr_expr">
+        <type xmlns="rdf:" rdf:resource=":ExpressionObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":algn">
+        <domain xmlns="owl:" rdf:resource=":AlignedObject"/>
+        <range xmlns="owl:" rdf:resource=":integer_cst"/>
+        <type xmlns="rdf:" rdf:resource=":IntegerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":array_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":artificial">
+        <type xmlns="rdf:" rdf:resource=":DeclProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":body">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":boolean_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":bpos">
+        <type xmlns="rdf:" rdf:resource="StructProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":chan">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+        <domain xmlns="owl:" rdf:resource=":field_decl"/>
+        <domain xmlns="owl:" rdf:resource=":tree_list"/>
+        <range xmlns="owl:" rdf:resource=":Node"/>
+        <type xmlns="rdf:" rdf:resource=":ChainedProperty"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":cnst">
+        <domain xmlns="owl:" rdf:resource=":const_decl"/>
+        <range xmlns="owl:" rdf:resource=":integer_cst"/>
+        <type xmlns="rdf:" rdf:resource=":IntegerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":complex_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":compound_stmt">
+        <type xmlns="rdf:" rdf:resource=":StatementObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":cond">
+        <domain xmlns="owl:" rdf:resource=":for_stmt"/>
+        <range xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <type xmlns="rdf:" rdf:resource=":StatementProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":const_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":constructor">
+        <type xmlns="rdf:" rdf:resource=":ExpressionObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":csts">
+        <domain xmlns="owl:" rdf:resource=":enumeral_type"/>
+        <range xmlns="owl:" rdf:resource=":tree_list"/>
+        <type xmlns="rdf:" rdf:resource=":EnumProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":decl_stmt">
+        <type xmlns="rdf:" rdf:resource=":StatementObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":domn">
+        <domain xmlns="owl:" rdf:resource=":array_type"/>
+        <range xmlns="owl:" rdf:resource=":Type"/>
+        <type xmlns="rdf:" rdf:resource=":ArrayProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":elts">
+        <domain xmlns="owl:" rdf:resource=":array_type"/>
+        <range xmlns="owl:" rdf:resource=":integer_cst"/>
+        <comment xmlns="rdf:">maybe this needs </comment>
+        <type xmlns="rdf:" rdf:resource=":ArrayProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":enumeral_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":expr">
+        <domain xmlns="owl:" rdf:resource=":for_stmt"/>
+        <range xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <type xmlns="rdf:" rdf:resource=":StatementProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":expr_stmt">
+        <type xmlns="rdf:" rdf:resource=":StatementObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":field_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":flds">
+        <domain xmlns="owl:" rdf:resource=":record_type"/>
+        <domain xmlns="owl:" rdf:resource=":union_type"/>
+        <range xmlns="owl:" rdf:resource=":field_decl"/>
+        <type xmlns="rdf:" rdf:resource="ChainedProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":fn">
+        <type xmlns="rdf:" rdf:resource=":CppProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":fncs">
+        <type xmlns="rdf:" rdf:resource=":CppProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":for_stmt">
+        <type xmlns="rdf:" rdf:resource=":StatementObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":function_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":function_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":high">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":identifier_node">
+        <type xmlns="rdf:" rdf:resource=":NameObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":if_stmt">
+        <type xmlns="rdf:" rdf:resource=":StatementObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":init">
+        <domain xmlns="owl:" rdf:resource=":for_stmt"/>
+        <range xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <type xmlns="rdf:" rdf:resource=":StatementProperty"/>
+        <type xmlns="rdf:" rdf:resource=":VariableProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":integer_cst">
+        <type xmlns="rdf:" rdf:resource=":Constant"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":integer_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":labl">
+        <type xmlns="rdf:" rdf:resource=":CppProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":lngt">
+        <domain xmlns="owl:" rdf:resource=":identifier_node"/>
+        <range xmlns="owl:" rdf:resource=":Integer"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":low">
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":max">
+        <type xmlns="rdf:" rdf:resource=":IntegerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":min">
+        <type xmlns="rdf:" rdf:resource=":IntegerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":mngl">
+        <range xmlns="owl:" rdf:resource=":identifier_node"/>
+        <type xmlns="rdf:" rdf:resource=":CppProperty"/>
+        <type xmlns="rdf:" rdf:resource=":NamedProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":modifier">
+        <domain xmlns="owl:" rdf:resource=":integer_type"/>
+        <domain xmlns="owl:" rdf:resource=":record_type"/>
+        <domain xmlns="owl:" rdf:resource=":scope_stmt"/>
+        <range xmlns="owl:" rdf:resource=":begn"/>
+        <range xmlns="owl:" rdf:resource=":bitfield"/>
+        <range xmlns="owl:" rdf:resource=":clnp"/>
+        <range xmlns="owl:" rdf:resource=":end"/>
+        <range xmlns="owl:" rdf:resource=":extern"/>
+        <range xmlns="owl:" rdf:resource=":null"/>
+        <range xmlns="owl:" rdf:resource=":register"/>
+        <range xmlns="owl:" rdf:resource=":static"/>
+        <range xmlns="owl:" rdf:resource=":struct"/>
+        <range xmlns="owl:" rdf:resource=":undefined"/>
+        <range xmlns="owl:" rdf:resource=":union"/>
+        <range xmlns="owl:" rdf:resource=":unsigned"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":modify_expr">
+        <type xmlns="rdf:" rdf:resource=":ExpressionObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":name">
+        <range xmlns="owl:" rdf:resource=":identifier_node"/>
+        <type xmlns="rdf:" rdf:resource=":NamedProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":next">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+        <domain xmlns="owl:" rdf:resource=":StatementObject"/>
+        <range xmlns="owl:" rdf:resource=":Declaration"/>
+        <range xmlns="owl:" rdf:resource=":StatementObject"/>
+        <type xmlns="rdf:" rdf:resource=":StatementProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":op_0">
+        <domain xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <range xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":op_1">
+        <domain xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <range xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":op_2">
+        <domain xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <range xmlns="owl:" rdf:resource=":ExpressionObject"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":parm_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":pointer_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":prec">
+        <type xmlns="rdf:" rdf:resource="IntegerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":prms">
+        <type xmlns="rdf:" rdf:resource=":ListProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":ptd">
+        <type xmlns="rdf:" rdf:resource=":TypeReafProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":purp">
+        <type xmlns="rdf:" rdf:resource=":ListInternalProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":qualifier">
+        <range xmlns="owl:" rdf:resource=":const"/>
+        <range xmlns="owl:" rdf:resource=":restrict"/>
+        <range xmlns="owl:" rdf:resource=":volatile"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":real_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":record_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":refd">
+        <domain xmlns="owl:" rdf:resource=":reference_type"/>
+        <range xmlns="owl:" rdf:resource=":Type"/>
+        <type xmlns="rdf:" rdf:resource="PointerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":reference_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":restrict">
+        <domain xmlns="owl:" rdf:resource=":booleantrue"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":result_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":retn">
+        <domain xmlns="owl:" rdf:resource=":function_type"/>
+        <range xmlns="owl:" rdf:resource=":Type"/>
+        <type xmlns="rdf:" rdf:resource=":TypeRefProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":scope_stmt">
+        <type xmlns="rdf:" rdf:resource=":StatementObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":scpe">
+        <domain xmlns="owl:" rdf:resource=":field_decl"/>
+        <range xmlns="owl:" rdf:resource=":integer_cst"/>
+        <range xmlns="owl:" rdf:resource=":record_type"/>
+        <type xmlns="rdf:" rdf:resource="DeclProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":size">
+        <domain xmlns="owl:" rdf:resource=":SizedObject"/>
+        <range xmlns="owl:" rdf:resource=":integer_cst"/>
+        <type xmlns="rdf:" rdf:resource=":IntegerProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":srcl">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":srcp">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+        <range xmlns="owl:" rdf:resource=":Module"/>
+        <range xmlns="owl:" rdf:resource=":SourceLine"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":strg">
+        <domain xmlns="owl:" rdf:resource=":identifier_node"/>
+        <range xmlns="owl:" rdf:resource=":String"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":string_cst">
+        <type xmlns="rdf:" rdf:resource=":Constant"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":then">
+        <domain xmlns="owl:" rdf:resource=":if_stmt"/>
+        <range xmlns="owl:" rdf:resource=":StatementObject"/>
+        <type xmlns="rdf:" rdf:resource=":StatementProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":tree-code-ref">
+        <domain xmlns="owl:" rdf:resource=":Node"/>
+        <range xmlns="owl:" rdf:resource=":Class"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":tree_list">
+        <type xmlns="rdf:" rdf:resource=":Class"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":type">
+        <domain xmlns="owl:" rdf:resource=":Class"/>
+        <range xmlns="owl:" rdf:resource=":Type"/>
+        <type xmlns="rdf:" rdf:resource=":TypeRefProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":type_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+        <type xmlns="rdf:" rdf:resource=":NameObject"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":union_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":unql">
+        <domain xmlns="owl:" rdf:resource=":Type"/>
+        <range xmlns="owl:" rdf:resource=":Type"/>
+        <type xmlns="rdf:" rdf:resource=":Property"/>
+        <type xmlns="rdf:" rdf:resource=":TypeProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":used">
+        <domain xmlns="owl:" rdf:resource=":Declaration"/>
+        <range xmlns="owl:" rdf:resource=":Integer"/>
+        <type xmlns="rdf:" rdf:resource=":DeclProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":valu">
+        <domain xmlns="owl:" rdf:resource=":List"/>
+        <range xmlns="owl:" rdf:resource=":Class"/>
+        <type xmlns="rdf:" rdf:resource=":ListInternalProperty"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":var_decl">
+        <type xmlns="rdf:" rdf:resource=":Declaration"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":vfld">
+        <type xmlns="rdf:" rdf:resource=":flds"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about=":void_type">
+        <type xmlns="rdf:" rdf:resource=":Type"/>
+    </rdf:Description>
+​​​​​</rdf:RDF>
