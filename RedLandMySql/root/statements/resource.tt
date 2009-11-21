@@ -1,27 +1,46 @@
 <h1>resource</h1>
 [% resource %]
 <h2>[% resource.id %] [% resource.uri %]</h2>
+
+TEST :[% resource.subject_statements %]     
+TEST :[% resource.subject_statements({predicate=>me.predicate_id}) %]     
+
 <table>
 [% FOREACH me IN resource.metadata -%]
-# get the RedLandMySql::Schema::Result::OwlTypePredicates
-[%# me %]
+
 <tr>
-<td>[% me.id %]
 <td>[%  me.uri  %],
-<td>[% me.subject_uri%],
-<td>[% me.predicate_uri%],
-<td>[% me.object_uri%],
-#
-<td>[% me.subject_id%],
+[% me.subject_uri%],
+[% me.subject_id%],
 [%SET TID= me.subject_id %]
 [%INCLUDE "GCC/include_tt.tt"%]
 
-<td>[% me.predicate_id%],
+<td>
+[% me.predicate_uri%],
+[% me.predicate_id%],
 [%SET TID= me.predicate_id %]
 [%INCLUDE "GCC/include_tt.tt"%]
 
+[% SET EXTERNOBJECT=resource.subject_statements({predicate=>me.predicate_id}).first().object %]     
+
+TEST OBJECT :[% EXTERNOBJECT %]     
+      <a href="[% c.uri_for_action('/statements/object') %]/[% EXTERNOBJECT %]"> Object</a>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% EXTERNOBJECT %]"> as Subject</a>
+      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% EXTERNOBJECT %]"> as Resource</a>
+
+
+[%SET SID= me.subject_id %]
+[%SET PID= me.predicate_id %]
+[%SET OID= me.object_id %]
+[%INCLUDE "GCC/include_special_tt.tt"%]
+
+
+TEST :[% resource.subject_statements.ObjectStmntPredicate(me.predicate_id) %]     
+
 <td style="padding:8px 10px 10px 10px;
-background:black;  font: 12px 'Lucida Grande', Tahoma, Arial, sans-serif; color:green;  ">[% me.object_id%],
+background:black;  font: 12px 'Lucida Grande', Tahoma, Arial, sans-serif; color:green;  ">
+[% me.object_uri%],
+[% me.object_id%],
 [%SET TID= me.object_id %]
 [%INCLUDE "GCC/include_tt.tt"%]
 
