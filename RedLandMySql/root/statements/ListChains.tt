@@ -58,6 +58,8 @@ INCLUDE PROCESS NODE:
 [% SET CURRENT=PRMS.statement_subject_stmt_objs.first %]
   URI : [% CURRENT.statement_subject_res.uri %]
   ID : [% CURRENT.statement_subject_res.id %]
+<a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.statement_subject_res.id %]"> Object</a>
+<a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.statement_subject_res.id %]"> as Subject</a>
 
 <div class=variable_node style="margin-left:2cm; border:8px solid green;">
 [%SET TYPE = PRMS.ObjectStmntPredicate(RDF.type) %]
@@ -68,7 +70,7 @@ ID : [% TYPE.statement_subject_res.id %]
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% TYPE.statement_subject_res.id %]"> as Subject</a>
 </div>
 
-[%#INCLUDE "GCC/processnode.tt" %]
+[%INCLUDE "GCC/processnode.tt" %]
 [%#INCLUDE "GCC/processnode_type.tt" %]
 </div>
 </div>

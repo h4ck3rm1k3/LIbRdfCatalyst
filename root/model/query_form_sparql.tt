@@ -1,0 +1,8 @@
+[% META title = 'Create Query Sparql' -%]
+
+<form method="post" action="[% c.uri_for('/Model/QuerySparql') %]">
+Text:
+<TEXTAREA NAME="QUERY" COLS=40 ROWS=6></TEXTAREA>
+
+<input type="submit" name="Submit" value="Submit">
+</form>
