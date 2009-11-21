@@ -20,7 +20,8 @@
 [%SET TID= me.predicate_id %]
 [%INCLUDE "GCC/include_tt.tt"%]
 
-<td>[% me.object_id%],
+<td style="padding:8px 10px 10px 10px;
+background:black;  font: 12px 'Lucida Grande', Tahoma, Arial, sans-serif; color:green;  ">[% me.object_id%],
 [%SET TID= me.object_id %]
 [%INCLUDE "GCC/include_tt.tt"%]
 

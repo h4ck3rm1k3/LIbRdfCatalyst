@@ -5,6 +5,7 @@ use Data::Dumper;
 # document the structure of the compiler.
 # include all uris 
 
+our %ownstash;
 our $g_stash;
 
 sub CreateStash
@@ -148,15 +149,23 @@ sub CreateStash
 sub GetRev
 {
     my $value=shift;
-#    warn "getrev $value \n";
+    warn "getrev $value \n";
 
-#    warn Dumper($g_stash);
-    my $val = $g_stash->{$value}; # this is over a variable that is  global.
-    if (!$val)
+    if (!$g_stash)
     {
-	return "UNKNOWN_URI";
+	warn "creating the stash";
+	CreateStash(\%ownstash);
+
     }
-    return $val;
+    warn Dumper($g_stash);
+    {
+	my $val = $g_stash->{$value}; # this is over a variable that is  global.
+	if (!$val)
+	{
+	    return "UNKNOWN_URI";
+	}
+	return $val;
+    }
     
 }
 
