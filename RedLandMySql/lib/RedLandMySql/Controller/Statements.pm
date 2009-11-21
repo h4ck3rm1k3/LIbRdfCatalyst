@@ -334,6 +334,16 @@ sub object :   Path('/statements/object')    Args(1)
 }
 
 
+sub Resource :   Path('/statements/resource')    Args(1) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->stash->{resource} = $c->model('DB::Resources')->find({ID => $sid})	;
+
+
+    $c->stash->{template} = 'statements/resource.tt';
+}
+
+
 =head1 AUTHOR
 
 James Michael DuPont,,,
