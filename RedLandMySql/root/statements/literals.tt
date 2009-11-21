@@ -1,0 +1,18 @@
+<table>
+  [% FOREACH type IN literals -%]
+  <tr>
+    <td>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% type.id %]">Subject [%  type.id %] </a>
+      <a href="[% type.statement_objs.statement_subject_res.uri %]">Subject [%  type.statement_objs.statement_subject_res.uri %]  </a>
+|     <a href="[% c.uri_for_action('/statements/object')%]/[% type.id  %]">as Object [%  type.id %] </a>
+|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.id %]"> as Resource</a>
+</td>
+    <td>
+      [% type.value %]
+</td>
+  </tr>
+
+  [% END -%]
+
+
+</table>
