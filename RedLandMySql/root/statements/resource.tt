@@ -2,19 +2,33 @@
 [% resource %]
 <h2>[% resource.id %] [% resource.uri %]</h2>
 
+<!--
+<a href="[% c.uri_for_action('/statements/object') %]/[% resource.id %]"> Object</a>
+<a href="[% c.uri_for_action('/statements/subjects') %]/[% resource.id %]"> as Subject</a>
+<a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% resource.id %]"> as Resource</a>
+<a style='color:green' href="[% c.uri_for_action('/statements/literal') %]/[% resource.id %]"> as Literal</a>
+
 TEST :[% resource.subject_statements %]     
 TEST :[% resource.subject_statements({predicate=>me.predicate_id}) %]     
-
-<table>
-[% FOREACH me IN resource.metadata -%]
-
-<tr>
-<td>[%  me.uri  %],
+-->
+[% SET me = resource.metadata.first %]
+[%  me.uri  %],
 [% me.subject_uri%],
 [% me.subject_id%],
 [%SET TID= me.subject_id %]
 [%INCLUDE "GCC/include_tt.tt"%]
 
+      <a href="[% c.uri_for_action('/statements/object') %]/[% me.subject_id %]"> Object</a>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% me.subject_id %]"> as Subject</a>
+      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% me.subject_id %]"> as Resource</a>
+<p>StatementData</p>
+
+<table>
+<th>
+Predicate
+<td>Object<td>
+[% FOREACH me IN resource.metadata -%]
+<tr>
 <td>
 [% me.predicate_uri%],
 [% me.predicate_id%],
@@ -27,6 +41,7 @@ TEST OBJECT :[% EXTERNOBJECT %]
       <a href="[% c.uri_for_action('/statements/object') %]/[% EXTERNOBJECT %]"> Object</a>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% EXTERNOBJECT %]"> as Subject</a>
       <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% EXTERNOBJECT %]"> as Resource</a>
+      <a style='color:green' href="[% c.uri_for_action('/statements/literal') %]/[% EXTERNOBJECT %]"> as Literal</a>
 
 
 [%SET SID= me.subject_id %]

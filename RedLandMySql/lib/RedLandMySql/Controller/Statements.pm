@@ -302,6 +302,24 @@ sub predicate :   Path('/statements/predicate')    Args(1)
 
 }
 
+sub literals :   Path('/statements/literals')    Args(0) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->stash->{literals} = [
+	$c->model('DB::Literals')->search()->all()
+	];
+    $c->stash->{template} = 'statements/literals.tt';    
+}
+
+sub literal :   Path('/statements/literal')    Args(1) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->stash->{literal} = 
+	$c->model('DB::Literals')->search({id => $sid})->first()
+	;
+    $c->stash->{template} = 'statements/literal.tt';    
+}
+
 sub object :   Path('/statements/object')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
@@ -341,6 +359,37 @@ sub Resource :   Path('/statements/resource')    Args(1)
 
 
     $c->stash->{template} = 'statements/resource.tt';
+}
+
+
+sub Types :   Path('/statements/types')    Args(0) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->log->debug('*** ALL TYPES  ***');		    
+    $c->log->debug('*** ALL TYPES  ***:' .  $c->model('DB::OwlTypePredicates') );
+
+    $c->stash->{types} = [$c->model('DB::OwlTypePredicates')->search({},{ order_by => 'countobjects desc'})->all()]	;
+    $c->stash->{template} = 'statements/types.tt';
+}
+
+sub OwlDomains :   Path('/owl/domains')    Args(0) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->log->debug('*** ALL TYPES  ***');		    
+    $c->log->debug('*** ALL TYPES  ***:' .  $c->model('DB::OwlTypePredicates') );
+
+    $c->stash->{types} = [$c->model('DB::OwlTypePredicates')->search({},{ order_by => 'countobjects desc'})->all()]	;
+    $c->stash->{template} = 'owl/domains.tt';
+}
+
+sub OwlRange :   Path('/owl/ranges')    Args(0) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->log->debug('*** ALL TYPES  ***');		    
+    $c->log->debug('*** ALL TYPES  ***:' .  $c->model('DB::OwlTypePredicates') );
+
+    $c->stash->{types} = [$c->model('DB::OwlTypePredicates')->search({},{ order_by => 'countobjects desc'})->all()]	;
+    $c->stash->{template} = 'owl/ranges.tt';
 }
 
 

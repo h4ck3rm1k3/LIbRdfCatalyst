@@ -9,6 +9,7 @@
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
       <a href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   id [% statement.subject %] </a>
 |     <a href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object [%  statement.subject %] </a>
+|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
 </td>
     <td>
       [% statement.predicate %]
@@ -18,13 +19,13 @@
     <td>
       [% statement.object %]
        [% statement.statement_object_res.uri %]
-      [% statement.statment_literal.value %] 
+      VALUE:[% statement.statement_literal.value %] 
       <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Objects [%  statement.object %] </a>
 
       <a href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">Subject [%  statement.object %] </a>
+|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a>
 
 </td>
-
   </tr>
   [% END -%]
 

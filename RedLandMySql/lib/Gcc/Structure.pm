@@ -157,7 +157,7 @@ sub GetRev
 	CreateStash(\%ownstash);
 
     }
-    warn Dumper($g_stash);
+#    warn Dumper($g_stash);
     {
 	my $val = $g_stash->{$value}; # this is over a variable that is  global.
 	if (!$val)
