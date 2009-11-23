@@ -36,7 +36,8 @@ Predicate
 [%INCLUDE "GCC/include_tt.tt"%]
 
 [% SET EXTERNOBJECT=resource.subject_statements({predicate=>me.predicate_id}).first().object %]     
-
+[% SET CURRENT=resource.subject_statements({predicate=>me.predicate_id}).statement_object_stmt_subjs %]     
+[% SET TID= me.object_id  %]   
 TEST OBJECT :[% EXTERNOBJECT %]     
       <a href="[% c.uri_for_action('/statements/object') %]/[% EXTERNOBJECT %]"> Object</a>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% EXTERNOBJECT %]"> as Subject</a>
@@ -50,13 +51,26 @@ TEST OBJECT :[% EXTERNOBJECT %]
 [%INCLUDE "GCC/include_special_tt.tt"%]
 
 
+<!--
 TEST :[% resource.subject_statements.ObjectStmntPredicate(me.predicate_id) %]     
+-->
 
 <td style="padding:8px 10px 10px 10px;
 background:black;  font: 12px 'Lucida Grande', Tahoma, Arial, sans-serif; color:green;  ">
+[% RDF.type %]
 [% me.object_uri%],
 [% me.object_id%],
-[%SET TID= me.object_id %]
+[%# SET CURRENT=resource.subject_statements({predicate=>me.predicate_id}) %]     
+
+
+<!--
+subject[% CURRENT.subject %]
+predicate[% CURRENT.predicate %]
+object[% CURRENT.object %]
+TID:[% TID  %]
+test:[% c.CURRENT.ObjectStmntPredicate(RDF.type)  %]
+test2:[% CURRENT.ObjectStmntPredicate(RDF.type).object  %]
+-->
 [%INCLUDE "GCC/include_tt.tt"%]
 
 [% END -%]

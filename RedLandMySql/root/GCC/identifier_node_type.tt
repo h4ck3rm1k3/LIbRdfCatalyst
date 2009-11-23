@@ -1,1 +1,9 @@
-template:identifier_node
+identifier_node : [% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+<!--
+[% CURRENT %]
+subject   :[% CURRENT.subject %]
+predicate :[% CURRENT.predicate %]
+object    :[% CURRENT.object %] 
+GCC : [% GCC.strg %]
+-->
+

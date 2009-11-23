@@ -28,7 +28,4 @@
 
   [% END -%]
 
-
- [% c.model('DB::OwlTypePredicates') %]
-
 </table>

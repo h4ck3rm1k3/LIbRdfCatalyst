@@ -1,0 +1,7 @@
+<!-- called to process each node 
+     first a list of the predicates:
+-->
+    <span style="color:green" class=predicate_list_item>
+CURRENT.subject:[% CURRENT.subject %]
+<span>
+

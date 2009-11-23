@@ -1,12 +1,5 @@
 <table>
   [% FOREACH type IN types -%]
   [% INCLUDE "statements/type_row.tt" %]
-
-[%SET SID= type.subject_id %]
-[%SET PID= type.predicate_id %]
-[%SET OID= type.object_id %]
-[%INCLUDE "GCC/include_special_tt.tt"%]
-
-
   [% END -%]
 </table>

@@ -1,0 +1,3 @@
+template:identifier_node
+Str : [% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+Len : [% CURRENT.ObjectStmntPredicate(GCC.lngt).statement_literal.value %]

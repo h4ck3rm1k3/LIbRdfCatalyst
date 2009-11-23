@@ -1,0 +1,4 @@
+template:enumeral_type-name-identifier_node
+[%INCLUDE "GCC/predicate/name.tt" %]
+[%INCLUDE "GCC/object/identifier_node.tt" %]
+

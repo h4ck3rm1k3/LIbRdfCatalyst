@@ -1,0 +1,36 @@
+<span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
+
+START 
+ID:[% CURRENTID %]
+CURRENT:[% CURRENT %]
+TYPE:[% TYPE %]
+TYPE_OBJECT:[% TYPE.object %]
+TYPEID: [% TID %]
+
+
+[% PERL %]
+use Gcc::Structure;
+
+sub CheckObjectFile
+{
+    my $val =shift;
+    my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
+    my $template_name=  $temp . "GCC/object/${val}.tt";
+    if (! -f $template_name )
+    {
+	warn "creating $val";
+	open OUT,">$template_name";
+	print OUT "template:$val\n";
+	close OUT;
+    }
+    return $val;
+}
+my $id = Gcc::Structure::GetRev($stash->get("TID"));
+my $val = CheckObjectFile($id);
+$stash->set("template_name_tid" =>  $val );
+[% END %]
+[% template_name_tid %]
+[% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
+[% INCLUDE "$template_name" %]
+INCLUDE [%  "$template_name" %]
+</span>

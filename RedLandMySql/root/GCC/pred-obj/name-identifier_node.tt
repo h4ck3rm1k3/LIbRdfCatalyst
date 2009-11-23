@@ -1,0 +1,5 @@
+template:enumeral_type-name-identifier_node
+[%SET CURRENT=statement %]
+[%INCLUDE "GCC/predicate/name.tt" %]
+[%INCLUDE "GCC/object/identifier_node.tt" %]
+

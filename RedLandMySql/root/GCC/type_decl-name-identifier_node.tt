@@ -1,1 +1,1 @@
-template:type_decl-name-identifier_node
+template:type_decl-name-identifier_node : [% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]

@@ -1,0 +1,4 @@
+[% FOREACH statement  IN CURRENT.statement_subject_stmt_subjs -%]
+      URI :[% statement.statement_predicate_res.uri %]
+      <a href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
+  [% END -%]

@@ -1,1 +1,2 @@
 template:identifier_node
+String :[% statement.statement_literal.value %]

@@ -1,5 +1,12 @@
 <tr>
   <td>
+  [%SET SID= type.subject_id %]
+[%SET PID= type.predicate_id %]
+[%SET OID= type.object_id %]
+[%INCLUDE "GCC/include_special_tt.tt"%]
+  </td>
+
+  <td>
     [% type.subject_uri %]
     <a href="[% c.uri_for_action('/statements/Type') %]/[% type.subject_id %]">Type</a>
     <a href="[% c.uri_for_action('/statements/subjects') %]/[% type.subject_id %]">Subject</a>
@@ -18,4 +25,5 @@
     <a href="[% c.uri_for_action('/statements/Type')%]/[% type.object_id  %]">Type </a>
     <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.object_id %]"> as Resource</a>
   </td>
+
 </tr>

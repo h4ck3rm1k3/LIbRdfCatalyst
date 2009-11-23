@@ -1,38 +1,16 @@
 [% META title = 'Statement List' -%]
     [%  USE Dumper; %]
   <table>
-  <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
+  <tr><th>Subject</th><th>Predicate</th>
+  <th>Object</th>
+</tr>
 
   [% FOREACH statement IN statements -%]
-  <tr>
-    <td>
-      <a href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
-      <a href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   </a>
-|     <a href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object </a>
-      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
-
-</td>
-    <td>
-      [% statement.predicate %]
-      [% statement.statement_predicate_res.uri %]
-      <a href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
-</td>
-    <td>
-      [% statement.object %]
-       [% statement.statement_object_res.uri %]
-       [% statement.statment_literal.value %] 
-      <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a>
-|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a>
-      <a href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">as Subject [%  statement.object %] </a>
-</td>
-  </tr>
+  [% INCLUDE "statements/data_item.tt" %]
   [% END -%]
 </table>
 
 <table>
   <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
-  <!-- 
-  for each object with the predicate chan.
-4114558830764260770 http://introspector.sf.net/2003/08/16/introspector.owl#chan Predicate 4114558830764260770	
-  -->  
+
   </table>

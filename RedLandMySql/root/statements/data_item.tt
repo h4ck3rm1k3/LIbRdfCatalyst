@@ -1,0 +1,49 @@
+  <tr>
+    <td>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
+      <a href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   </a>
+|     <a href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object </a>
+      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
+
+</td>
+    <td>
+      [% statement.predicate %]
+      [% statement.statement_predicate_res.uri %]
+      <a href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
+</td>
+
+
+
+    <td>
+      [% statement.object %]
+       [% statement.statement_object_res.uri %]
+
+      <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a>
+|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a>
+      <a href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">as Subject [%  statement.object %] </a>
+<!--
+subject[% statement.subject %]
+predicate[% statement.predicate %]
+object[% statement.object %]
+-->
+[% SET CURRENT= statement.statement_object_stmt_subjs %]
+[% IF CURRENT %]
+[% SET CURRENTID= CURRENT.subject %]
+[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= CURRENT.ObjectStmntPredicate(RDF.type).object  %]
+
+<!--
+subject[% CURRENT.subject %]
+predicate[% CURRENT.predicate %]
+object[% CURRENT.object %]
+TID:[% TID  %]
+-->
+
+
+INCLUDE [%INCLUDE "GCC/include_object_tt.tt"%]
+[% ELSE %]
+[% INCLUDE "statements/literal_item.tt" %]
+[% END %]
+
+</td>
+  </tr>

@@ -243,6 +243,8 @@ sub subjects :   Path('/statements/subjects')    Args(1)
 {
     my ($self, $c, $sid) = @_;
 
+    Gcc::Structure::CreateStash($c->stash);
+
     $c->stash->{statements} = [
 	$c->model('DB::Statements17546201007601059027')->search(
 	    {
@@ -277,6 +279,8 @@ sub subjects :   Path('/statements/subjects')    Args(1)
 sub predicate :   Path('/statements/predicate')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
+
     $c->stash->{statements} = [
 	$c->model('DB::Statements17546201007601059027')->search(
 	    {
@@ -299,9 +303,9 @@ sub predicate :   Path('/statements/predicate')    Args(1)
 	    }
 	)
 	];
-
 }
 
+# literals 
 sub literals :   Path('/statements/literals')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
@@ -311,9 +315,11 @@ sub literals :   Path('/statements/literals')    Args(0)
     $c->stash->{template} = 'statements/literals.tt';    
 }
 
+
 sub literal :   Path('/statements/literal')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
     $c->stash->{literal} = 
 	$c->model('DB::Literals')->search({id => $sid})->first()
 	;
@@ -323,6 +329,7 @@ sub literal :   Path('/statements/literal')    Args(1)
 sub object :   Path('/statements/object')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
     $c->stash->{statements} = [
 	$c->model('DB::Statements17546201007601059027')->search(
 	    {
@@ -355,6 +362,7 @@ sub object :   Path('/statements/object')    Args(1)
 sub Resource :   Path('/statements/resource')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
     $c->stash->{resource} = $c->model('DB::Resources')->find({ID => $sid})	;
 
 
@@ -365,6 +373,7 @@ sub Resource :   Path('/statements/resource')    Args(1)
 sub Types :   Path('/statements/types')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
     $c->log->debug('*** ALL TYPES  ***');		    
     $c->log->debug('*** ALL TYPES  ***:' .  $c->model('DB::OwlTypePredicates') );
 
@@ -375,6 +384,7 @@ sub Types :   Path('/statements/types')    Args(0)
 sub Type :   Path('/statements/type')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
     $c->log->debug('***  TYPE : ' . $sid);		    
     $c->stash->{subjects} = [$c->model('DB::OwlTypePredicates')->search({subject_id => $sid},{order_by => 'countobjects desc'})->all()]	;
     $c->stash->{objects} = [$c->model('DB::OwlTypePredicates')->search({object_id => $sid },{order_by => 'countobjects desc'})->all()]	;
@@ -386,6 +396,7 @@ sub Type :   Path('/statements/type')    Args(1)
 sub OwlDomains :   Path('/owl/domains')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
+    Gcc::Structure::CreateStash($c->stash);
     unless ($c->response->content_type) {
         $c->response->content_type('application/xml');
     }
@@ -397,7 +408,7 @@ sub OwlDomains :   Path('/owl/domains')    Args(0)
 sub OwlRange :   Path('/owl/ranges')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
-
+    Gcc::Structure::CreateStash($c->stash);
     unless ($c->response->content_type) {
         $c->response->content_type('application/xml');
     }

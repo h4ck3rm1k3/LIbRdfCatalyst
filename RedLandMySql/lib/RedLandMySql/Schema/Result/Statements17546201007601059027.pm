@@ -25,16 +25,18 @@ sub ObjectStmntPredicate
 {
     my $self =shift;
     my $predicate=shift;
-    return $self->find_related('statement_object_stmt_subjs',{predicate=>$predicate});
+#__PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
+    # FIXME this is the wrong relationship name. 
+    return $self->find_related('statement_subject_stmt_subjs',{predicate=>$predicate});
 }
 
-## incoming arcs.
-sub ObjectStmntPredicate
+sub ObjectStmntPredicate2
 {
     my $self =shift;
     my $predicate=shift;
-    return $self->find_related('statement_subject_stmt_subjs',{predicate=>$predicate});
-#__PACKAGE__->might_have( statement_subject_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
+#__PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
+    # FIXME this is the wrong relationship name. 
+    return $self->find_related('statement_object_stmt_subjs',{predicate=>$predicate});
 }
 
 sub SubjectStmntPredicate
@@ -97,6 +99,22 @@ __PACKAGE__->might_have( Predicates        => 'RedLandMySql::Schema::Result::Lit
 __PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
 __PACKAGE__->might_have( statement_subject_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.subject' },    );
 __PACKAGE__->might_have( statement_subject_stmt_objs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.object' => 'self.subject' },    );
+
+
+# robkinyon @ irc.perl.net #dbix-class said :
+#    sub relname { my $self = shift; return $self->search({...}); }
+#
+
+# __PACKAGE__->might_have( statement_object_type    => 
+# 			 'RedLandMySql::Schema::Result::Resources', 
+# 			 { 
+# 			     'foreign.id' => 'self.object'     
+# 			 },
+# 			 {
+# 			     'self.predicate'=>
+# 			     '2982895206037061277'
+# 			 }    
+#     );
 
 ## CHAIN properties
 #3018755155234083761 http://introspector.sf.net/2003/08/16/introspector.owl#valu
