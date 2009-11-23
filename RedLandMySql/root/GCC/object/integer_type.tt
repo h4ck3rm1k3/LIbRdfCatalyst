@@ -1,4 +1,4 @@
-[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
+	[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
 Integer type :
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
 

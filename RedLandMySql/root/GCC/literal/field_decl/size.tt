@@ -1,0 +1,3 @@
+template:field_decl/size
+this is a test
+Size :[% statement.statement_literal.value %]

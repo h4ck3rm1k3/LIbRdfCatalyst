@@ -1,1 +1,21 @@
+<!-- -*- perl -*- -->
+<span style="color:orange;padding:8px 10px 10px 10px;	font-size:16px; " >
 template:integer_cst
+
+[% SET CURRENT = CURRENT.ObjectStmntPredicate(GCC.low) %]
+<!--
+current [%CURRENT %]
+subject[% CURRENT.subject %]
+predicate[% CURRENT.predicate %]
+object[% CURRENT.object %]
+-->
+[% SET CURRENTID= CURRENT.subject %]
+[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= CURRENT.ObjectStmntPredicate(RDF.type).object  %]
+TID:[% TID  %]
+
+INCLUDE [% "GCC/include_object_tt.tt"%]
+[%INCLUDE "GCC/include_literal_tt.tt"%]
+AFTER INCLUDE [% "GCC/include_literal_tt.tt"%]
+
+</span>
