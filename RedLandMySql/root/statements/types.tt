@@ -1,0 +1,34 @@
+<table>
+  [% FOREACH type IN types -%]
+  <tr>
+    <td>
+[%  type.countobjects %]
+
+    <td>
+      <a href="[% c.uri_for_action('/statements/subjects') %]/[% type.subject_id %]">Subject [%  type.subject_id %] </a>
+      <a href="[%  statement.statement_subject_res.uri %]">Subject [%  type.subject_uri %]   id [% type.subject_id %] </a>
+|     <a href="[% c.uri_for_action('/statements/object')%]/[% type.subject_id  %]">as Object [%  type.subject_id %] </a>
+|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.subject_id %]"> as Resource</a>
+</td>
+    <td>
+      [% type.predicate_id %]
+      [% type.predicate_uri %]
+      <a href="[% c.uri_for_action('/statements/predicate') %]/[% type.predicate_id %]">Predicate [%  type.predicate_id %] </a>
+      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.predicate_id %]"> as Resource</a>
+
+</td>
+    <td>
+      [% type.object_id %]
+       [% type.object_uri %]
+      <a href="[% c.uri_for_action('/statements/object')%]/[% type.object_id  %]">Objects [%  type.object_id %] </a>
+      <a href="[% c.uri_for_action('/statements/subjects')%]/[% type.object_id  %]">Subject [%  type.object_id %] </a>
+|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.object_id %]"> as Resource</a>
+</td>
+  </tr>
+
+  [% END -%]
+
+
+ [% c.model('DB::OwlTypePredicates') %]
+
+</table>

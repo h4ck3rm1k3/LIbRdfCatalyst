@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <td>
+     <a href="[% c.uri_for_action('/statements/object')%]/[% literal.id  %]">as Object [%  literal.id %] </a>
+    </td>	
+    <td>
+      [% literal.value %]
+</td>
+  </tr>
+</table>
