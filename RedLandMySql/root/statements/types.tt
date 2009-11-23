@@ -3,12 +3,11 @@
   <tr>
     <td>
 [%  type.countobjects %]
-
     <td>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% type.subject_id %]">Subject [%  type.subject_id %] </a>
       <a href="[%  statement.statement_subject_res.uri %]">Subject [%  type.subject_uri %]   id [% type.subject_id %] </a>
-|     <a href="[% c.uri_for_action('/statements/object')%]/[% type.subject_id  %]">as Object [%  type.subject_id %] </a>
-|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.subject_id %]"> as Resource</a>
+      |<a href="[% c.uri_for_action('/statements/object')%]/[% type.subject_id  %]">as Object [%  type.subject_id %] </a>
+      |<a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.subject_id %]"> as Resource</a>
 </td>
     <td>
       [% type.predicate_id %]

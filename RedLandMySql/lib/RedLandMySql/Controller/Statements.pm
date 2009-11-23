@@ -372,11 +372,23 @@ sub Types :   Path('/statements/types')    Args(0)
     $c->stash->{template} = 'statements/types.tt';
 }
 
+sub Type :   Path('/statements/type')    Args(1) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->log->debug('***  TYPE : ' . $sid);		    
+    $c->stash->{subjects} = [$c->model('DB::OwlTypePredicates')->search({subject_id => $sid},{order_by => 'countobjects desc'})->all()]	;
+    $c->stash->{objects} = [$c->model('DB::OwlTypePredicates')->search({object_id => $sid },{order_by => 'countobjects desc'})->all()]	;
+
+    $c->stash->{template} = 'statements/type.tt';
+}
+
+
 sub OwlDomains :   Path('/owl/domains')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
-    $c->log->debug('*** ALL TYPES  ***');		    
-    $c->log->debug('*** ALL TYPES  ***:' .  $c->model('DB::OwlTypePredicates') );
+    unless ($c->response->content_type) {
+        $c->response->content_type('application/xml');
+    }
 
     $c->stash->{types} = [$c->model('DB::OwlTypePredicates')->search({},{ order_by => 'countobjects desc'})->all()]	;
     $c->stash->{template} = 'owl/domains.tt';
@@ -385,8 +397,11 @@ sub OwlDomains :   Path('/owl/domains')    Args(0)
 sub OwlRange :   Path('/owl/ranges')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
-    $c->log->debug('*** ALL TYPES  ***');		    
-    $c->log->debug('*** ALL TYPES  ***:' .  $c->model('DB::OwlTypePredicates') );
+
+    unless ($c->response->content_type) {
+        $c->response->content_type('application/xml');
+    }
+
 
     $c->stash->{types} = [$c->model('DB::OwlTypePredicates')->search({},{ order_by => 'countobjects desc'})->all()]	;
     $c->stash->{template} = 'owl/ranges.tt';
