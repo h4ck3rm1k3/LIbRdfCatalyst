@@ -1,0 +1,14 @@
+
+<table>
+  [% FOREACH type IN objects -%]
+
+  [% INCLUDE "statements/type_row.tt" %]
+  [% END -%]
+</table>
+
+<table>
+  [% FOREACH type IN subjects -%]
+
+  [% INCLUDE "statements/type_row.tt" %]
+  [% END -%]
+</table>

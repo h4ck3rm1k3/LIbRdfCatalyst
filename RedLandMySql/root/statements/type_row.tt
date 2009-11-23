@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    [% type.subject_uri %]
+    <a href="[% c.uri_for_action('/statements/Type') %]/[% type.subject_id %]">Type</a>
+    <a href="[% c.uri_for_action('/statements/subjects') %]/[% type.subject_id %]">Subject</a>
+    <a href="[% c.uri_for_action('/statements/object')%]/[% type.subject_id  %]">Object </a>
+    <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.subject_id %]">Resource</a>
+  </td>
+  <td>
+    [% type.predicate_uri %]
+    <a href="[% c.uri_for_action('/statements/predicate') %]/[% type.predicate_id %]">Predicate [%  type.predicate_id %] </a>
+    <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.predicate_id %]"> as Resource</a>  
+  </td>
+  <td>
+    [% type.object_uri %]
+    <a href="[% c.uri_for_action('/statements/subjects') %]/[% type.object_id %]">Subject </a>
+    <a href="[% c.uri_for_action('/statements/object')%]/[% type.object_id  %]">Object</a>
+    <a href="[% c.uri_for_action('/statements/Type')%]/[% type.object_id  %]">Type </a>
+    <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% type.object_id %]"> as Resource</a>
+  </td>
+</tr>
