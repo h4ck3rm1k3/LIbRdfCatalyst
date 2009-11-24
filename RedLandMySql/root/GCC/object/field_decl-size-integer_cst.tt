@@ -1,1 +1,5 @@
 template:field_decl-size-integer_cst
+Size :[% statement.statement_literal.value %]
+Size :[% CURRENT.statement_literal.value %]
+Size :[% CURRENT.statement_literal %]
+Size :[% CURRENT %]

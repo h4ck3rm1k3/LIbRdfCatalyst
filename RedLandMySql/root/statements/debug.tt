@@ -1,0 +1,46 @@
+<div style="border: 3px coral solid" > 
+<b>TEST:[% name2 %]</b>
+
+<div style="border: 3px blue solid" > 
+
+TYPE:[% CURRENT.ObjectStmntPredicate(RDF.type).statement_predicate_res.uri  %]
+
+SUBJECT:
+<div>
+      [% CURRENT.statement_subject_res.uri %]
+ <a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.subject %]"> Object</a>
+ <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
+ <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.subject %]"> as Resource</a>
+ <a style='color:green' href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.subject %]"> as Literal</a>
+</div>
+Predicate:
+<div>
+      [% CURRENT.predicate %]
+      [% CURRENT.statement_predicate_res.uri %]
+      <a href="[% c.uri_for_action('/statements/predicate') %]/[% CURRENT.predicate %]">Predicate [%  CURRENT.predicate %] </a>
+</div>
+
+OBJECT:<div>
+ [% CURRENT.statement_object_res.uri %]
+ [% CURRENT.statement_literal.value %]
+
+ <a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.object %]"> Object</a>
+ <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.object %]"> as Subject</a>
+ <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.object %]"> as Resource</a>
+ <a style='color:green' href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.object %]"> as Literal</a>
+</div>
+
+
+[% SET CURRENTID= CURRENT.subject %]
+[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= CURRENT.ObjectStmntPredicate(RDF.type).object  %]
+TID:[% TID  %]
+
+
+INCLUDE FILES
+[%#INCLUDE "GCC/include_literal_tt.tt"%]
+[%#INCLUDE "GCC/include_object_tt.tt"%]
+[%INCLUDE "GCC/include_tt.tt"%]
+END INCLUDE FILES
+
+</div>

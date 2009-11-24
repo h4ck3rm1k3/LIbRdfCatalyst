@@ -2,20 +2,40 @@
 <span style="color:orange;padding:8px 10px 10px 10px;	font-size:16px; " >
 template:integer_cst
 
-[% SET CURRENT = CURRENT.ObjectStmntPredicate(GCC.low) %]
-<!--
-current [%CURRENT %]
-subject[% CURRENT.subject %]
-predicate[% CURRENT.predicate %]
-object[% CURRENT.object %]
--->
-[% SET CURRENTID= CURRENT.subject %]
-[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
-[% SET TID= CURRENT.ObjectStmntPredicate(RDF.type).object  %]
-TID:[% TID  %]
+[%INCLUDE "statements/debug.tt" name2=Main%]
 
-INCLUDE [% "GCC/include_object_tt.tt"%]
-[%INCLUDE "GCC/include_literal_tt.tt"%]
-AFTER INCLUDE [% "GCC/include_literal_tt.tt"%]
+[% SET PARENT=CURRENT %]
+[% SET CURRENT = PARENT.ObjectStmntPredicate(GCC.low) %]
+[% name2="low" %]
+[%INCLUDE "statements/debug.tt"  %]
+
+[% SET CURRENT = PARENT.ObjectStmntPredicate(GCC.type) %]
+[% SET name2 = "integertype" %]
+[%INCLUDE "statements/debug.tt"  %]
+
+<div style="color:red" >
+[% SET INTEGER_TYPE = CURRENT.ObjectStmntPredicate(GCC.type).statement_object_stmt_subjs %]
+[% SET CURRENT =INTEGER_TYPE %]
+[%INCLUDE "statements/debug.tt" name2="reversed"%]
+
+[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.min) %]
+[%INCLUDE "statements/debug.tt" name2="MIN" %]
+
+[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.max) %]
+[%INCLUDE "statements/debug.tt" name2="MAX" %]
+
+[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.name) %]
+[%INCLUDE "statements/debug.tt" name2="NAME"  %]
+
+[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.algn) %]
+[%INCLUDE "statements/debug.tt" name2="ALGN" %]
+
+[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.prec) %]
+[%INCLUDE "statements/debug.tt" name2="PREC" %]
+
+[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.size) %]
+[%INCLUDE "statements/debug.tt" name2="SIZE" %]
+
+</div >
 
 </span>
