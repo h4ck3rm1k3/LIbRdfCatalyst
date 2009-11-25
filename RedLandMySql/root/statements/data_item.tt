@@ -1,12 +1,13 @@
-  <tr>
-    <td>
+  <tr style="border: 3px grey solid; padding:8px 10px 10px 10px;" > 
+
+    <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
       <a href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   </a>
 |     <a href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object </a>
       <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
 
 </td>
-    <td>
+    <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
       [% statement.predicate %]
       [% statement.statement_predicate_res.uri %]
       <a href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
@@ -14,7 +15,7 @@
 
 
 
-    <td>
+    <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
       [% statement.object %]
        [% statement.statement_object_res.uri %]
 

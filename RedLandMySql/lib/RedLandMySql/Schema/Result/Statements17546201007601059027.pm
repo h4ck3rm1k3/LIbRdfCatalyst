@@ -48,6 +48,9 @@ sub SubjectStmntPredicate
 
 }
 
+# rdf type of the object
+# rdf domain of the object 
+# types referenced by that domain.
 sub Predicates
 {
     my $self =shift;
@@ -96,9 +99,9 @@ __PACKAGE__->might_have( statement_literal        => 'RedLandMySql::Schema::Resu
 __PACKAGE__->might_have( Predicates        => 'RedLandMySql::Schema::Result::Literals', {   'foreign.id' => 'self.object'  }); # value
 
 #__PACKAGE__->many_to_many('subject' => 'actorroles', 'subject');
-__PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },    );
-__PACKAGE__->might_have( statement_subject_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.subject' },    );
-__PACKAGE__->might_have( statement_subject_stmt_objs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.object' => 'self.subject' },    );
+__PACKAGE__->might_have( statement_object_stmt_subjs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.object' },);
+__PACKAGE__->might_have( statement_subject_stmt_subjs   => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.subject' => 'self.subject' },);
+__PACKAGE__->might_have( statement_subject_stmt_objs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.object' => 'self.subject' },);
 
 
 # robkinyon @ irc.perl.net #dbix-class said :

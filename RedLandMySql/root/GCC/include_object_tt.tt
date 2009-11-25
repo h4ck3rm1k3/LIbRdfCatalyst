@@ -1,12 +1,6 @@
 <span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
 
-START 
-ID:[% CURRENTID %]
-CURRENT:[% CURRENT %]
-TYPE:[% TYPE %]
-TYPE_OBJECT:[% TYPE.object %]
-TYPEID: [% TID %]
-
+[% INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
 
 [% PERL %]
 use Gcc::Structure;
@@ -29,8 +23,11 @@ my $id = Gcc::Structure::GetRev($stash->get("TID"));
 my $val = CheckObjectFile($id);
 $stash->set("template_name_tid" =>  $val );
 [% END %]
+
 [% template_name_tid %]
 [% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
+TO INCLUDE [%  "$template_name" %]
 [% INCLUDE "$template_name" %]
-INCLUDE [%  "$template_name" %]
+
+
 </span>

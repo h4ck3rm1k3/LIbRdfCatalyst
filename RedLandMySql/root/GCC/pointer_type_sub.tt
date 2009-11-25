@@ -1,8 +1,26 @@
 <span class=variable_node style="border:3px solid orange;">
 pointer
+
+[% INCLUDE "statements/debug.tt" name2="ENTRY"  %]
+
 # now the PTD is the unique data of the pointer type
-          [% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
-      PTD :[% PTD.statement_object_res.uri %]
-[%SET CURRENT=PTD %]
-[%INCLUDE "GCC/processnode_type.tt" %]
+[% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
+PTD :[% PTD.statement_object_res.uri %]
+[%#SET CURRENT=PTD %]
+[%#INCLUDE "GCC/processnode_type.tt" %]
+[% INCLUDE "statements/debug.tt" name2="PROCESSNODE_TYPE" %]
+ptd
+
+
+
+
+
+[% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd).statement_object_stmt_subjs %]
+[% INCLUDE "statements/debug.tt" name2="PTD" CURRENT=CURRENT.ObjectStmntPredicate(GCC.ptd).statement_object_stmt_subjs %]
+
+# this could be any of many types. 
+[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+TYPE:[% TYPE.statement_object_res.uri  %]
+
 </span>

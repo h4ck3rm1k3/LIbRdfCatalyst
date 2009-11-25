@@ -1,40 +1,49 @@
 <!-- -*- perl -*- -->
-<span style="color:orange;padding:8px 10px 10px 10px;	font-size:16px; " >
+<span style="color:black;padding:8px 10px 10px 10px;	font-size:16px; " >
 template:integer_cst
 
-[%INCLUDE "statements/debug.tt" name2=Main%]
+[%#INCLUDE "statements/debug.tt" name2="Main" %]
 
 [% SET PARENT=CURRENT %]
-[% SET CURRENT = PARENT.ObjectStmntPredicate(GCC.low) %]
-[% name2="low" %]
-[%INCLUDE "statements/debug.tt"  %]
+LOW:[% PARENT.ObjectStmntPredicate(GCC.low).statement_literal.value %]
+[%# SET CURRENT = PARENT.ObjectStmntPredicate(GCC.low) %]
+[%#INCLUDE "statements/debug.tt" name2="low" %]
+[%# CURRENT.statement_literal.value %]
 
 [% SET CURRENT = PARENT.ObjectStmntPredicate(GCC.type) %]
-[% SET name2 = "integertype" %]
-[%INCLUDE "statements/debug.tt"  %]
+[%#INCLUDE "statements/debug.tt" name2 = "integertype" %]
 
 <div style="color:red" >
 [% SET INTEGER_TYPE = CURRENT.ObjectStmntPredicate(GCC.type).statement_object_stmt_subjs %]
 [% SET CURRENT =INTEGER_TYPE %]
-[%INCLUDE "statements/debug.tt" name2="reversed"%]
+[%# INCLUDE "statements/debug.tt" name2="reversed"%]
 
-[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.min) %]
-[%INCLUDE "statements/debug.tt" name2="MIN" %]
+MIN:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.min).ObjectStmntPredicate(GCC.low).statement_literal.value %]
+[% #INCLUDE "statements/debug.tt" name2="MIN" %]
 
-[% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.max) %]
-[%INCLUDE "statements/debug.tt" name2="MAX" %]
+MAX :[% INTEGER_TYPE.ObjectStmntPredicate(GCC.max).ObjectStmntPredicate(GCC.low).statement_literal.value %]
+[% #INCLUDE "statements/debug.tt" name2="MAX" %]
 
 [% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.name) %]
-[%INCLUDE "statements/debug.tt" name2="NAME"  %]
+[% SET TYPE_NAME = INTEGER_TYPE.ObjectStmntPredicate(GCC.name) %]
+NAME:[% TYPE_NAME.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+
+[% INTEGER_TYPE.ObjectStmntPredicate(GCC.name).ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[% INTEGER_TYPE.ObjectStmntPredicate(GCC.name).ObjectStmntPredicate(GCC.name).ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+
+[%#INCLUDE "statements/debug.tt" name2="NAME"  %]
 
 [% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.algn) %]
-[%INCLUDE "statements/debug.tt" name2="ALGN" %]
+[%#INCLUDE "statements/debug.tt" name2="ALGN" %]
+ALGN:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.algn).statement_literal.value %]
 
 [% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.prec) %]
-[%INCLUDE "statements/debug.tt" name2="PREC" %]
+[%#INCLUDE "statements/debug.tt" name2="PREC" %]
+PREC:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.prec).statement_literal.value %]
 
 [% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.size) %]
-[%INCLUDE "statements/debug.tt" name2="SIZE" %]
+[% INCLUDE "statements/debug.tt" name2="SIZE" %]
+SIZE:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.size).ObjectStmntPredicate(GCC.low).statement_literal.value %]
 
 </div >
 

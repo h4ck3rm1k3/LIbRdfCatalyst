@@ -181,6 +181,7 @@ sub convertchains : Path('/statements/convertchains') Args(0)
 sub followchains : Path('/statements/chain') Args(1)
 {
     my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;
     my $statement = $c->model('DB::Statements17546201007601059027')->search(
 	    {
 		subject => $sid 		,
@@ -214,7 +215,7 @@ sub ListChains :   Path('/statements/listchains')    Args(1)
 {
 
     my ($self, $c, $sid) = @_;
-    
+    $c->stash->{param} = $sid;    
     my $chains= [
 	$c->model('DB::Chainednodes')->search(
 	    {
@@ -242,7 +243,7 @@ sub ListChains :   Path('/statements/listchains')    Args(1)
 sub subjects :   Path('/statements/subjects')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
-
+    $c->stash->{param} = $sid;    
     Gcc::Structure::CreateStash($c->stash);
 
     $c->stash->{statements} = [
@@ -280,7 +281,7 @@ sub predicate :   Path('/statements/predicate')    Args(1)
 {
     my ($self, $c, $sid) = @_;
     Gcc::Structure::CreateStash($c->stash);
-
+    $c->stash->{param} = $sid;
     $c->stash->{statements} = [
 	$c->model('DB::Statements17546201007601059027')->search(
 	    {
@@ -309,6 +310,7 @@ sub predicate :   Path('/statements/predicate')    Args(1)
 sub literals :   Path('/statements/literals')    Args(0) 
 {
     my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;
     $c->stash->{literals} = [
 	$c->model('DB::Literals')->search()->all()
 	];
@@ -319,6 +321,7 @@ sub literals :   Path('/statements/literals')    Args(0)
 sub literal :   Path('/statements/literal')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;
     Gcc::Structure::CreateStash($c->stash);
     $c->stash->{literal} = 
 	$c->model('DB::Literals')->search({id => $sid})->first()
@@ -329,6 +332,7 @@ sub literal :   Path('/statements/literal')    Args(1)
 sub object :   Path('/statements/object')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;
     Gcc::Structure::CreateStash($c->stash);
     $c->stash->{statements} = [
 	$c->model('DB::Statements17546201007601059027')->search(
@@ -362,6 +366,7 @@ sub object :   Path('/statements/object')    Args(1)
 sub Resource :   Path('/statements/resource')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;
     Gcc::Structure::CreateStash($c->stash);
     $c->stash->{resource} = $c->model('DB::Resources')->find({ID => $sid})	;
 
@@ -384,6 +389,7 @@ sub Types :   Path('/statements/types')    Args(0)
 sub Type :   Path('/statements/type')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;
     Gcc::Structure::CreateStash($c->stash);
     $c->log->debug('***  TYPE : ' . $sid);		    
     $c->stash->{subjects} = [$c->model('DB::OwlTypePredicates')->search({subject_id => $sid},{order_by => 'countobjects desc'})->all()]	;

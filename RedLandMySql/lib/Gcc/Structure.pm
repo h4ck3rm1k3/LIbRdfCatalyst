@@ -135,13 +135,22 @@ sub CreateStash
     $stash->{'GCC'}{'void_type'} = '9634342635882568798'; #   void_type1 %]
     $stash->{'GCC'}{'while_stmt'} = '16103405441176336031'; #   while_stmt1 %]
 
-    foreach my $s qw(RDF RDFS OWL GCC)
+    foreach my $s qw(RDFS OWL GCC)
     {
 	foreach my $k (keys %{$stash->{$s}})
 	{
 	    $stash->{'GCC_REV'}{$stash->{$s}{$k}}=$k;
 	}
     }
+    foreach my $s qw(RDF)
+    {
+	foreach my $k (keys %{$stash->{$s}})
+	{
+	    # quote the rdf_type key so it does not get confused
+	    $stash->{'GCC_REV'}{$stash->{ $s }{"rdf_" . $k}}=$k;
+	}
+    }
+
     bless ($stash->{'GCC_REV'},"Gcc::Structure");
     $g_stash =$stash->{'GCC_REV'}; # save a pointer
 }
