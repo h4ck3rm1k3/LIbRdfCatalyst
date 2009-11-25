@@ -1,1 +1,2 @@
 template:tree_list-valu-pointer_type
+[% template.name %] 

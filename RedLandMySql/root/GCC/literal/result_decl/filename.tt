@@ -1,0 +1,3 @@
+template:result_decl/filename
+[% template.name %] 
+Value :[% statement.statement_literal.value %]

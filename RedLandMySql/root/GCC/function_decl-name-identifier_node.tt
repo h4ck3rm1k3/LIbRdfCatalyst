@@ -1,2 +1,3 @@
 template:function_decl-name-identifier_node
+[% template.name %] 
 [% INCLUDE "GCC/pred-obj/name-identifier_node.tt" %]

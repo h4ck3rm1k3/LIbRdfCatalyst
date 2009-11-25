@@ -1,6 +1,6 @@
 <!-- -*- perl -*- -->
 <span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
-
+[% template.name %] 
 <!--
 START 
 ID:[% CURRENTID %]
@@ -36,6 +36,8 @@ sub CheckLiteralFile
 
 	open OUT,">$template_name" or die "could not open $template_name $!";
 	print OUT "template:$val\n";
+	print OUT "[% template.name %] \n";
+	print OUT "Value :[% statement.statement_literal.value %]\n";
 	close OUT;
     }
     return $val;

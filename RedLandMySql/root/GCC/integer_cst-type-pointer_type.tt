@@ -1,1 +1,2 @@
 template:integer_cst-type-pointer_type
+[% template.name %] 

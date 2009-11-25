@@ -1,4 +1,6 @@
-<span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
+<span style="color:red; background-color:yellow; 	font-size:14px; " >
+[% template.name %] 
+<!-- padding:8px 10px 10px 10px;-->
 [%#expects  TID as a parameter %]
 [% PERL %]     
 ## get the name of the template from a hash.
@@ -20,6 +22,6 @@ if (! -f $template_name )
 
 [% END %]
       [% SET template_name=  "GCC/${template_name_s}_type.tt" %]
-      [% INCLUDE "$template_name" %]
-<!--     INCLUDE [%  "$template_name" %] -->
+ INCLUDE [%  "$template_name" %]:[% INCLUDE "$template_name" %]
+
 </span>

@@ -1,4 +1,5 @@
 <span style="color:blue;padding:8px 10px 10px 10px;	font-size:14px; " >
+[% template.name %] 
 [%#expects   SID,PID,OID as parameters %]
 
 [% PERL %]     

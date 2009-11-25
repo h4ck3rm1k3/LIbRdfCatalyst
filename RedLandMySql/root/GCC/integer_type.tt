@@ -1,4 +1,7 @@
+[% template.name %] 
+
 [% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
+
 Integer type :
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
 
@@ -7,6 +10,8 @@ CONST : [% CURRENT.ObjectStmntPredicate(GCC.const).statement_literal.value %]
 PREC  : [% CURRENT.ObjectStmntPredicate(GCC.prec).statement_literal.value %]
 MIN : [% CURRENT.ObjectStmntPredicate(GCC.min).statement_object_res.uri %]
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.ObjectStmntPredicate(GCC.min).subject %]"> as Subject</a>
+String :[% CURRENT.ObjectStmntPredicate(GCC.min).ObjectStmntPredicate(GCC.low).statement.statement_literal.value %]
 
 MAX : [% CURRENT.ObjectStmntPredicate(GCC.max).statement_object_res.uri %]
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.ObjectStmntPredicate(GCC.max).subject %]"> as Subject</a>
+String :[% CURRENT.ObjectStmntPredicate(GCC.max).ObjectStmntPredicate(GCC.low).statement.statement_literal.value %]

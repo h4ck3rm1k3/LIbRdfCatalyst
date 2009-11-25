@@ -43,7 +43,7 @@ PREC:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.prec).statement_literal.value %]
 
 [% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.size) %]
 [% INCLUDE "statements/debug.tt" name2="SIZE" %]
-SIZE:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.size).ObjectStmntPredicate(GCC.low).statement_literal.value %]
+SIZE:[% CURRENT.statement_object_stmt_subj.ObjectStmntPredicate(GCC.low).statement_literal.value %]
 
 </div >
 

@@ -1,1 +1,2 @@
 template:result_decl-type-pointer_type
+[% template.name %] 

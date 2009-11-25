@@ -1,6 +1,6 @@
 <span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
-
-[% INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
+[% template.name %] 
+[% #INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
 
 [% PERL %]
 use Gcc::Structure;
@@ -26,7 +26,7 @@ $stash->set("template_name_tid" =>  $val );
 
 [% template_name_tid %]
 [% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
-TO INCLUDE [%  "$template_name" %]
+[%#  "$template_name" %]
 [% INCLUDE "$template_name" %]
 
 

@@ -1,1 +1,2 @@
 template:pointer_type-ptd-pointer_type
+[% template.name %] 

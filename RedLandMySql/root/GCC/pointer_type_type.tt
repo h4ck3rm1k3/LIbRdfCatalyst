@@ -1,2 +1,59 @@
-Pointer type
-follow PTD
+<span class=variable_node style="border:1px solid orange; background-color:grey;">
+[% template.name %] 
+pointer
+[%# INCLUDE "statements/debug.tt" name2="ENTRY"  %]
+
+# now the PTD is the unique data of the pointer type
+[% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
+PTD :[% PTD.statement_object_res.uri %]
+[% INCLUDE "GCC/processnode_type.tt" CURRENT=PTD %]
+[% INCLUDE "statements/debug.tt" name2="PROCESSNODE_TYPE" CURRENT=PTD %]
+
+[% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd).statement_object_stmt_subjs %]
+[% INCLUDE "statements/debug.tt" name2="PTD" CURRENT=PTD %]
+
+# this could be any of many types. 
+[% SET TYPE= PTD.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+PTD TYPE:[% TYPE.statement_object_res.uri  %]
+#name
+
+[%SET CURRENT=PTD%]
+[%IF CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+[%   CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF    CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF    CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF     CURRENT.statement_literal.value -%]
+NAME:[% CURRENT.statement_literal.value %]
+[%END -%]
+
+
+[%SET CURRENT=CURRENT.ObjectStmntPredicate(GCC.ptd).statement_object_stmt_subjs %]
+
+[%IF CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+[%   CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF    CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF    CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF     CURRENT.statement_literal.value -%]
+NAME:[% CURRENT.statement_literal.value %]
+[%END -%]
+
+
+
+</span>

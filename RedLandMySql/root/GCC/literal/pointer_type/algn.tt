@@ -1,0 +1,3 @@
+template:pointer_type/algn
+[% template.name %] 
+Value :[% statement.statement_literal.value %]

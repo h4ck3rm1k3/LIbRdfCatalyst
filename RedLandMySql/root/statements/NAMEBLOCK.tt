@@ -1,0 +1,23 @@
+<div style="color:cyan">
+NAME BLOCK:
+[%IF CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+[%   CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF    CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF    CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
+NAME:[% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+[%END -%]
+
+[%IF     CURRENT.statement_literal.value -%]
+NAME:[% CURRENT.statement_literal.value %]
+[%END -%]
+
+</div>

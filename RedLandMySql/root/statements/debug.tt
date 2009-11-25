@@ -1,5 +1,5 @@
 [%# INCLUDE "statements/debug.tt" name2="SIZE" %]
-<div style="border: 3px green solid padding:8px 10px 10px 10px;" > 
+<span style="border: 3px green solid padding:8px 10px 10px 10px;" > 
 <b>TEST:[% name2 %]</b>
 [%IF CURRENT %]
 DATA
@@ -51,11 +51,11 @@ OBJECT:
 </div>
 
 
-
+[%INCLUDE statements/NAMEBLOCK.tt %]
 INCLUDE FILES
 [%#INCLUDE "GCC/include_literal_tt.tt"%]
 [%#INCLUDE "GCC/include_object_tt.tt"%]
 [%#INCLUDE "GCC/include_tt.tt"%]
 END INCLUDE FILES
 
-</div>
+</span>

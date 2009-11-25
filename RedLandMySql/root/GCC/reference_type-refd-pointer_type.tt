@@ -1,1 +1,2 @@
 template:reference_type-refd-pointer_type
+[% template.name %] 

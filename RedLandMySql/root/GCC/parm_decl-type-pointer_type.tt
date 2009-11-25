@@ -1,1 +1,2 @@
 template:parm_decl-type-pointer_type
+[% template.name %] 

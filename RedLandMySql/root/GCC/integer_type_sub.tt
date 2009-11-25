@@ -1,1 +1,2 @@
+[% template.name %] 
 [%INCLUDE "GCC/integer_type.tt" %]

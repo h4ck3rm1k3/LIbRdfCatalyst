@@ -1,3 +1,4 @@
+<span class=variable_node style="border:1px solid red; background-color:light-grey;">
 Pointer Type 
 ->
 [% CURRENT.statement_object_res.uri %]
@@ -14,3 +15,4 @@ Pointer Type
 [%INCLUDE "GCC/processnode_type.tt" %]
 #AFTER INCLUDE "GCC/processnode_type.tt"
 
+</span>

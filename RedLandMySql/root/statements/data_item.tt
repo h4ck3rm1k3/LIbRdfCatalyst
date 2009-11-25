@@ -13,8 +13,6 @@
       <a href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
 </td>
 
-
-
     <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
       [% statement.object %]
        [% statement.statement_object_res.uri %]
@@ -39,9 +37,8 @@ predicate[% CURRENT.predicate %]
 object[% CURRENT.object %]
 TID:[% TID  %]
 -->
-
-
-INCLUDE [%INCLUDE "GCC/include_object_tt.tt"%]
+[%INCLUDE "GCC/include_object_tt.tt" RECURSIVE=1 %]
+[%# $template_name=  $temp . "GCC/object/${val}.tt"; %]
 [% ELSE %]
 [% INCLUDE "statements/literal_item.tt" %]
 [% END %]

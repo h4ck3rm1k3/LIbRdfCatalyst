@@ -1,1 +1,1 @@
-template:integer_cst
+template:GCC/integer_cst.tt

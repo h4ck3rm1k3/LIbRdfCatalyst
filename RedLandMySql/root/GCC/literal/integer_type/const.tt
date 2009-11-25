@@ -1,0 +1,3 @@
+template:integer_type/const
+[% template.name %] 
+Value :[% statement.statement_literal.value %]
