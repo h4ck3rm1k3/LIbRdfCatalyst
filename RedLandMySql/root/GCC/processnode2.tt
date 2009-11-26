@@ -1,5 +1,5 @@
 CURRENT: [% CURRENT.statement_object_res.uri %]
-
+<span class=template_name>[% component.name %]</span>
 [%## look up the type of the current object %]
       [%SET TYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
 

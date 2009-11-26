@@ -1,3 +1,3 @@
 template:const_decl-name-identifier_node
-[% template.name %] 
+<span class=template_name>[% component.name %]</span>
 [% INCLUDE "GCC/pred-obj/name-identifier_node.tt" %]o

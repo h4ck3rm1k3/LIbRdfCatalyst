@@ -1,2 +1,2 @@
 template:tree_list-valu-pointer_type
-[% template.name %] 
+<span class=template_name>[% component.name %]</span>

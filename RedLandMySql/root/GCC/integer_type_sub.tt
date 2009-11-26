@@ -1,2 +1,2 @@
-[% template.name %] 
+<span class=template_name>[% component.name %]</span>
 [%INCLUDE "GCC/integer_type.tt" %]

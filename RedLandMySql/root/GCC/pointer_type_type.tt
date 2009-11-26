@@ -1,4 +1,5 @@
-<span class=template_name>[% component.name %]</span>pointer
+<span class=template_name>[% component.name %]</span>
+pointer
 [%# INCLUDE "statements/debug.tt" name2="ENTRY"  %]
 
 # now the PTD is the unique data of the pointer type

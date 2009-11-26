@@ -1,2 +1,2 @@
 template:pointer_type-ptd-function_type
-[% template.name %] 
+<span class=template_name>[% component.name %]</span>
