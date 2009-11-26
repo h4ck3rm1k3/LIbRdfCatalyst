@@ -14,7 +14,7 @@ $stash->set(template_name_s =>  $val  );
 [% END %]
 [% SET template_name=  "GCC/${template_name_s}_sub.tt" %]
 
-<span class=variable_node style="margin-left:2cm; border:1px solid blue;">
+<span class=predicate_processnode_type >
 [% INCLUDE "$template_name" %]
 </span>
 

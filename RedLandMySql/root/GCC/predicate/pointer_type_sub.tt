@@ -1,4 +1,4 @@
-<span class=variable_node style="border:3px solid orange;">
+<span class=predicate_pointer_type_sub>
 pointer
 # now the PTD is the unique data of the pointer type
           [% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]

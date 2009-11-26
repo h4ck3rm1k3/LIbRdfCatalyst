@@ -1,1 +1,1 @@
-template:integer_type/prec
+Value :[% statement.statement_literal.value %]

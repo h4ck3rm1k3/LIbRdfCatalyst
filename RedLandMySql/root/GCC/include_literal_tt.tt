@@ -1,6 +1,6 @@
 <!-- -*- perl -*- -->
-<span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
-[% template.name %] 
+<span class=include_literal  >
+<span class=template_name>[% component.name %]</span>
 <!--
 START 
 ID:[% CURRENTID %]

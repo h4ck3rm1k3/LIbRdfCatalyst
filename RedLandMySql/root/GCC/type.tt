@@ -1,4 +1,3 @@
-[% # all the types include this %]
 
 [% INCLUDE "GCC/size.tt" # all types objects have a size?%] 
 

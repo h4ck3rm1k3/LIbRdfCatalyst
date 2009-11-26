@@ -1,4 +1,3 @@
-<span style="border: 3px red solid padding:8px 10px 10px 10px; background-color:grey;" > 
 [%# INCLUDE "statements/debug.tt" name2="TEST7" %]
 [%SET TEST= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
 [%# INCLUDE "statements/debug.tt" name2="START_VAL" CURRENT=TEST %]

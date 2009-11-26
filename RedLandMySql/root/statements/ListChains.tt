@@ -28,7 +28,7 @@
 </table>
 
 
-<div class=variable_node style="margin-left:2cm; border:8px solid red;">
+<div class=ListChains>
 prms subject
 predicate=> [% # GCC.prms %]
 [% SET PRMS = chain.find_related('FirstObject').SubjectStmntPredicate(GCC.prms) %]
@@ -39,7 +39,7 @@ predicate=> [% # GCC.prms %]
       <a href="[% c.uri_for_action('/statements/object') %]/[% chain.find_related('FirstObject').subject %]"> Object</a>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% chain.find_related('FirstObject').subject %]"> as Subject</a>
 
-<div class=variable_node style="margin-left:2cm; border:8px solid orange;">
+<div class=ListItem >
  PRMS :
   SUBJURI : [% PRMS.statement_subject_res.uri %]
   SUBJID : [% PRMS.statement_subject_res.id %]
@@ -53,7 +53,7 @@ predicate=> [% # GCC.prms %]
 
 </div>
 
-<div class=variable_node style="margin-left:2cm; border:8px solid yellow;">
+<div class=ListInclude >
 INCLUDE PROCESS NODE:
 [% SET CURRENT=PRMS.statement_subject_stmt_objs.first %]
   URI : [% CURRENT.statement_subject_res.uri %]
@@ -61,7 +61,7 @@ INCLUDE PROCESS NODE:
 <a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.statement_subject_res.id %]"> Object</a>
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.statement_subject_res.id %]"> as Subject</a>
 
-<div class=variable_node style="margin-left:2cm; border:8px solid green;">
+<div class=ListType >
 [%SET TYPE = PRMS.ObjectStmntPredicate(RDF.type) %]
 [% SET template_name_s1=  TYPE.object.GetRev(TYPE.object) %]
 TYPE: [% TYPE.statement_object_res.uri %]

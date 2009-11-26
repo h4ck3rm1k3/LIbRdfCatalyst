@@ -1,1 +1,1 @@
-template:integer_type/algn
+Value :[% statement.statement_literal.value %]

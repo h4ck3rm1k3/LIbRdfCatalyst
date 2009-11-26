@@ -1,5 +1,4 @@
-<span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
-[%#expects  TID as a parameter %]
+<span class=Include_tt >
 [% PERL %]     
 ## get the name of the template from a hash.
 use Gcc::Structure;

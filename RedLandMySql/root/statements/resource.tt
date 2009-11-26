@@ -5,8 +5,8 @@
 <!--
 <a href="[% c.uri_for_action('/statements/object') %]/[% resource.id %]"> Object</a>
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% resource.id %]"> as Subject</a>
-<a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% resource.id %]"> as Resource</a>
-<a style='color:green' href="[% c.uri_for_action('/statements/literal') %]/[% resource.id %]"> as Literal</a>
+<a href="[% c.uri_for_action('/statements/Resource') %]/[% resource.id %]"> as Resource</a>
+<a href="[% c.uri_for_action('/statements/literal') %]/[% resource.id %]"> as Literal</a>
 
 TEST :[% resource.subject_statements %]     
 TEST :[% resource.subject_statements({predicate=>me.predicate_id}) %]     
@@ -41,8 +41,8 @@ Predicate
 TEST OBJECT :[% EXTERNOBJECT %]     
       <a href="[% c.uri_for_action('/statements/object') %]/[% EXTERNOBJECT %]"> Object</a>
       <a href="[% c.uri_for_action('/statements/subjects') %]/[% EXTERNOBJECT %]"> as Subject</a>
-      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% EXTERNOBJECT %]"> as Resource</a>
-      <a style='color:green' href="[% c.uri_for_action('/statements/literal') %]/[% EXTERNOBJECT %]"> as Literal</a>
+      <a href="[% c.uri_for_action('/statements/Resource') %]/[% EXTERNOBJECT %]"> as Resource</a>
+      <a href="[% c.uri_for_action('/statements/literal') %]/[% EXTERNOBJECT %]"> as Literal</a>
 
 
 [%SET SID= me.subject_id %]
@@ -55,8 +55,7 @@ TEST OBJECT :[% EXTERNOBJECT %]
 TEST :[% resource.subject_statements.ObjectStmntPredicate(me.predicate_id) %]     
 -->
 
-<td style="padding:8px 10px 10px 10px;
-background:black;  font: 12px 'Lucida Grande', Tahoma, Arial, sans-serif; color:green;  ">
+<td class=Resource>
 [% RDF.type %]
 [% me.object_uri%],
 [% me.object_id%],

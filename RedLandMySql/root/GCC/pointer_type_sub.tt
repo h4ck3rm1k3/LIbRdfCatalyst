@@ -1,6 +1,4 @@
-
-<span class=variable_node style="border:1px solid orange; background-color:grey;">
-[% template.name %] 
+<span class=pointer_type_sub >
 
 [% INCLUDE "statements/debug.tt" name2="ENTRY"  %]
 

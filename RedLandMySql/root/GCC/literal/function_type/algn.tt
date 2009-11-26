@@ -1,2 +1,1 @@
-template:function_type/algn
 algn :[% statement.statement_literal.value %]

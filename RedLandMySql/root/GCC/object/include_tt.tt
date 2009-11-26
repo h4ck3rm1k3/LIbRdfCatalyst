@@ -1,4 +1,4 @@
-<span style="color:red;padding:8px 10px 10px 10px;	font-size:14px; " >
+<span class=include_tt >
 [%#expects  TID as a parameter %]
 [% PERL %]     
 ## get the name of the template from a hash.

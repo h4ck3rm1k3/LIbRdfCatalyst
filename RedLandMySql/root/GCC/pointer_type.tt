@@ -1,4 +1,4 @@
-<span class=variable_node style="border:1px solid red; background-color:light-grey;">
+<span class=pointer_type>
 Pointer Type 
 ->
 [% CURRENT.statement_object_res.uri %]

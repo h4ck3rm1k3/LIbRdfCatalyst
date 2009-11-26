@@ -1,4 +1,4 @@
-<span style="color:blue;padding:8px 10px 10px 10px;	font-size:14px; " >
+<span class=predicate_include_special_tt >
 [%#expects   SID,PID,OID as parameters %]
 
 [% PERL %]     

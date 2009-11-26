@@ -1,2 +1,1 @@
-template:integer_cst/low
-WELCOME!
+String :[% statement.statement_literal.value %]

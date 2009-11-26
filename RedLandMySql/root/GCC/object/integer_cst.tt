@@ -1,5 +1,4 @@
-<!-- -*- perl -*- -->
-<span style="color:black;padding:8px 10px 10px 10px;	font-size:16px; " >
+<span class=integer_cst >
 template:integer_cst
 
 [%#INCLUDE "statements/debug.tt" name2="Main" %]
@@ -13,7 +12,7 @@ LOW:[% PARENT.ObjectStmntPredicate(GCC.low).statement_literal.value %]
 [% SET CURRENT = PARENT.ObjectStmntPredicate(GCC.type) %]
 [%#INCLUDE "statements/debug.tt" name2 = "integertype" %]
 
-<div style="color:red" >
+<div class=Attributes >
 [% SET INTEGER_TYPE = CURRENT.ObjectStmntPredicate(GCC.type).statement_object_stmt_subjs %]
 [% SET CURRENT =INTEGER_TYPE %]
 [%# INCLUDE "statements/debug.tt" name2="reversed"%]

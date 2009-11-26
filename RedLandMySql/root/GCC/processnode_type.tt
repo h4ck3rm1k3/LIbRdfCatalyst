@@ -1,7 +1,5 @@
-CURRENT: [% CURRENT.statement_object_res.uri %]
 ID : [% CURRENT.statement_subject_res.id %]
 [%SET TYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
-[% SET template_name_s1=  TYPE.object.GetRev(TYPE.object) %]
 [% SET TID= TYPE.object %]
 [% PERL %]     
 
@@ -9,14 +7,10 @@ my $tid =$stash->get("TID");
 ## get the name of the template from a hash.
 use Gcc::Structure;
 my $val = Gcc::Structure::GetRev($tid );
-$stash->set(template_name_s =>  $val  );
 
 [% END %]
-[% SET template_name=  "GCC/${template_name_s}_sub.tt" %]
 
-<span class=variable_node style="margin-left:2cm; border:1px solid blue;">
-[% INCLUDE "$template_name" %]
+<span class=variable_node >
 </span>
 
-NEW : INCLUDE [%  "$template_name" %]
 

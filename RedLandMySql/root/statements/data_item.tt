@@ -1,25 +1,20 @@
-  <tr style="border: 3px grey solid; padding:8px 10px 10px 10px;" > 
-
-    <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
-      <a href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
-      <a href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   </a>
-|     <a href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object </a>
-      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
-
-</td>
-    <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
+    <td class=DataItemSubject>
+    <a class="SubjectLink" href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
+    <a class="SubjectURI" href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   </a>
+    <a class="ObjectLink" href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object </a>
+    <a class="ResourceLink" href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
+  </td>
+  <td class=DataItemPredicate>
       [% statement.predicate %]
       [% statement.statement_predicate_res.uri %]
-      <a href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
-</td>
-
-    <td style="border: 3px grey solid; padding:8px 10px 10px 10px;">
+     <a class="PredicateLink" href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
+    </td>
+    <td class=DataItemObject>
       [% statement.object %]
-       [% statement.statement_object_res.uri %]
-
-      <a href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a>
-|      <a style='color:green' href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a>
-      <a href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">as Subject [%  statement.object %] </a>
+      [% statement.statement_object_res.uri %]
+      <a class="ObjectLink" href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a>
+      <a class="ResourceLink" href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a>
+      <a class="SubjectLink" href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">as Subject [%  statement.object %] </a>
 <!--
 subject[% statement.subject %]
 predicate[% statement.predicate %]
@@ -38,7 +33,6 @@ object[% CURRENT.object %]
 TID:[% TID  %]
 -->
 [%INCLUDE "GCC/include_object_tt.tt" RECURSIVE=1 %]
-[%# $template_name=  $temp . "GCC/object/${val}.tt"; %]
 [% ELSE %]
 [% INCLUDE "statements/literal_item.tt" %]
 [% END %]

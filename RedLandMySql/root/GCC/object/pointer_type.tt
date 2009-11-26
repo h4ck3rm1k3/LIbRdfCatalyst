@@ -1,4 +1,3 @@
-Pointer Type 
 ->
 [% CURRENT.statement_object_res.uri %]
 [%SET NEXTTYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
