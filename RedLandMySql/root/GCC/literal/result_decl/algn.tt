@@ -1,1 +1,1 @@
-Value :[% statement.statement_literal.value %]
+<span class=template_name>[% component.name %]</span>Value :[% statement.statement_literal.value %]

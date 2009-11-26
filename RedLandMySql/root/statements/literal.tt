@@ -1,4 +1,4 @@
-  <tr>
+<span class=template_name>[% component.name %]</span>  <tr>
     <td>
      <a href="[% c.uri_for_action('/statements/object')%]/[% literal.id  %]">as Object [%  literal.id %] </a>
     </td>	

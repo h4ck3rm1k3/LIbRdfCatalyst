@@ -1,4 +1,4 @@
-[%# INCLUDE "statements/debug.tt" name2="TEST7" %]
+<span class=template_name>[% component.name %]</span>[%# INCLUDE "statements/debug.tt" name2="TEST7" %]
 [%SET TEST= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
 [%# INCLUDE "statements/debug.tt" name2="START_VAL" CURRENT=TEST %]
  <a href="[% c.uri_for_action('/statements/subjects') %]/[% TEST.object %]"> as Subject</a>

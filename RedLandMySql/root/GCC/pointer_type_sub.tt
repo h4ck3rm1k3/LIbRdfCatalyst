@@ -1,4 +1,4 @@
-<span class=pointer_type_sub >
+<span class=template_name>[% component.name %]</span><span class=pointer_type_sub >
 
 [% INCLUDE "statements/debug.tt" name2="ENTRY"  %]
 

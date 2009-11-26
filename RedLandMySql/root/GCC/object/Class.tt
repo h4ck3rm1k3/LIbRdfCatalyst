@@ -1,2 +1,2 @@
-# domain of Properties (Object|Datatype) 
+<span class=template_name>[% component.name %]</span># domain of Properties (Object|Datatype) 
 # range of Properties (Object)

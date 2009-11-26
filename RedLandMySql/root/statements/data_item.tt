@@ -1,4 +1,4 @@
-    <td class=DataItemSubject>
+<span class=template_name>[% component.name %]</span>    <td class=DataItemSubject>
     <a class="SubjectLink" href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
     <a class="SubjectURI" href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   </a>
     <a class="ObjectLink" href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object </a>

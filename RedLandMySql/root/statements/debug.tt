@@ -1,4 +1,4 @@
-<span class=Debug > 
+<span class=template_name>[% component.name %]</span><span class=Debug > 
 <b>TEST:[% name2 %]</b>
 [%IF CURRENT %]
 [%ELSE %]

@@ -1,4 +1,4 @@
-[% #INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
+<span class=template_name>[% component.name %]</span>[% #INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
 
 [% PERL %]
 use Gcc::Structure;

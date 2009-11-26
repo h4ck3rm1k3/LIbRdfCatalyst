@@ -1,2 +1,2 @@
-statements/subject.tt 
+<span class=template_name>[% component.name %]</span>statements/subject.tt 
 Value :316

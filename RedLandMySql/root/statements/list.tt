@@ -1,4 +1,4 @@
-    [%  USE Dumper; %]
+<span class=template_name>[% component.name %]</span>    [%  USE Dumper; %]
   <table>
   <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
 

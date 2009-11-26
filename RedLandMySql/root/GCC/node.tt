@@ -1,4 +1,4 @@
-     first a list of the predicates:
+<span class=template_name>[% component.name %]</span>     first a list of the predicates:
 -->
     <span  class=predicate_list_item>
 CURRENT.subject:[% CURRENT.subject %]

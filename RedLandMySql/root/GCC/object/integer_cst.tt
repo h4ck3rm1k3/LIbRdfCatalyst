@@ -1,4 +1,4 @@
-<span class=integer_cst >
+<span class=template_name>[% component.name %]</span><span class=integer_cst >
 template:integer_cst
 
 [%#INCLUDE "statements/debug.tt" name2="Main" %]

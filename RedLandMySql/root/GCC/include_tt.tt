@@ -1,4 +1,4 @@
-<!-- padding:8px 10px 10px 10px;-->
+<span class=template_name>[% component.name %]</span><!-- padding:8px 10px 10px 10px;-->
 [%#expects  TID as a parameter %]
 [% PERL %]     
 ## get the name of the template from a hash.

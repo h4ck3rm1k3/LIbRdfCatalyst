@@ -1,6 +1,5 @@
-<!-- -*- perl -*- -->
+<span class=template_name>[% component.name %]</span><!-- -*- perl -*- -->
 <span class=include_literal  >
-<span class=template_name>[% component.name %]</span>
 <!--
 START 
 ID:[% CURRENTID %]
@@ -26,31 +25,19 @@ sub CheckLiteralFile
     my $val =shift;
     my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
     my $template_name =  $temp . "GCC/literal/${val}.tt";
-
-    if (! -f $template_name )
     {
 	warn "creating $template_name";
 	my  $basename = dirname($template_name,["tt"]);
+
 	make_path $basename;
 	warn "creating  path $basename";
-
-	open OUT,">$template_name" or die "could not open $template_name $!";
 	print OUT "template:$val\n";
-	print OUT "[% template.name %] \n";
+	print OUT "[% component.name %] \n";
 	print OUT "Value :[% statement.statement_literal.value %]\n";
 	close OUT;
     }
     return $val;
  }
 
- $stash->set("template_name_sid" =>  CheckLiteralFile(Gcc::Structure::GetRev($stash->get("SID")) ));
- $stash->set("template_name_pid" =>  CheckLiteralFile(Gcc::Structure::GetRev($stash->get("PID")) ));
-$stash->set("template_name_total" =>  CheckLiteralFile($stash->get("template_name_sid") . "/" . $stash->get("template_name_pid")));
-
 [% END %]
-[% template_name_tid %]
-[% SET template_name=  "GCC/literal/${template_name_total}.tt" %]
-
-[% INCLUDE "$template_name" %]
-<!-- INCLUDE [%  "$template_name" %] -->
 </span>

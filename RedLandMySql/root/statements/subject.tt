@@ -1,4 +1,4 @@
-[% META title = 'Statement List' -%]
+<span class=template_name>[% component.name %]</span>[% META title = 'Statement List' -%]
 [% INCLUDE "statements/header.tt" %]
     [%  USE Dumper; %]
   <table>

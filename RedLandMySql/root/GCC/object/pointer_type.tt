@@ -1,4 +1,4 @@
-->
+<span class=template_name>[% component.name %]</span>->
 [% CURRENT.statement_object_res.uri %]
 [%SET NEXTTYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
 [% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 

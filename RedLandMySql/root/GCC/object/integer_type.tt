@@ -1,4 +1,4 @@
-Integer type :
+<span class=template_name>[% component.name %]</span>Integer type :
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
 
 ALGN : [% CURRENT.ObjectStmntPredicate(GCC.algn).statement_literal.value %]

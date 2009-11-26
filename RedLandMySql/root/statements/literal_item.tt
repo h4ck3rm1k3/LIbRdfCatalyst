@@ -1,3 +1,3 @@
-[% # LITERAL : statement.statement_literal.value %]
+<span class=template_name>[% component.name %]</span>[% # LITERAL : statement.statement_literal.value %]
 [%INCLUDE "GCC/include_literal_tt.tt"%]
 
