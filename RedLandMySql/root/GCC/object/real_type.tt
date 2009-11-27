@@ -1,1 +1,4 @@
 template:real_type
+
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.name) FIELD="name" TYPE=GCC.type_decl  OID='15015140325254999524' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.size) FIELD="size" TYPE=GCC.integer_cst  OID='10682726496861974171' %]

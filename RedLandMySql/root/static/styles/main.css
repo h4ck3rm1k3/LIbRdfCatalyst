@@ -173,6 +173,10 @@ style="color:blue;padding:8px 10px 10px 10px;	font-size:14px;
 font-size : 36pt
 }
 
+.identifier_string{
+font-size : 36pt
+}
+
 .integer_cst_low{
 font-size : 48pt
 }

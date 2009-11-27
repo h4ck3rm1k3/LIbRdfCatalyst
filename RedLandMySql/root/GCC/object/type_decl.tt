@@ -1,1 +1,25 @@
 <span class=template_name>[% component.name %]</span>
+<UL>
+
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.name) FIELD="name" TYPE=GCC.identifier_node  OID='15884583910156211027' %]
+
+
+
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan) FIELD="chan" TYPE=GCC.type_decl  OID='15015140325254999524' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan) FIELD="chan" TYPE=GCC.function_decl  OID='1504926891300555131' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan) FIELD="chan" TYPE=GCC.const_decl  OID='16663890274115130369' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan) FIELD="chan" TYPE=GCC.var_decl  OID='6210944617293730303' %]
+
+
+
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.integer_type  OID='4381322092629321835' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.record_type  OID='1758540206415387803' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.pointer_type  OID='8942746211297021590' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.enumeral_type  OID='471320701236103877' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.function_type  OID='5630798902154618539' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.complex_type  OID='12496493282471841459' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.union_type  OID='1644233858315978739' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.real_type  OID='10288085895679626787' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.void_type  OID='9634342635882568798' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type) FIELD="type" TYPE=GCC.boolean_type  OID='8498487305451770129' %]
+</UL>
