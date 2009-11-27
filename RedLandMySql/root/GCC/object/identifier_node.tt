@@ -1,2 +1,2 @@
-<span class=template_name>[% component.name %]</span>Str : [% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
-Len : [% CURRENT.ObjectStmntPredicate(GCC.lngt).statement_literal.value %]
+<span class=template_name>[% component.name %]</span>
+<span class=identifier_string>[% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]</span>

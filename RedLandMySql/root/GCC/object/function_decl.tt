@@ -1,1 +1,17 @@
 <span class=template_name>[% component.name %]</span>
+[%#INCLUDE "statements/debug.tt" name2="Main" %]
+<UL>
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.args).statement_object_stmt_subjs FIELD="args" TYPE=GCC.parm_decl  OID='7830676800468631921' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.body).statement_object_stmt_subjs FIELD="body" TYPE=GCC.compound_stmt  OID='1649590370193169021' %]
+
+
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs FIELD="chan" TYPE=GCC.function_decl  OID='1504926891300555131' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs FIELD="chan" TYPE=GCC.type_decl  OID='15015140325254999524' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs FIELD="chan" TYPE=GCC.var_decl  OID='6210944617293730303' %]
+
+
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.mngl).statement_object_stmt_subjs FIELD="mngl" TYPE=GCC.identifier_node  OID='15884583910156211027' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs FIELD="name" TYPE=GCC.identifier_node  OID='15884583910156211027' %]
+[% INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.type).statement_object_stmt_subjs FIELD="type" TYPE=GCC.function_type  OID='5630798902154618539' %]
+
+</UL>

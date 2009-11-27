@@ -1,22 +1,23 @@
-<span class=template_name>[% component.name %]</span>NAME BLOCK:
+<span class=template_name>[% component.name %]</span>
+<span class=NAMEBLOCK>
 [%IF CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
-NAME:[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+NAME:<span class=NAME1>[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]</span>
 [%END -%]
 
 [%IF CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
-[%   CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+NAME:<span class=NAME2>[%   CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]</span>
 [%END -%]
 
 [%IF    CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
-NAME:[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+NAME:<span class=NAME3>[% CURRENT.ObjectStmntPredicate(GCC.name).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.strg).statement_literal.value %]</span>
 [%END -%]
 
 [%IF    CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value -%]
-NAME:[% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]
+NAME:<span class=NAME4>[% CURRENT.ObjectStmntPredicate(GCC.strg).statement_literal.value %]</span>
 [%END -%]
 
 [%IF     CURRENT.statement_literal.value -%]
-NAME:[% CURRENT.statement_literal.value %]
+NAME:<span class=NAME5>[% CURRENT.statement_literal.value %]</span>
 [%END -%]
 
-</div>
+</span>

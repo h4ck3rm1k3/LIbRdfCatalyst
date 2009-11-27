@@ -1,0 +1,179 @@
+.Debug 
+{ /*
+
+    padding:8px 10px 10px 10px;	
+    font-size:14px; 
+*/
+    background-color:orange;
+    border:2px solid black;
+    color:red;
+
+}
+
+.DebugSubject
+{ /*
+
+    padding:8px 10px 10px 10px;	
+    font-size:14px; 
+*/
+    background-color:orange;
+    border:2px solid black;
+    color:red;
+
+}
+
+
+.OBJECT_TYPE
+{ /*
+
+    padding:8px 10px 10px 10px;	
+    font-size:14px; 
+*/
+    background-color:orange;
+    border:2px solid black;
+    color:red;
+
+}
+
+.OBJECT_TYPE
+{ /*
+
+    padding:8px 10px 10px 10px;	
+    font-size:14px; 
+*/
+    background-color:orange;
+    border:2px solid black;
+    color:red;
+
+}
+
+.Type
+{ /*
+
+    padding:8px 10px 10px 10px;	
+    font-size:14px; 
+*/
+    background-color:orange;
+    border:2px solid black;
+    color:red;
+
+}
+
+
+
+.template_name 
+{
+    color : red ;
+    background-color:grey;
+    border:1px
+}
+
+td 
+{ /* 
+    color : pink 
+*/
+    background-color:yellow;
+    border:1px solid black
+}
+
+.variable_node { /*
+    margin-left:2cm; 
+    border:1px solid blue
+*/
+    border:1px solid black
+}
+
+.pointer_type_type { /*
+    border:1px solid orange; 
+    background-color:grey;
+*/
+    border:1px solid black
+}
+
+.pointer_type { /*
+    border:1px solid red; 
+    background-color:light-grey
+*/
+    border:1px solid black
+}
+
+.include_literal 
+{ /*
+    color:red;
+    padding:8px 10px 10px 10px;	
+    font-size:14px;
+*/
+    border:1px solid black
+}
+
+.include_object 
+{ /*
+    color:red;
+    padding:8px 10px 10px 10px;	
+    font-size:14px; 
+*/
+    border:1px solid black
+}
+
+
+
+.predicate_list_item 
+{
+/*
+  color:green;
+*/
+    border:1px solid black
+}
+
+.predicate_processnode_type
+{
+/*
+    margin-left:2cm; 
+    border:1px solid blue;
+*/
+    border:1px solid black
+}
+
+
+.predicate_include_special_tt 
+{
+/*
+style="color:blue;padding:8px 10px 10px 10px;	font-size:14px;
+*/
+    border:1px solid black
+}
+
+.predicate_processnode
+{
+/*style="color=red"*/
+    border:1px solid black
+}
+
+.ResourceLink 
+{
+    border:1px solid black
+}
+
+.ObjectLink 
+{
+    border:1px solid black
+}
+
+.SubjectLink 
+{
+    border:1px solid black
+}
+
+.PredicateLink 
+{
+    border:1px solid black
+}
+
+.NAME3{
+font-size : 36pt
+}
+
+.integer_cst_low{
+font-size : 48pt
+}
+
