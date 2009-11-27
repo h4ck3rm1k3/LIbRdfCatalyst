@@ -38,6 +38,15 @@ sub CheckLiteralFile
     }
     return $val;
  }
+$stash->set("template_name_sid" =>  CheckLiteralFile(Gcc::Structure::GetRev($stash->get("SID")) ));
+$stash->set("template_name_pid" =>  CheckLiteralFile(Gcc::Structure::GetRev($stash->get("PID")) ));
+$stash->set("template_name_total" =>  CheckLiteralFile($stash->get("template_name_sid") . "/" . $stash->get("template_name_pid")));
 
 [% END %]
+[% template_name_tid %]
+[% SET template_name=  "GCC/literal/${template_name_total}.tt" %]
+[% INCLUDE "$template_name" %]
+<!-- INCLUDE [%  "$template_name" %] -->
+</span>
+
 </span>

@@ -3,6 +3,7 @@
 
 [% PERL %]
 use Gcc::Structure;
+$stash->set("template_name_tid" =>  CheckFile(Gcc::Structure::GetRev($stash->get("TID")) ));
 
 sub CheckObjectFile
 {
@@ -17,8 +18,13 @@ sub CheckObjectFile
 }
 my $id = Gcc::Structure::GetRev($stash->get("TID"));
 my $val = CheckObjectFile($id);
+$stash->set("template_name_tid" =>  $val );
+
 [% END %]
 
-
+[% template_name_tid %]
+[% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
+[%#  "$template_name" %]
+[% INCLUDE "$template_name" %]
 
 </span>
