@@ -1,18 +1,18 @@
 <span class=template_name>[% component.name %]</span>
 [% #INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
-
-
 [% PERL %]
 use Gcc::Structure;
-
-
 sub CheckObjectFile
 {
     my $val =shift;
     my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
+    my $template_name=  $temp . "GCC/object/${val}.tt";
+
+    if (! -f $template_name )
     {
 	warn "creating $val";
-	print OUT "template:$val\n";
+	open OUT,">$template_name";
+	print OUT q{<span class=template_name>[% component.name %]</span><!-- -*- perl -*- -->};
 	close OUT;
     }
     return $val;
@@ -23,15 +23,11 @@ my $val = CheckObjectFile($id);
 $stash->set("template_name_tid" =>  $val );
 
 [% END %]
-
 [% template_name_tid %]
 [% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
 [%#  "$template_name" %]
-
 [%IF LEVEL < 4 %]
-
 [% INCLUDE "$template_name" %]
-
 [%ELSE %]
 SKIPPING INCLUDE at [% level %]
 [%END  %]

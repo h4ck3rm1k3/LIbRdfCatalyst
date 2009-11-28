@@ -1,6 +1,6 @@
 <span class=template_name>[% component.name %]</span>Integer type :
 <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
-
+[% INCLUDE "GCC/type.tt" # all type objects have a size?%] 
 ALGN : [% CURRENT.ObjectStmntPredicate(GCC.algn).statement_literal.value %]
 CONST : [% CURRENT.ObjectStmntPredicate(GCC.const).statement_literal.value %]
 PREC  : [% CURRENT.ObjectStmntPredicate(GCC.prec).statement_literal.value %]

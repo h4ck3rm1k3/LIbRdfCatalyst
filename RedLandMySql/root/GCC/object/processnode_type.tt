@@ -1,3 +1,4 @@
+
 CURRENT: [% CURRENT.statement_object_res.uri %]
 ID : [% CURRENT.statement_subject_res.id %]
 [%SET TYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
@@ -18,5 +19,5 @@ $stash->set(template_name_s =>  $val  );
 [% INCLUDE "$template_name" %]
 </span>
 
-NEW : INCLUDE [%  "$template_name" %]
+NEW : INCLUDE [%  template_name %]
 
