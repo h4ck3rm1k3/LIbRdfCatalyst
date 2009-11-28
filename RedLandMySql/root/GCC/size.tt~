@@ -1,4 +1,0 @@
-[% SET SIZE = CHAIN.ObjectStmntPredicate(GCC.size) %]     
-[% SET LOW = SIZE.ObjectStmntPredicate(GCC.low) %]     
-SIZEid:  [% LOW.statement_literal.id %]
-SIZEval:  [% LOW.statement_literal.value %]
