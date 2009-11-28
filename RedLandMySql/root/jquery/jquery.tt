@@ -1,0 +1,14 @@
+[%# USAGE: INCLUDE "jquery/jquery.tt" %]
+ <a class=TypeLink href="[% c.uri_for_action('/statements/subjects') %]/[% TID %]"> as Subject</a></span>
+<script type="text/javascript" src="[% c.uri_for('/jquery/jquery.js') %]"></script>
+
+
+ <script type="text/javascript">
+     $(document).ready(function(){
+       $("a").click(function(event){
+         alert("As you can see, the link no longer took you to you to the page");
+         event.preventDefault();
+       });
+     });
+     
+   </script>

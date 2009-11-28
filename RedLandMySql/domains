@@ -1,0 +1,1286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#identifier_node"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#prms">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+    <rdfs:domain  rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_cst"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#bpos">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#scpe">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_cst"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+    <rdfs:domain  rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#min">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#max">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#range">
+    <rdfs:domain  rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#range">
+    <rdfs:domain  rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#retn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#mngl">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#scpe">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#record_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#flds">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#record_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#indirect_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#record_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#retn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#argt">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#const_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#const_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cnst">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#const_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#purp">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#const_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#retn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#const_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#compound_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#body">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#compound_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#ptd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#args">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#ptd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#argt">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#parm_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#result_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#return_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#scpe">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#result_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#body">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#return_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#expr">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#return_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#result_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#record_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#indirect_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#record_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_cst"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#ptd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#record_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#result_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#addr_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#call_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#addr_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#addr_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#retn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#args">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#call_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#fn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#call_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#convert_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#component_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#component_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#component_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#call_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#convert_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#eq_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#plus_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#eq_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#indirect_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#plus_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#plus_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#non_lvalue_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#non_lvalue_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#non_lvalue_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#plus_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#convert_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#array_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#indirect_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#eq_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#decl_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_andif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#scpe">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#expr">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#domn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#array_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_andif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#decl">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#decl_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_andif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#preincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#expr">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#array_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#preincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#eq_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#elts">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#array_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#body">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#then">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#preincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#ptd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#decl_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#indirect_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#eq_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_orif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_orif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_orif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#preincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#result_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#ptd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#init">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_andif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_andif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ge_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#break_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#break_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ge_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_2">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ge_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ge_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#preincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#min">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#max">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#csts">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#void_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#complex_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#scpe">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_orif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#complex_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#decl_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#complex_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#const_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#flds">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#union_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#real_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#union_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#init">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#preincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#elts">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#array_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#void_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#real_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#union_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#eq_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#retn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#void_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#real_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#valu">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#tree_list"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#bit_and_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#body">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#retn">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#convert_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#bit_and_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#convert_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#indirect_ref"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#init">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#function_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#bit_and_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#convert_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#result_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#ptd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#pointer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#call_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_2">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#bit_and_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#then">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#ne_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#scope_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#cond_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#truth_orif_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#boolean_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#reference_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#postincrement_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#unql">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#union_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#field_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#elts">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#array_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#chan">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#modify_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#type_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#call_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#refd">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#reference_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#reference_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#size">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#boolean_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_1">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#plus_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#body">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#boolean_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#union_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#integer_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#name">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#enumeral_type"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#if_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#next">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#expr_stmt"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#op_0">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#nop_expr"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#type">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#var_decl"/>
+  </rdf:Description>
+
+    <rdf:Description rdf:about="http://introspector.sf.net/2003/08/16/introspector.owl#cond">
+    <rdfs:domain  rdf:resource="http://introspector.sf.net/2003/08/16/introspector.owl#while_stmt"/>
+  </rdf:Description>
+
+  
+
