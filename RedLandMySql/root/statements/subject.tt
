@@ -1,0 +1,63 @@
+<span class=template_name>[% template.name %]</span>[% META title = 'Statement List' -%]
+[% INCLUDE "statements/header.tt" %]
+    [%  USE Dumper; %]
+  <table>
+  <tr><th>Subject</th><th>Predicate</th>
+  <th>Object</th>
+</tr>
+
+  [% FOREACH statement IN statements -%]
+  [% INCLUDE "statements/data_item.tt" %]
+  [% END -%]
+</table>
+
+<table>
+  <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
+  </table>
+<h1>domain:</h1>
+[% FOREACH rng IN c.model('DB::Statements17546201007601059027').search( { predicate=>RDFS.domain, object=>param} ) -%]
+TEST:[%# INCLUDE "statements/debug.tt" name2="domain" CURRENT=rng %]
+<div>
+ [% CURRENT=rng %]
+OBJECT:
+ [% CURRENT.statement_subject_res.uri %]
+ <a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.subject %]"> Object</a>
+ <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
+ <a href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.subject %]"> as Resource</a>
+
+[% FOREACH type IN  c.model('DB::OwlTypePredicates').search({subject_id=>param, predicate_id=>CURRENT.subject },{order_by => 'countobjects desc'}) -%]
+<div class=SubjectRow>
+[%INCLUDE "statements/type_row.tt"  CURRENT=type %]
+</div>
+[% END -%]
+
+</div>
+[% END -%]
+
+<h1>RANGE:</h1>
+[% FOREACH rng IN c.model('DB::Statements17546201007601059027').search( { predicate=>RDFS.range, object=>param} ) -%]
+<div>
+ [% CURRENT=rng %]
+OBJECT:
+ [% CURRENT.statement_subject_res.uri %]
+ <a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.subject %]"> Object</a>
+ <a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
+ <a href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.subject %]"> as Resource</a>
+
+[% FOREACH type IN  c.model('DB::OwlTypePredicates').search({object_id=>param, predicate_id=>CURRENT.subject },{order_by => 'countobjects desc'}) -%]
+<div class=TypeRow>
+[%INCLUDE "statements/type_row.tt"  CURRENT=type %]
+</div>
+[% END -%]
+
+</div>
+[%# INCLUDE "statements/debug.tt" name2="range" CURRENT=rng %]
+[% END -%]
+
+[% FOREACH rng IN statements.first().statement_subject_stmt_subjs.ObjectStmntPredicate(RDFS.domain) -%]
+TEST:[% INCLUDE "statements/debug.tt" name2="loop two" %]
+[% END -%]
+
+
+CURRENT:[% INCLUDE "statements/debug.tt" name2="fields" CURRENT=statements.first() %]
+[% INCLUDE "statements/footer.tt" %]

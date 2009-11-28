@@ -1,0 +1,3 @@
+<span class=template_name>[% template.name %]</span># The OWL Class of an object.
+# domain of Properties (Object|Datatype) 
+# range of Properties (Object)

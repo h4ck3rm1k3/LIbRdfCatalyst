@@ -1,0 +1,12 @@
+<span class=template_name>[% template.name %]</span>	[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
+Integer type :
+<a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
+
+ALGN : [% CURRENT.ObjectStmntPredicate(GCC.algn).statement_literal.value %]
+CONST : [% CURRENT.ObjectStmntPredicate(GCC.const).statement_literal.value %]
+PREC  : [% CURRENT.ObjectStmntPredicate(GCC.prec).statement_literal.value %]
+MIN : [% CURRENT.ObjectStmntPredicate(GCC.min).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.low).statement_literal.value %]
+[%INCLUDE statements/NAMEBLOCK.tt CURRENT=CURRENT.ObjectStmntPredicate(GCC.min) %]
+
+MAX :[% CURRENT.ObjectStmntPredicate(GCC.max).statement_object_stmt_subjs.ObjectStmntPredicate(GCC.low).statement_literal.value %]
+[%INCLUDE statements/NAMEBLOCK.tt CURRENT=CURRENT.ObjectStmntPredicate(GCC.max).statement_object_stmt_subjs %]

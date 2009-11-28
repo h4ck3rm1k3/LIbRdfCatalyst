@@ -1,0 +1,8 @@
+[% PID=type.predicate_id %][% OID=type.object_id %][% PERL %]
+$stash->set("template_name_pid" => Gcc::Structure::GetRev($stash->get("PID")));
+$stash->set("template_name_oid" => Gcc::Structure::GetRev($stash->get("OID")));
+[% END %][%# type.subject_uri %][%# type.predicate_uri %][%# type.object_uri %][% 
+   stag = "[\%"
+   etag = "%\]"
+ %][% stag %] INCLUDE "GCC/object/include_field.tt" CURRENT=CURRENT.ObjectStmntPredicate(GCC.[% template_name_pid %]) FIELD="[% template_name_pid %]" TYPE=GCC.[% template_name_oid%]  OID='[%type.object_id%]' [% etag %]
+[%# template_name_pid %][%# template_name_oid %]

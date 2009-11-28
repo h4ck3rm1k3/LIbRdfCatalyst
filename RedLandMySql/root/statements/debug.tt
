@@ -1,49 +1,60 @@
-<span class=template_name>[% component.name %]</span><span class=Debug > 
+<span class=template_name>[% template.name %]</span>[%# INCLUDE "statements/debug.tt" name2="SIZE" %]
+<span class=Debug > 
 <b>TEST:[% name2 %]</b>
 [%IF CURRENT %]
 [%ELSE %]
 <span class=ERROR>NO DATA</span>
 [%END %]
+
 [%IF CURRENT.statement_literal.value %]
 <span class=LiteralValue>LITERAL: [% CURRENT.statement_literal.value %]</span>
 [%END %]
+
 <div class=DebugSubject > 
 [% SET CURRENTID= CURRENT.subject %]
+
 [% SET OTHER_TYPE = CURRENT.statement_object_stmt_subjs.ObjectStmntPredicate(RDF.type) %]
 [% SET OTID= OTHER_TYPE.object  %]
+<span class=OBJECT_TYPE> OTHER_TYPE1:[% OTHER_TYPE.statement_object_res.uri  %]</span>
+<span class=OBJECT_TYPE_ID>OTID: <a href="[% c.uri_for_action('/statements/subjects') %]/[% OTID %]"> as Subject</a></span>
+
 [% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
 [% SET TID= TYPE.object  %]
-<span class=Type>TYPE:[% TYPE.statement_object_res.uri %]</span>
+<span class=Type>TYPE:[% TYPE.statement_object_res.uri  %]</span>
 <span class=TypeID>TID: <a class=TypeLink href="[% c.uri_for_action('/statements/subjects') %]/[% TID %]"> as Subject</a></span>
-<p>
-<div class=Subject><span class=Title>Subject:</span>
+
+<div class=Subject>
+SUBJECT:
 <span class=Subject>[% CURRENT.statement_subject_res.uri %]</span>
 <a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.subject %]"> Object</a>
 <a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
 <a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.subject %]"> as Resource</a>
 <a class=LiteralLink  href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.subject %]"> as Literal</a>
 </div>
-<p>
-<div class=Predicate><span class=Title>Predicate:</span>
+
+<div class=Predicate>
+Predicate:
 <span class=Predicate> [% CURRENT.predicate %]</span>
 <span class=PredicateUri>[% CURRENT.statement_predicate_res.uri %]</span>
 <a class=Predicate href="[% c.uri_for_action('/statements/predicate') %]/[% CURRENT.predicate %]">Predicate [%  CURRENT.predicate %] </a>
 </div>
-<p>
-<div class=ObjectData><span class=Title>Object:</span>
-<span class=ObjectUri>[% CURRENT.statement_object_res.uri %]</span>
-<span class=Literal>[% CURRENT.statement_literal.value %]</span>
-<a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.object %]"> Object</a>
-<a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.object %]"> as Subject</a>
-<a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.object %]"> as Resource</a>
-<a class=Literal      href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.object %]"> as Literal</a>
+
+<div class=ObjectData>
+OBJECT:
+ <span class=ObjectUri>[% CURRENT.statement_object_res.uri %]</span>
+ <span class=Literal>[% CURRENT.statement_literal.value %]</span>
+ <a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.object %]"> Object</a>
+ <a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.object %]"> as Subject</a>
+ <a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.object %]"> as Resource</a>
+ <a class=Literal      href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.object %]"> as Literal</a>
 </div>
-<span class=OBJECT_TYPE> OTHER_TYPE1:[% OTHER_TYPE.statement_object_res.uri  %]</span>a
-<span class=OBJECT_TYPE_ID>OTID: <a href="[% c.uri_for_action('/statements/subjects') %]/[% OTID %]"> as Subject</a></span>
+
+
 [%INCLUDE statements/NAMEBLOCK.tt %]
 INCLUDE FILES
 [%#INCLUDE "GCC/include_literal_tt.tt"%]
 [%#INCLUDE "GCC/include_object_tt.tt"%]
 [%#INCLUDE "GCC/include_tt.tt"%]
 END INCLUDE FILES
+
 </span>

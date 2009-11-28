@@ -1,0 +1,45 @@
+<span class=template_name>[% template.name %]</span><span class=object_tree_list > 
+[%# INCLUDE "statements/debug.tt" name2="TEST7" %]
+[%SET TEST= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
+[%# INCLUDE "statements/debug.tt" name2="START_VAL" CURRENT=TEST %]
+ <a href="[% c.uri_for_action('/statements/subjects') %]/[% TEST.object %]"> as Subject</a>
+[%IF RECURSIVE %]
+
+<ul>
+
+[%WHILE CURRENT.ObjectStmntPredicate(GCC.chan) -%]
+
+  <li>
+	[%# INCLUDE "statements/debug.tt" name2="LOOP_CHAIN"  %]
+	[%SET TEST= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
+	[%IF  TEST %]
+	      CURRENT:[%# INCLUDE "statements/debug.tt" name2="LOOP VALUE" CURRENT=TEST %]
+[% SET TYPE= TEST.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+TID:[% TYPE.object  %]
+
+	      TYPE:[%# INCLUDE "statements/debug.tt" name2="TYPE" CURRENT=TYPE %]
+
+	      INCLUDE [%INCLUDE "GCC/include_tt.tt" CURRENT=TEST %]
+	[%END %]
+
+	[%CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs%]
+   </li>
+[%END -%]
+
+   <li>
+CURRENT:[% INCLUDE "statements/debug.tt" name2="LAST_ITEM_IN_LOOP"  %]
+[%SET VAL= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
+[%IF  VAL %]
+      CURRENT:[% INCLUDE "statements/debug.tt" name2="LAST_ITEM_IN_LOOP_VALUE" CURRENT=VAL %]
+[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+
+      INCLUDE [%INCLUDE "GCC/include_tt.tt" CURRENT=VAL %]
+   </li>
+[%END %]
+
+   </ul>
+[%END #recursive %]
+
+<span>

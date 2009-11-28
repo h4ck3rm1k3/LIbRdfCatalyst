@@ -1,4 +1,5 @@
-<span class=template_name>[% component.name %]</span><!-- padding:8px 10px 10px 10px;-->
+<span class=template_name>[% template.name %]</span><span class=include_tt >
+<!-- padding:8px 10px 10px 10px;-->
 [%#expects  TID as a parameter %]
 [% PERL %]     
 ## get the name of the template from a hash.
@@ -13,6 +14,7 @@ my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandM
 	close OUT;
 }
  
+
 [% END %]
 
 </span>

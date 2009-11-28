@@ -1,0 +1,44 @@
+
+[%IF CURRENT %]
+
+[% SET CTYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET CTID= CTYPE.object  %]
+[% SET TID= OID  %]
+
+<LI>
+[%IF CTID == TID %]
+
+<!--
+TEST1[% CURRENT.ObjectStmntPredicate(RDF.type).object  %]
+TEST2[% CURRENT.object  %]
+TID :[% TID %]
+CTID:[% CTID %]
+-->
+<span class=template_name>[% component.name %]</span>
+<span class="FieldName">[%FIELD %]</span>
+GOOD! 
+[%#  DEBUG? # INCLUDE "statements/debug.tt" name2="INCLUDE_FIELD"  %]
+[% INCLUDE GCC/include_object_tt.tt name="INCLUDE OBJECT" LEVEL=LEVEL+1 %]
+
+[%ELSE  %]
+<!--
+<p>ERROR!
+<span class=template_name>ERROR:[% component.name %]</span>
+<span class="FieldName">ERROR:[%FIELD %]</span>
+
+<span class=ERROR>WRONG TYPE [%  CTID %] != [%  TID %]<span class=OBJECT_TYPE>TYPE1:[% CTYPE.statement_object_res.uri  %]</span></span>
+[%#INCLUDE "statements/debug.tt" name2="CURRENT" # yes this is the object referenced by that field %] 
+[%#INCLUDE "statements/debug.tt" name2="CTYPE" CURRENT=CTYPE # object is the field%]
+-->
+[%END %]
+</LI>
+
+[%ELSE %]
+<!--
+<span class=ERROR>NO DATA</span>
+<span class=template_name>[% component.name %]</span>
+<span class="FieldName">[%FIELD %]</span>
+-->
+[%END %]
+
+

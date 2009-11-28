@@ -1,0 +1,4 @@
+<span class=template_name>[% template.name %]</span>[% #SET literal = c.model('DB::Literals').search({id => CURRENT.object}).first() %]
+[% # LITERAL : statement.statement_literal.value %]
+[%INCLUDE "GCC/include_literal_tt.tt"%]
+

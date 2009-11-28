@@ -1,16 +1,14 @@
-<span class=template_name>[% component.name %]</span>
+<span class=template_name>[% template.name %]</span><!-- -*- perl -*- -->
 <span class=integer_cst >
 template:integer_cst
 
 [%#INCLUDE "statements/debug.tt" name2="Main" %]
 
 [% SET PARENT=CURRENT %]
-<span class="integer_cst_field">LOW:<span class="integer_cst_low">[% PARENT.ObjectStmntPredicate(GCC.low).statement_literal.value %]
-</span>
+LOW:[% PARENT.ObjectStmntPredicate(GCC.low).statement_literal.value %]
 [%# SET CURRENT = PARENT.ObjectStmntPredicate(GCC.low) %]
 [%#INCLUDE "statements/debug.tt" name2="low" %]
-[%#CURRENT.statement_literal.value %]
-</span>
+[%# CURRENT.statement_literal.value %]
 
 [% SET CURRENT = PARENT.ObjectStmntPredicate(GCC.type) %]
 [%#INCLUDE "statements/debug.tt" name2 = "integertype" %]
@@ -44,7 +42,7 @@ ALGN:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.algn).statement_literal.value %]
 PREC:[% INTEGER_TYPE.ObjectStmntPredicate(GCC.prec).statement_literal.value %]
 
 [% SET CURRENT = INTEGER_TYPE.ObjectStmntPredicate(GCC.size) %]
-[%# INCLUDE "statements/debug.tt" name2="SIZE" %]
+[% INCLUDE "statements/debug.tt" name2="SIZE" %]
 SIZE:[% CURRENT.statement_object_stmt_subj.ObjectStmntPredicate(GCC.low).statement_literal.value %]
 
 </div >

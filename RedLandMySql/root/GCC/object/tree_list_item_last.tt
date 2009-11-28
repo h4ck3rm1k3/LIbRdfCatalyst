@@ -1,0 +1,10 @@
+   <li>
+
+<span class=LIST_ELEMENT>CURRENT:[% INCLUDE "statements/debug.tt" name2="LAST_ITEM_IN_LOOP"  %]</span>
+[%SET VAL= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
+[%IF  VAL %]
+<span class="CURRENT"> CURRENT:[% INCLUDE "statements/debug.tt" name2="VALUE_OF_LAST_ITEM_IN_LOOP" CURRENT=VAL %]</span>
+[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+      <span class="INCLUDE">[%INCLUDE "GCC/include_tt.tt" CURRENT=VAL %]</span>
+   </li>

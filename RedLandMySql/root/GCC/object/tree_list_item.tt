@@ -1,2 +1,19 @@
+<li>
+CHAN:<span class=Subject>[% CURRENT.statement_subject_res.uri %]</span>
 
-### this is a place holder for the item processing of a list
+[%SET LIST_VALUE= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
+[%IF  LIST_VALUE %]
+<span class=LIST_ELEMENT>
+CURRENT:<span class=Type>TYPE:[% LIST_VALUE.statement_subject_res.uri %]</span>
+[%# INCLUDE "statements/debug.tt" name2="LOOP VALUE" CURRENT=LIST_VALUE %]
+</span>
+[% SET TYPE= LIST_VALUE.ObjectStmntPredicate(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+[%#<span class=TID>[% TYPE.object  </span> %]
+<span class=TYPE>[%# INCLUDE "statements/debug.tt" name2="TYPE" CURRENT=TYPE %]</span>
+INCLUDE:<span class=INCLUDE_VALUE>[%INCLUDE "GCC/include_tt.tt" CURRENT=LIST_VALUE %]</span>
+[%ELSE %]
+NO LIST VALUE
+[%INCLUDE "statements/debug.tt" name2="LOOP_CHAIN" %]
+[%END %]
+</li>

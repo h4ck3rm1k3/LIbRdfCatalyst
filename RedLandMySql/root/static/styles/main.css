@@ -1,3 +1,5 @@
+
+
 .Debug 
 { /*
 
@@ -181,3 +183,13 @@ font-size : 36pt
 font-size : 48pt
 }
 
+.literal_value{
+font-size : 48pt
+}
+
+
+
+.title{
+    font-size : 24pt;
+    color:black;
+}

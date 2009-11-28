@@ -1,40 +1,20 @@
-<span class=template_name>[% component.name %]</span>[%# INCLUDE "statements/debug.tt" name2="TEST7" %]
-[%SET TEST= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
-[%# INCLUDE "statements/debug.tt" name2="START_VAL" CURRENT=TEST %]
- <a href="[% c.uri_for_action('/statements/subjects') %]/[% TEST.object %]"> as Subject</a>
+<span class=template_name>[% component.name %]</span>
+[%# INCLUDE "statements/debug.tt" name2="LIST_VALUE7" %]
+[%SET LIST_VALUE= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
+[%# INCLUDE "statements/debug.tt" name2="START_VAL" CURRENT=LIST_VALUE %]
+ <a href="[% c.uri_for_action('/statements/subjects') %]/[% LIST_VALUE.object %]"> as Subject</a>
+
 [%IF RECURSIVE %]
-
 <ul>
-
-[%WHILE CURRENT.ObjectStmntPredicate(GCC.chan) -%]
-
-  <li>
-	[%# INCLUDE "statements/debug.tt" name2="LOOP_CHAIN"  %]
-	[%SET LIST_VALUE= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
-	[%IF  LIST_VALUE %]
-<span class=LIST_ELEMENT>CURRENT:[%# INCLUDE "statements/debug.tt" name2="LOOP VALUE" CURRENT=LIST_VALUE %]</span>
-[% SET TYPE= LIST_VALUE.ObjectStmntPredicate(RDF.type)  %]
-[% SET TID= TYPE.object  %]
-<span class=TID>[% TYPE.object  %]</span>
-<span class=TYPE>[%# INCLUDE "statements/debug.tt" name2="TYPE" CURRENT=TYPE %]</span>
-<span class=INCLUDE_VALUE>[%INCLUDE "GCC/include_tt.tt" CURRENT=LIST_VALUE %]</span>
-	[%END %]
-	[%CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs%]
-   </li>
+[%WHILE CURRENT.ObjectStmntPredicate(GCC.chan) -%]  
+    [% INCLUDE "GCC/object/tree_list_item.tt"  %]
+    [%CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs%]
 [%END -%]
-   <li>
-
-<span class=LIST_ELEMENT>CURRENT:[% INCLUDE "statements/debug.tt" name2="LAST_ITEM_IN_LOOP"  %]</span>
-[%SET VAL= CURRENT.ObjectStmntPredicate(GCC.valu).statement_object_stmt_subjs%]
-[%IF  VAL %]
-<span class="CURRENT"> CURRENT:[% INCLUDE "statements/debug.tt" name2="VALUE_OF_LAST_ITEM_IN_LOOP" CURRENT=VAL %]</span>
-[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
-[% SET TID= TYPE.object  %]
-      <span class="INCLUDE">[%INCLUDE "GCC/include_tt.tt" CURRENT=VAL %]</span>
-   </li>
-[%END %]
-
-   </ul>
+<!-- last item -->
+    [% INCLUDE "GCC/object/tree_list_item.tt"  %]
+</ul>
+[%ELSE%]
+NOT RECURSIVE.
 [%END #recursive %]
 
 <span>

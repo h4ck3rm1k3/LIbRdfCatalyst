@@ -1,0 +1,5 @@
+<span class=template_name>[% component.name %]</span><head>
+<title>[% template.title%]</title>
+<link rel="stylesheet" href="[% c.uri_for('/static/styles/main.css') %]" />
+<link rel="shortcut icon"  href="[% c.uri_for('/static/images/favicon.ico') %]" />
+</head>

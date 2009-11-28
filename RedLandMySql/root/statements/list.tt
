@@ -1,0 +1,31 @@
+<span class=template_name>[% template.name %]</span>[% META title = 'Statement List' -%]
+    [%  USE Dumper; %]
+  <table>
+  <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
+
+  [% FOREACH statement IN statements -%]
+  <tr>
+    <td>
+    <a class=SubjectLink href="[% c.uri_for_action('/statements/subjects') %]/[% statement.subject %]">Subject [%  statement.subject %] </a>
+    <a class=SubjectURI href="[%  statement.statement_subject_res.uri %]">Subject [%  statement.statement_subject_res.uri %]   id [% statement.subject %] </a>
+    <a class=ObjectLink href="[% c.uri_for_action('/statements/object')%]/[% statement.subject  %]">as Object [%  statement.subject %] </a>
+    <a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% statement.subject %]"> as Resource</a>
+</td>
+    <td>
+	[% statement.predicate %]
+      [% statement.statement_predicate_res.uri %]
+      <a class=PredicateLinke href="[% c.uri_for_action('/statements/predicate') %]/[% statement.predicate %]">Predicate [%  statement.predicate %] </a>
+</td>
+    <td>
+      [% statement.object %]
+       [% statement.statement_object_res.uri %]
+      VALUE:[% statement.statement_literal.value %] 
+      <a class=ObjectLink href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Objects [%  statement.object %] </a>
+      <a class=SubjectLink href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">Subject [%  statement.object %] </a>
+      <a class="ResourceLink" href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a>
+
+</td>
+  </tr>
+  [% END -%]
+
+</table>

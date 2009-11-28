@@ -1,10 +1,8 @@
-<span class=template_name>[% component.name %]</span>
+<span class=template_name>[% template.name %]</span><span class=include_object >
 [% #INCLUDE statements/debug.tt name2="INCLUDE OBJECT" %]
-
 
 [% PERL %]
 use Gcc::Structure;
-
 
 sub CheckObjectFile
 {
@@ -17,22 +15,10 @@ sub CheckObjectFile
     }
     return $val;
 }
-$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
 my $id = Gcc::Structure::GetRev($stash->get("TID"));
 my $val = CheckObjectFile($id);
-$stash->set("template_name_tid" =>  $val );
-
 [% END %]
 
-[% template_name_tid %]
-[% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
-[%#  "$template_name" %]
 
-[%IF LEVEL < 4 %]
 
-[% INCLUDE "$template_name" %]
-
-[%ELSE %]
-SKIPPING INCLUDE at [% level %]
-[%END  %]
 </span>

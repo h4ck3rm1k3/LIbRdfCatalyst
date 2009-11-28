@@ -1,0 +1,16 @@
+<span class=template_name>[% template.name %]</span>Pointer Type 
+->
+[% CURRENT.statement_object_res.uri %]
+[%SET NEXTTYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
+[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
+
+# now the PTD is the unique data of the pointer type
+          [% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
+      PTD :[% PTD.statement_object_res.uri %]
+
+# now process PTD
+[%SET CURRENT=PTD %]
+#BEFORE INCLUDE "GCC/processnode_type.tt"
+[%INCLUDE "GCC/processnode_type.tt" %]
+#AFTER INCLUDE "GCC/processnode_type.tt"
+
