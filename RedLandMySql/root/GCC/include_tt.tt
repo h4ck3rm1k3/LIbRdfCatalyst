@@ -17,6 +17,9 @@ if (! -f $template_name )
 }
  
 [% END %]
- [% SET template_name=  "GCC/${template_name_s}_type.tt" %]
- INCLUDE [%  "$template_name" %]:[% INCLUDE "$template_name" %]
+ [%# SET template_name=  "GCC/${template_name_s}_type.tt" %]
+ [%#  "$template_name" %]:[% INCLUDE "$template_name" %]
+
+ [% INCLUDE "GCC/include_common.tt" template_name="GCC/${template_name_s}_type.tt" %]
+
 </span>

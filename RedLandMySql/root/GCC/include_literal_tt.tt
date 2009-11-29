@@ -44,9 +44,9 @@ $stash->set("template_name_total" =>  CheckLiteralFile($stash->get("template_nam
 
 [% END %]
 [% template_name_tid %]
-[% SET template_name=  "GCC/literal/${template_name_total}.tt" %]
-[% INCLUDE "$template_name" %]
-<!-- INCLUDE [%  "$template_name" %] -->
+[%# SET template_name=  "GCC/literal/${template_name_total}.tt" %]
+[%# INCLUDE "$template_name" %]
+[% INCLUDE "GCC/include_common.tt" template_name="GCC/literal/${template_name_total}.tt" %]
 </span>
 
 </span>

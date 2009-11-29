@@ -1,0 +1,23 @@
+
+ $('#TblStatements').columnManager({listTargetID:'TblStatementsColNames', onClass: 'advon', offClass: 'advoff', hideInList: [1,4,5],
+ saveState: true, colsHidden: [1,3]});
+ $('#TblStatementsSubj').columnManager({listTargetID:'TblStatementsColNames', onClass: 'simpleon', offClass: 'simpleoff'});
+ $('#TblStatementsPred').columnManager({listTargetID:'TblStatementsColNames'});
+ $('#TblStatementsObj').columnManager({listTargetID:'TblStatementsColNames', hideInList:[1, 3]});
+
+ //create the clickmenu from the target
+ //$('#ulSelectColumn').clickMenu({onClick: function(){}});
+
+// $('#button').click(function(){
+// $('#tablesix').toggleColumns([+$('#number').val()]);
+// });
+
+ var opt = {listTargetID: 'targetall', onClass: 'advon', offClass: 'advoff', hide: function(c){$(c).fadeOut();}, show: function(c){$(c).fadeIn();}};
+ $('#buttonone').click(function(){ $('#tableall').toggleColumns(1, opt); });
+ $('#buttontwo').click(function(){ $('#tableall').toggleColumns(2, opt); });
+ $('#buttonthree').click(function(){ $('#tableall').toggleColumns(3, opt); });
+
+ $('#buttonshowall').click(function(){ $('#tableall').showColumns(null, opt); });
+ $('#buttonshow').click(function(){ $('#tableall').showColumns([1], opt); });
+ $('#buttonhide').click(function(){ $('#tableall').hideColumns([2, 3], opt); });
+

@@ -1,10 +1,33 @@
 <span class=template_name>[% component.name %]</span>[% META title = 'Statement List' -%]
 [% INCLUDE "statements/header.tt" %]
+
     [%  USE Dumper; %]
-  <table>
-  <tr><th>Subject</th><th>Predicate</th>
-  <th>Object</th>
-</tr>
+<div id=TblStatementsColNames class="target">toggle columns:
+<ul>
+<li id=TblStatementsSubj class="undefined">Subjects</li>
+<li id=TblStatementsPred class="undefined">Predicates</li>
+<li id=TblStatementsObj class="undefined">Objects</li>
+</ul>
+</div>
+<div class="clear"></div>
+<!--  -->
+<table id="TblStatements" class="table-autosort" >
+
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Predicate</th>
+      <th>Object</th>     
+      <th id="thSelectColumn">
+	<ul id="ulSelectColumn">
+	  <li>
+	    <img src="selectcol.png" alt="select columns" title="select columns" />
+	    <ul id="TblStatementsColNames"></ul>
+	  </li>
+	</ul>
+      </th>
+    </tr>
+  </thead>
 
   [% FOREACH statement IN statements -%]
   [% INCLUDE "statements/data_item.tt" %]

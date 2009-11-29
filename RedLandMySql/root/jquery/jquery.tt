@@ -1,14 +1,49 @@
 [%# USAGE: INCLUDE "jquery/jquery.tt" %]
- <a class=TypeLink href="[% c.uri_for_action('/statements/subjects') %]/[% TID %]"> as Subject</a></span>
-<script type="text/javascript" src="[% c.uri_for('/jquery/jquery.js') %]"></script>
+ [% jquery.script_src_elements %]
+ [% jquery.link_elements %]
+ [% jquery.document_ready %]
+<script type="text/javascript" src="[% c.uri_for('/static/jquery/jquery.js') %]"></script>
+<!--
+http://p.sohei.org/wp-content/jquery/jquery-1.2.2.pack.js
+-->
+<script type="text/javascript" src="[% c.uri_for('/static/jquery/chili.js') %]"></script>
+<!-- http://p.sohei.org/wp-content/jquery/chili/chili.js -->
+<script type="text/javascript" src="[% c.uri_for('/static/jquery/jquery.cookie.js')%]"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/jquery/jquery.clickmenu.pack.js') %]"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/jquery/jquery.columnmanager.js') %]"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/js/table.js') %]"></script>
 
 
  <script type="text/javascript">
      $(document).ready(function(){
-       $("a").click(function(event){
-         alert("As you can see, the link no longer took you to you to the page");
+   
+
+    $("a").click(function(event){
+
+         alert(event.currentTarget.href);
+/*         alert("As you can see, the link no longer took you to you to the page");
          event.preventDefault();
+*/
+
        });
+
+      $('ul.sf-menu').superfish(); 
      });
+
+ $("span").click(function(event){
+   event.preventDefault();
+   $(this).hide("slow");
+ });
+
+
+
+
+
+<!-- Include the column manager plugin for jquery-->
+[% INCLUDE "jquery/colmngr.tt" %]
+<!-- end of Include the column manager plugin for jquery-->
      
    </script>
+
+
+  

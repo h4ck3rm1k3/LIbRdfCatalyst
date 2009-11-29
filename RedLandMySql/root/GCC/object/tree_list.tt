@@ -5,7 +5,7 @@
  <a href="[% c.uri_for_action('/statements/subjects') %]/[% LIST_VALUE.object %]"> as Subject</a>
 
 [%IF RECURSIVE %]
-<ul>
+<ul class="sf-menu">
 [%WHILE CURRENT.ObjectStmntPredicate(GCC.chan) -%]  
     [% INCLUDE "GCC/object/tree_list_item.tt"  %]
     [%CURRENT=CURRENT.ObjectStmntPredicate(GCC.chan).statement_object_stmt_subjs%]

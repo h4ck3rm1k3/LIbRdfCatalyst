@@ -32,7 +32,7 @@ $stash->set(template_name_statement =>  CheckFile( $template));
 
 
 [% END %]
-      [% SET template_name=  "GCC/${template_name_statement}.tt" %]
-      [% INCLUDE "$template_name" %]
-      [% #INCLUDE "$template_name" %]
+
+[% INCLUDE "GCC/include_common.tt" template_name="GCC/${template_name_statement}.tt" %]
+
 </span>

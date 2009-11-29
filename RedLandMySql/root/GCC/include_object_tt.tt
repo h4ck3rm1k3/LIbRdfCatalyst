@@ -24,10 +24,8 @@ $stash->set("template_name_tid" =>  $val );
 
 [% END %]
 [% template_name_tid %]
-[% SET template_name=  "GCC/object/${template_name_tid}.tt" %]
-[%#  "$template_name" %]
 [%IF LEVEL < 4 %]
-[% INCLUDE "$template_name" %]
+[% INCLUDE "GCC/include_common.tt" template_name="GCC/object/${template_name_tid}.tt" %]
 [%ELSE %]
 SKIPPING INCLUDE at [% level %]
 [%END  %]
