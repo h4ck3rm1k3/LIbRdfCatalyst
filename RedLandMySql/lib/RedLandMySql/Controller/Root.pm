@@ -16,39 +16,6 @@ my $jquery_ui_version = '1.7.1';
 __PACKAGE__->config(
     default_view => 'TT',
     'View::TT' => {
-        'JavaScript::Framework::jQuery' => {
-            library => {
-                src => [
-                "http://ajax.googleapis.com/ajax/libs/jquery/${jquery_version}/jquery.min.js",
-                "http://ajax.googleapis.com/ajax/libs/jqueryui/${jquery_ui_version}/jquery-ui.min.js",
-                ],
-                css => [
-                {
-                    href => '/static/css/theme/jquery-ui.custom.css',
-                    media => 'all',
-                },
-                ],
-            },
-            plugins => [
-                {
-                    name => 'Superfish',
-                    library => {
-                        src => [
-                        '/static/js/hoverIntent.js',
-                        '/static/js/superfish.js',
-                        '/static/js/supersubs.js',
-                        ],
-                        css => [
-                        { href => '/static/css/superfish.css', media => 'all' },
-                        { href => '/static/css/superfish-vertical.css', media => 'all' },
-                        { href => '/static/css/superfish-navbar.css', media => 'all' },
-                        { href => '/static/site/css/superfish.css', media => 'all' },
-                        { href => '/static/site/css/superfish-skin.css', media => 'all' },
-                        ],
-                    },
-                },
-            ],
-        },
     },
 );
 
@@ -130,45 +97,46 @@ __PACKAGE__->config(namespace => q{});
 sub begin :Private {
     my ( $self, $c ) = @_;
 
-    my $suckerfish = CatalystX::Menu::Suckerfish->new(
-        context => $c,
-        ul_id => 'navmenu',
-        ul_class => 'sf-menu',
-        menupath_attr => 'MenuPath',
-        menutitle_attr => 'MenuTitle',
-        text_container => {
-            element => 'span',
-            attrs => { class => 'sf-label' },
-        },
-        add_nodes => [
-            {
-                menupath => '/Other sites/Google',
-                menutitle => 'Google',
-                uri => 'http://google.com',
-            },
-            {
-                menupath => '/Other sites/Yahoo',
-                menutitle => 'Yahoo',
-                uri => 'http://yahoo.com',
-            },
-        ],
-    );
+#     my $suckerfish = CatalystX::Menu::Suckerfish->new(
+#         context => $c,
+#         ul_id => 'navmenu',
+#         ul_class => 'sf-menu',
+#         menupath_attr => 'MenuPath',
+#         menutitle_attr => 'MenuTitle',
+#         text_container => {
+#             element => 'span',
+#             attrs => { class => 'sf-label' },
+#         },
+#         add_nodes => [
+#             {
+#                 menupath => '/Other sites/Google',
+#                 menutitle => 'Google',
+#                 uri => 'http://google.com',
+#             },
+#             {
+#                 menupath => '/Other sites/Yahoo',
+#                 menutitle => 'Yahoo',
+#                 uri => 'http://yahoo.com',
+#             },
+#         ],
+#     );
 
-    $c->view('TT')->jquery->construct_plugin(
-        name => 'Superfish',
-        target_selector => 'ul.sf-menu',
-        use_supersubs => 1,
-        options =>
-'delay : 500,
-animation : { opacity : "show" },
-dropShadows : true',
-        supersubs_options =>
-'minWidth : 12,
-maxWidth : 13,
-extraWidth : 1',
-    );
+#     $c->view('TT')->jquery->construct_plugin(
+#         name => 'Superfish',
+#         target_selector => 'ul.sf-menu',
+#         use_supersubs => 1,
+#         options =>
+# 'delay : 500,
+# animation : { opacity : "show" },
+# dropShadows : true',
+#         supersubs_options =>
+# 'minWidth : 12,
+# maxWidth : 13,
+# extraWidth : 1',
+#     );
 
-    $c->stash(menu => $suckerfish->output);
+#     $c->stash(menu => $suckerfish->output);
+
 }
 
 #sub end :Private {

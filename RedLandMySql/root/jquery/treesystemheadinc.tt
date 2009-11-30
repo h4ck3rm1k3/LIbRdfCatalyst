@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="[% c.uri_for('/static/css/jquery.treeview.css')%]"/>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.js') %]"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.cookie.js') %]"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.treeview.js') %]"></script>

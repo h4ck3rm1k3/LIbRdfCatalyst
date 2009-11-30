@@ -1,0 +1,11 @@
+<ul class="sf-menu">
+    	<li class="current-cat"><a href="[% c.uri_for('/statements')  %]">Statements</a></li>
+        <li>
+   		<a href="#">Fields</a>
+    		<ul>
+    			    	<li >Subject</li>
+    			    	<li >Predicate</li>
+    			    	<li >Object</li>
+    		</ul>
+    	</li>
+    </ul>

@@ -1,0 +1,20 @@
+[% INCLUDE "statements/header.tt" %]
+<body>
+
+<div id="sidetree">
+<div class="treeheader">&nbsp;</div>
+<div id="sidetreecontrol"><a href="?#">Collapse All</a> | <a href="?#">Expand All</a></div>
+
+<ul id="MyTreeView">
+	<li>Statements
+	<ul>
+[% FOREACH statement IN statements -%]
+[% INCLUDE "statements/data_item_tree.tt" %]
+[% END -%]</ul>
+	</li>
+</ul>
+</div>
+
+</div>
+
+</body>

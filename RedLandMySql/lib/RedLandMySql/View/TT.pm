@@ -1,11 +1,11 @@
 package RedLandMySql::View::TT;
 
 use strict;
-#use base 'Catalyst::View::TT';
+use base 'Catalyst::View::TT';
 
- use Moose;
- extends 'Catalyst::View::TT';
- with 'Catalyst::View::Component::jQuery';
+# use Moose;
+#a extends 'Catalyst::View::TT';
+# with 'Catalyst::View::Component::jQuery';
 
 use Template::Constants qw( :debug );
 
