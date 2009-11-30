@@ -1,49 +1,57 @@
-<span class=template_name>[% component.name %]</span><span class=Debug > 
-<b>TEST:[% name2 %]</b>
-[%IF CURRENT %]
-[%ELSE %]
-<span class=ERROR>NO DATA</span>
-[%END %]
-[%IF CURRENT.statement_literal.value %]
-<span class=LiteralValue>LITERAL: [% CURRENT.statement_literal.value %]</span>
-[%END %]
-<div class=DebugSubject > 
-[% SET CURRENTID= CURRENT.subject %]
-[% SET OTHER_TYPE = CURRENT.statement_object_stmt_subjs.ObjectStmntPredicate(RDF.type) %]
-[% SET OTID= OTHER_TYPE.object  %]
-[% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
-[% SET TID= TYPE.object  %]
-<span class=Type>TYPE:[% TYPE.statement_object_res.uri %]</span>
-<span class=TypeID>TID: <a class=TypeLink href="[% c.uri_for_action('/statements/subjects') %]/[% TID %]"> as Subject</a></span>
-<p>
-<div class=Subject><span class=Title>Subject:</span>
-<span class=Subject>[% CURRENT.statement_subject_res.uri %]</span>
-<a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.subject %]"> Object</a>
-<a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
-<a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.subject %]"> as Resource</a>
-<a class=LiteralLink  href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.subject %]"> as Literal</a>
-</div>
-<p>
-<div class=Predicate><span class=Title>Predicate:</span>
-<span class=Predicate> [% CURRENT.predicate %]</span>
-<span class=PredicateUri>[% CURRENT.statement_predicate_res.uri %]</span>
-<a class=Predicate href="[% c.uri_for_action('/statements/predicate') %]/[% CURRENT.predicate %]">Predicate [%  CURRENT.predicate %] </a>
-</div>
-<p>
-<div class=ObjectData><span class=Title>Object:</span>
-<span class=ObjectUri>[% CURRENT.statement_object_res.uri %]</span>
-<span class=Literal>[% CURRENT.statement_literal.value %]</span>
-<a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.object %]"> Object</a>
-<a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.object %]"> as Subject</a>
-<a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.object %]"> as Resource</a>
-<a class=Literal      href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.object %]"> as Literal</a>
-</div>
-<span class=OBJECT_TYPE> OTHER_TYPE1:[% OTHER_TYPE.statement_object_res.uri  %]</span>a
-<span class=OBJECT_TYPE_ID>OTID: <a href="[% c.uri_for_action('/statements/subjects') %]/[% OTID %]"> as Subject</a></span>
-[%INCLUDE statements/NAMEBLOCK.tt %]
-INCLUDE FILES
-[%#INCLUDE "GCC/include_literal_tt.tt"%]
-[%#INCLUDE "GCC/include_object_tt.tt"%]
-[%#INCLUDE "GCC/include_tt.tt"%]
-END INCLUDE FILES
-</span>
+<ul class=template_name>[% component.name %] >
+  <li>TEST:[% name2 %]</li>
+  [%IF CURRENT %]
+  [%ELSE %]
+  <li class=ERROR>NO DATA</li>
+  [%END %]
+  [%IF CURRENT.statement_literal.value %]
+  <li class=LiteralValue>LITERAL: [% CURRENT.statement_literal.value %]</li>
+  [%END %]
+  <li>Subject
+    <ul class=DebugSubject > Subject
+      [% SET CURRENTID= CURRENT.subject %]
+      [% SET OTHER_TYPE = CURRENT.statement_object_stmt_subjs.ObjectStmntPredicate(RDF.type) %]
+      [% SET OTID= OTHER_TYPE.object  %]
+      [% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
+      [% SET TID= TYPE.object  %]
+      <li class=Type>TYPE:[% TYPE.statement_object_res.uri %]</li>
+      <li class=TypeID>TID: <a class=TypeLink href="[% c.uri_for_action('/statements/subjects') %]/[% TID %]"> as Subject</a></li>
+      <li>Subject:
+	<ul class=Subject>
+	  <li class=Subject>[% CURRENT.statement_subject_res.uri %]</li>
+	  <li><a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.subject %]"> Object</a>
+	  <li><a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.subject %]"> as Subject</a>
+	  <li><a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.subject %]"> as Resource</a>
+	  <li><a class=LiteralLink  href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.subject %]"> as Literal</a>
+	</ul>
+      </li>
+    </ul>
+  </li>
+  <li class=Title>Predicate:
+    <ul class=Predicate>
+      <li class=Predicate>[% CURRENT.predicate %]</li>
+      <li class=PredicateUri>[% CURRENT.statement_predicate_res.uri %]</li>
+      <li><a class=Predicate href="[% c.uri_for_action('/statements/predicate') %]/[% CURRENT.predicate %]">Predicate [%  CURRENT.predicate %] </a></li>
+    </ul>
+  </li>
+  <li class=Title>Object:
+    <ul class=ObjectData>
+      <li class=ObjectUri>[% CURRENT.statement_object_res.uri %]</li>
+      <li class=Literal>[% CURRENT.statement_literal.value %]</li>
+      <li><a class=ObjectLink   href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.object %]"> Object</a>
+      <li><a class=SubjectLink  href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.object %]"> as Subject</a>
+      <li><a class=ResourceLink href="[% c.uri_for_action('/statements/Resource') %]/[% CURRENT.object %]"> as Resource</a>
+      <li><a class=Literal      href="[% c.uri_for_action('/statements/literal') %]/[% CURRENT.object %]"> as Literal</a>
+    </ul>
+  </li>
+  <li class=OBJECT_TYPE> OTHER_TYPE1:[% OTHER_TYPE.statement_object_res.uri  %]</li>
+  <li class=OBJECT_TYPE_ID>OTID: <a href="[% c.uri_for_action('/statements/subjects') %]/[% OTID %]"> as Subject</a></li>
+  <li>Name
+    [%INCLUDE statements/NAMEBLOCK.tt %]
+    INCLUDE FILES
+    [%#INCLUDE "GCC/include_literal_tt.tt"%]
+    [%#INCLUDE "GCC/include_object_tt.tt"%]
+    [%#INCLUDE "GCC/include_tt.tt"%]
+    END INCLUDE FILES
+  </li>
+</ul>

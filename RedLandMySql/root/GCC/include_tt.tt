@@ -1,4 +1,4 @@
-<span class=template_name>[% component.name %]</span><!-- padding:8px 10px 10px 10px;-->
+<li class=template_name>[% component.name %]</span><!-- padding:8px 10px 10px 10px;-->
 [%#expects  TID as a parameter %]
 [% PERL %]     
 ## get the name of the template from a hash.
@@ -17,9 +17,7 @@ if (! -f $template_name )
 }
  
 [% END %]
- [%# SET template_name=  "GCC/${template_name_s}_type.tt" %]
- [%#  "$template_name" %]:[% INCLUDE "$template_name" %]
-
- [% INCLUDE "GCC/include_common.tt" template_name="GCC/${template_name_s}_type.tt" %]
-
-</span>
+[%# SET template_name=  "GCC/${template_name_s}_type.tt" %]
+[%#  "$template_name" %]:[% INCLUDE "$template_name" %]
+[% INCLUDE "GCC/include_common.tt" template_name="GCC/${template_name_s}_type.tt" %]
+</li>

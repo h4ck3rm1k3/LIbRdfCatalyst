@@ -1,7 +1,7 @@
 [%# common includes for all including systems %]
-<!--<ul class="sf-menu">
-<li>-->
+<ul>
+<li>
 INCLUDE [% "$template_name" %]:[% INCLUDE "$template_name" %]
-<!--</li>
-</ul>-->
+</li>
+</ul>
 

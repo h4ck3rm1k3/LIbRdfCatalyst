@@ -11,9 +11,9 @@
    [% SET CURRENTID= CURRENT.subject %]
    [% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
    [% SET TID= CURRENT.ObjectStmntPredicate(RDF.type).object  %]
-   [%#INCLUDE "GCC/include_object_tt.tt" RECURSIVE=1 LEVEL=1 %]
+   [% INCLUDE "GCC/include_object_tt.tt" RECURSIVE=1 LEVEL=1 %]
    [% ELSE %]
-   [% #INCLUDE "statements/literal_item.tt" %]
+   [% INCLUDE "statements/literal_item.tt" %]
    [% END %]
  </li>
  </ul>
