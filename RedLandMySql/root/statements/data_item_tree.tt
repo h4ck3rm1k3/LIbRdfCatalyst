@@ -1,20 +1,25 @@
 <li>[% statement.statement_predicate_res.uri %]
+
  <ul>
- <li>     [% statement.object %]</li>
- <li>    [% statement.statement_object_res.uri %]</li>
- <li><a class="ObjectLink" href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a></li>
+ <li>ObjectID:[% statement.object %]</li>
+ <li>ObjectUri:[% statement.statement_object_res.uri %]</li>
+ <li>Object<a class="ObjectLink" href="[% c.uri_for_action('/statements/object')%]/[% statement.object  %]">Object [%  statement.object %] </a></li>
  <li><a class="ResourceLink" href="[% c.uri_for_action('/statements/Resource') %]/[% statement.object %]"> as Resource</a></li>
  <li><a class="SubjectLink" href="[% c.uri_for_action('/statements/subjects')%]/[% statement.object  %]">as Subject [%  statement.object %] </a></li>
+
  <li>Contents
    [% SET CURRENT= statement.statement_object_stmt_subjs %]
    [% IF CURRENT %]
    [% SET CURRENTID= CURRENT.subject %]
    [% SET TYPE= CURRENT.ObjectStmntPredicate(RDF.type)  %]
    [% SET TID= CURRENT.ObjectStmntPredicate(RDF.type).object  %]
+<ul>
    [% INCLUDE "GCC/include_object_tt.tt" RECURSIVE=1 LEVEL=1 %]
    [% ELSE %]
    [% INCLUDE "statements/literal_item.tt" %]
    [% END %]
+</ul>
  </li>
+
  </ul>
 </li>

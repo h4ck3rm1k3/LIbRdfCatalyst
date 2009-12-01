@@ -1,5 +1,5 @@
-<ul class=template_name>[% component.name %] >
-  <li>TEST:[% name2 %]</li>
+<li>[% component.name %] /TEST:[% name2 %]
+<ul class=template_name>
   [%IF CURRENT %]
   [%ELSE %]
   <li class=ERROR>NO DATA</li>
@@ -55,3 +55,4 @@
     END INCLUDE FILES
   </li>
 </ul>
+</li>

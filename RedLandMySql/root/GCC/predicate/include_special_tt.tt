@@ -1,8 +1,6 @@
-<span class=predicate_include_special_tt >
+<li class=predicate_include_special_tt >
 [%#expects   SID,PID,OID as parameters %]
-
 [% PERL %]     
-
 sub CheckFile
 {
     my $val =shift;
@@ -17,21 +15,13 @@ sub CheckFile
     }
     return $val;
 }
- 
-
 ## get the name of the template from a hash.
 use Gcc::Structure;
 $stash->set("template_name_sid" =>  CheckFile(Gcc::Structure::GetRev($stash->get("SID")) ));
 $stash->set("template_name_oid" =>  CheckFile(Gcc::Structure::GetRev($stash->get("OID")) ));
 $stash->set("template_name_pid" =>  CheckFile(Gcc::Structure::GetRev($stash->get("PID")) ));
-
 my $template= $stash->get("template_name_sid")  . "-" . $stash->get("template_name_pid") . "-" . $stash->get("template_name_oid");
-
 $stash->set(template_name_statement =>  CheckFile( $template));
-
-
-[% END %]
-      [% SET template_name=  "GCC/${template_name_statement}.tt" %]
-      [% INCLUDE "$template_name" %]
-      [% #INCLUDE "$template_name" %]
-</span>
+ END %]
+<li>[% INCLUDE "GCC/include_common.tt" template_name="GCC/${template_name_statement}.tt" %]
+</li>

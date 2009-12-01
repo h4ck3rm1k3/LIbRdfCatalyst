@@ -1,16 +1,15 @@
-
-processnode.CURRENT: [% CURRENT.statement_object_res.uri %]
-ID : [% CURRENT.statement_subject_res.id %]
-<a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.statement_subject_res.id %]"> Object</a>
-<a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.statement_subject_res.id %]"> as Subject</a>
- 
-[%SET TYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
+<li>
+<ul>
+<li>processnode.CURRENT: [% CURRENT.statement_object_res.uri %]
+<li>ID : [% CURRENT.statement_subject_res.id %]
+<li><a href="[% c.uri_for_action('/statements/object') %]/[% CURRENT.statement_subject_res.id %]"> Object</a>
+<li><a href="[% c.uri_for_action('/statements/subjects') %]/[% CURRENT.statement_subject_res.id %]"> as Subject</a>
+<li>[%SET TYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
 [% SET template_name_s1=  TYPE.object.GetRev(TYPE.object) %]
 TYPE: [% TYPE.statement_object_res.uri %]
-ID : [% TYPE.statement_subject_res.id %]
-<a href="[% c.uri_for_action('/statements/object') %]/[% TYPE.statement_subject_res.id %]"> Object</a>
-<a href="[% c.uri_for_action('/statements/subjects') %]/[% TYPE.statement_subject_res.id %]"> as Subject</a>
-
+<li>ID : [% TYPE.statement_subject_res.id %]
+<li><a href="[% c.uri_for_action('/statements/object') %]/[% TYPE.statement_subject_res.id %]"> Object</a>
+<li><a href="[% c.uri_for_action('/statements/subjects') %]/[% TYPE.statement_subject_res.id %]"> as Subject</a>
 [% SET TID= TYPE.object %]
 [% PERL %]     
 ## get the name of the template from a hash.
@@ -18,10 +17,10 @@ use Gcc::Structure;
 my $tid = $stash->get("TID");
 my $val = Gcc::Structure::GetRev($tid );
 $stash->set(template_name_s =>  $val  );
-
 [% END %]
       [% SET template_name=  "GCC/${template_name_s}.tt" %]
-<span class=predicate_processnode   >
+<li><ul class=predicate_processnode   >
       [% #INCLUDE "$template_name" %]
       #INCLUDE [%  "$template_name" %]
-</span>
+</ul>
+</li>

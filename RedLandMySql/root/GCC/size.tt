@@ -1,4 +1,4 @@
-<span class=template_name>[% component.name %]</span>
+<li class=template_name>[% component.name %]</li>
 [% SET LOW = SIZE.ObjectStmntPredicate(GCC.low) %]     
-SIZEid:  [% LOW.statement_literal.id %]
-SIZEval:  [% LOW.statement_literal.value %]
+<li>SIZEid:  [% LOW.statement_literal.id %]</li>
+<li>SIZEval:  [% LOW.statement_literal.value %]</li>

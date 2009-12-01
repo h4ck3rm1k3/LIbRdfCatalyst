@@ -1,17 +1,13 @@
-<span class=template_name>[% component.name %]</span>
-ID : [% CURRENT.statement_subject_res.id %]
+<li class=template_name>[% component.name %]</li>
+<li>ID : [% CURRENT.statement_subject_res.id %]
 [%SET TYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
 [% SET TID= TYPE.object %]
 [% PERL %]     
-
 my $tid =$stash->get("TID");
 ## get the name of the template from a hash.
 use Gcc::Structure;
 my $val = Gcc::Structure::GetRev($tid );
-
 [% END %]
 
-<span class=variable_node >
-</span>
 
 

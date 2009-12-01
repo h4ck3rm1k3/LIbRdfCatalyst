@@ -1,15 +1,13 @@
-<span class=template_name>[% component.name %]</span>->
-[% CURRENT.statement_object_res.uri %]
+<li class=template_name>[% component.name %]
+<ul>
+<li>[% CURRENT.statement_object_res.uri %]</li>
 [%SET NEXTTYPE = CURRENT.ObjectStmntPredicate(RDF.type) %]
-[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] 
-
-# now the PTD is the unique data of the pointer type
-          [% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
-      PTD :[% PTD.statement_object_res.uri %]
-
-# now process PTD
+<li>type[% INCLUDE "GCC/type.tt" # all pointers objects have a size?%] </li>
+[% SET PTD = CURRENT.ObjectStmntPredicate(GCC.ptd) %]
+<li>PTD :[% PTD.statement_object_res.uri %]</li>
 [%SET CURRENT=PTD %]
-#BEFORE INCLUDE "GCC/processnode_type.tt"
+<li>INCLUDE:
 [%INCLUDE "GCC/processnode_type.tt" %]
-#AFTER INCLUDE "GCC/processnode_type.tt"
-
+</li>
+</ul>
+</li>

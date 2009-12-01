@@ -1,4 +1,4 @@
-<span class=template_name>[% component.name %]</span>
+<li class=template_name>[% component.name %]</li>
 [% INCLUDE "GCC/size.tt" # all types objects have a size?%] 
 
 [% INCLUDE "GCC/node.tt" # all nodes are printed %]
