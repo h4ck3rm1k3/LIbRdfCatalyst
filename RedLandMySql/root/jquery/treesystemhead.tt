@@ -1,8 +1,3 @@
-//    alert("inside");
-//    $("#MyTreeView").treeview();
-    $("#MyTreeView").treeview({
-				collapsed: true,
-				animated: "medium",
-				control:"#sidetreecontrol",
-				persist: "location"
-			});
+// -*- javascript-mode -*-
+$("#MyTreeView").tree();
+

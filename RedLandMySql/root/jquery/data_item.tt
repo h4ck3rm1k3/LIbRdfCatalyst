@@ -1,0 +1,10 @@
+({ 
+	attributes: { id : "node-[% statement.object %]", head: 1 }, 
+	data:{ title: "node_title" }, 
+	// Properties below are only used for NON-leaf nodes
+	state: "open", // or "open"
+	opts : {
+	    method : "GET",
+	    url : "[% c.uri_for('/jquery/json/') %][% statement.object %]"
+	}
+}),

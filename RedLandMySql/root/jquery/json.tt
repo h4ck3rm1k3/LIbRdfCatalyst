@@ -1,0 +1,11 @@
+({ 
+	attributes: { "id" : "[%param%]" }, 
+	data: "node_title", 
+	state: "open", 
+	children: [ 
+	/* an array of child nodes objects */ 
+[% FOREACH statement IN statements -%]
+[% INCLUDE "jquery/data_item.tt" %]
+[% END -%]
+	]
+})

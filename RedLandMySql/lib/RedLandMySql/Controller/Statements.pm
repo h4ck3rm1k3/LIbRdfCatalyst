@@ -295,6 +295,21 @@ sub tree :   Path('/statements/tree')    Args(1)
     $c->stash->{template} = 'statements/tree.tt';
 }
 
+sub tree_json :   Path('/jquery/json')    Args(1) 
+{
+    my ($self, $c, $sid) = @_;
+    $c->stash->{param} = $sid;    
+    Gcc::Structure::CreateStash($c->stash);
+    $c->stash->{statements} = [
+	$c->model('DB::Statements17546201007601059027')->search(
+	    {
+		subject => $sid 		
+	    }
+	)
+	];
+    $c->stash->{template} = 'jquery/json.tt';
+}
+
 sub predicate :   Path('/statements/predicate')    Args(1) 
 {
     my ($self, $c, $sid) = @_;
