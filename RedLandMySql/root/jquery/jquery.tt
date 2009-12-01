@@ -5,14 +5,10 @@
 [% jquery.document_ready %]
     <script type="text/javascript" src="[%c.uri_for('/static/js/jquery-1.3.2.min.js')%]"></script> 
 [% INCLUDE "jquery/treesystemheadinc.tt" %]
-
     <script type="text/javascript">
     $(document).ready(function(){
 [% INCLUDE "jquery/treesystemhead.tt" %]     
     });
-
-
-
 </script>
 
 

@@ -1,3 +1,14 @@
 // -*- javascript-mode -*-
-$("#MyTreeView").tree();
+
+$("#MyTreeView").tree({
+    data : { 
+	type : "json",
+	async : true,
+	opts : {
+	    method : "GET",
+	    url : "[% c.uri_for('/jquery/json/') %][% param %]"
+	}
+}
+}	
+);
 

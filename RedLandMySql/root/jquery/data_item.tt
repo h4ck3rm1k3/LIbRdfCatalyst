@@ -1,6 +1,7 @@
 ({ 
-	attributes: { id : "node-[% statement.object %]", head: 1 }, 
-	data:{ title: "node_title" }, 
+	attributes: { id : "[% statement.object %]"}, 
+	data:{ title: "node [% statement.statement_object_res.uri %]  / [% statement.object %]"        }, 
+	async : true,
 	// Properties below are only used for NON-leaf nodes
 	state: "open", // or "open"
 	opts : {

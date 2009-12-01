@@ -1,23 +1,7 @@
 [% INCLUDE "statements/header.tt" %]
 <body>
 
-<div id=container>
-<div id=demo>
-<div class="demo source" id="MyTreeView">
-		<ul>
-			<li id="phtml_1" class="open"><a href="#"><ins>&nbsp;</ins>Root node 1</a>
-				<ul>
-					<li id="phtml_2"><a href="#"><ins>&nbsp;</ins>Child node 1</a></li>
-					<li id="phtml_3"><a href="#"><ins>&nbsp;</ins>Child node 2</a></li>
-
-					<li id="phtml_4"><a href="#"><ins>&nbsp;</ins>Some other child node with longer text</a></li>
-				</ul>
-			</li>
-			<li id="phtml_5"><a href="#"><ins>&nbsp;</ins>Root node 2</a></li>
-		</ul>
-	</div>
-
-<div  id="MyTreeView2"></div>
+<div  id="MyTreeView"></div>
 </div>
 </div>
 </body>
