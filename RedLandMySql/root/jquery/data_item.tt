@@ -1,11 +1,22 @@
 ({ 
 	attributes: { id : "[% statement.object %]"}, 
-	data:{ title: "node [% statement.statement_predicate_res.uri %]  / [% statement.statement_object_res.uri %]"        }, 
+
 	async : true,
 	// Properties below are only used for NON-leaf nodes
 	state: "open", // or "open"
+  [%IF statement.statement_literal.value %]
+	data:{ title: "node [% statement.statement_predicate_res.uri %]  / [% statement.statement_literal.value %]"   }, 
+	opts : {
+	    url : false
+	}
+  [%ELSE %]
+	data:{ title: "node [% statement.statement_predicate_res.uri %]  / [% statement.statement_object_res.uri %]"        }, 
+
 	opts : {
 	    method : "GET",
 	    url : "[% c.uri_for('/jquery/json/') %][% statement.object %]"
 	}
+
+  [%END %]
+
 }),

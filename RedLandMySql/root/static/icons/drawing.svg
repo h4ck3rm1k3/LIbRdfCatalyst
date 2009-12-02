@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-164.74567 : 539.67363 : 1"
+       inkscape:vp_y="0 : 958.48845 : 0"
+       inkscape:vp_z="931.24846 : 539.67363 : 1"
+       inkscape:persp3d-origin="383.25139 : 371.56079 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="239.81888"
+     inkscape:cy="656.78427"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="621"
+     inkscape:window-height="717"
+     inkscape:window-x="433"
+     inkscape:window-y="348"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2868">
+      <rect
+         y="318.99142"
+         x="101.01525"
+         height="67.680222"
+         width="193.9493"
+         id="rect2848"
+         style="fill:#ff0000;fill-opacity:1" />
+      <text
+         id="text2824"
+         y="366.64789"
+         x="132.58739"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="366.64789"
+           x="132.58739"
+           id="tspan2826"
+           sodipodi:role="line">CONST</tspan></text>
+    </g>
+    <g
+       id="g2873">
+      <rect
+         y="414.95593"
+         x="105.05586"
+         height="73.741135"
+         width="173.74623"
+         id="rect2850"
+         style="fill:#00ffff;fill-opacity:1" />
+      <text
+         id="text2828"
+         y="464.42456"
+         x="148.54678"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="464.42456"
+           x="148.54678"
+           id="tspan2830"
+           sodipodi:role="line">SIZE</tspan></text>
+    </g>
+    <g
+       id="g2857">
+      <g
+         inkscape:export-ydpi="10.38"
+         inkscape:export-xdpi="10.38"
+         inkscape:export-filename="/home/mdupont/2009/11/RedLandMySql/root/static/icons/Type.png"
+         inkscape:corner7="0.64831056 : 0.93755658 : 0.25 : 1"
+         inkscape:corner0="0.86023621 : 1.0514938 : 0 : 1"
+         inkscape:perspectiveID="#perspective10"
+         id="g2834"
+         style="fill:#00ff00;fill-opacity:1"
+         sodipodi:type="inkscape:box3d">
+        <path
+           d="m 224.78209,114.75593 43.48653,-44.424829 0,57.528789 -43.48653,38.64736 z"
+           inkscape:box3dsidetype="11"
+           style="fill:#e9e9ff;fill-rule:evenodd;stroke:none"
+           id="path2846"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="m 129.83899,61.277158 0,58.706262 94.9431,46.52383 0,-51.75132 z"
+           inkscape:box3dsidetype="6"
+           style="fill:#353564;fill-rule:evenodd;stroke:none"
+           id="path2836"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 129.83899,61.277158 167.71417,3.2385479 268.26862,70.331101 224.78209,114.75593 z"
+           inkscape:box3dsidetype="5"
+           style="fill:#4d4d9f;fill-rule:evenodd;stroke:none"
+           id="path2838"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="m 129.83899,119.98342 37.87518,-50.490665 100.55445,58.367135 -43.48653,38.64736 z"
+           inkscape:box3dsidetype="13"
+           style="fill:#afafde;fill-rule:evenodd;stroke:none"
+           id="path2844"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="m 167.71417,3.2385479 0,66.2542071 100.55445,58.367135 0,-57.528789 z"
+           inkscape:box3dsidetype="14"
+           style="fill:#d7d7ff;fill-rule:evenodd;stroke:none"
+           id="path2842"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="m 129.83899,61.277158 37.87518,-58.0386101 0,66.2542071 -37.87518,50.490665 z"
+           inkscape:box3dsidetype="3"
+           style="fill:#8686bf;fill-rule:evenodd;stroke:none"
+           id="path2840"
+           sodipodi:type="inkscape:box3dside" />
+      </g>
+      <text
+         inkscape:export-ydpi="10.38"
+         inkscape:export-xdpi="10.38"
+         inkscape:export-filename="/home/mdupont/2009/11/RedLandMySql/root/static/icons/Type.png"
+         id="text2816"
+         y="93.025703"
+         x="154.08266"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="93.025703"
+           x="154.08266"
+           id="tspan2818"
+           sodipodi:role="line">TYPE</tspan></text>
+    </g>
+    <g
+       id="g2852"
+       inkscape:export-filename="/home/mdupont/2009/11/RedLandMySql/root/static/icons/Decl.png"
+       inkscape:export-xdpi="10.38"
+       inkscape:export-ydpi="10.38">
+      <path
+         transform="translate(-102.02541,0)"
+         d="m 374.2857,230.93361 a 82.85714,41.42857 0 1 1 -165.71428,0 82.85714,41.42857 0 1 1 165.71428,0 z"
+         sodipodi:ry="41.42857"
+         sodipodi:rx="82.85714"
+         sodipodi:cy="230.93361"
+         sodipodi:cx="291.42856"
+         id="path2832"
+         style="fill:#00ff00;fill-opacity:1"
+         sodipodi:type="arc" />
+      <text
+         id="text2820"
+         y="242.81035"
+         x="138.12837"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="242.81035"
+           x="138.12837"
+           id="tspan2822"
+           sodipodi:role="line">DECL</tspan></text>
+    </g>
+  </g>
+</svg>
