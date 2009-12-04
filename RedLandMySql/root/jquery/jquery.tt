@@ -1,9 +1,8 @@
 <!-- -*- html-mode -*- -->
 [%# USAGE: INCLUDE "jquery/jquery.tt" %]
-[% jquery.script_src_elements %]
-[% jquery.link_elements %]
-[% jquery.document_ready %]
-    <script type="text/javascript" src="[%c.uri_for('/static/js/jquery-1.3.2.min.js')%]"></script> 
+
+    <script type="text/javascript" src="[%c.uri_for('/static/js/jquery-1.3.2.min.js')%]"></script>  
+<!--    <script type="text/javascript" src="[%c.uri_for('/static/jquery/jquery.js')%]"></script>  -->
 [% INCLUDE "jquery/treesystemheadinc.tt" %]
     <script type="text/javascript">
     $(document).ready(function(){

@@ -11,7 +11,7 @@
 <link rel="shortcut icon"  href="[% c.uri_for('/static/images/favicon.ico') %]" />
 [% INCLUDE "jquery/jquery.tt" %]
 </head>
-[% c.session.navmenu %]
+[%# c.session.navmenu %]
 <!--<span class=template_name>[% component.name %]</span> -->
 [%   END %]
 

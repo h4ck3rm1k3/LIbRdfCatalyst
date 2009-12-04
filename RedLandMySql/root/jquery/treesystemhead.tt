@@ -1,15 +1,27 @@
 // -*- javascript-mode -*-
 
 $("#MyTreeView").tree({
+
+ plugins : {
+ 	introspector : { },
+         checkbox : { } ,
+        contextmenu : { } ,
+        hotkeys : { } ,
+           cookie : { } ,
+           metadata : { } 
+ },
+
     data : { 
 	type : "json",
-	async : true,
+	async : true,	
+
+
 	opts : {
 	    method : "GET",
 	    url : "[% c.uri_for('/jquery/json/') %][% param %]"
 	}
 }
-}	
+}
 );
 
 
@@ -53,6 +65,37 @@ $("#MyTreeView").tree({
 			}
 
 		});
+
+	   $("#MyTreeView").tree({
+	   		plugins : { 
+	   			contextmenu : { 
+	   				items : {
+	   					// get rid of the remove item
+	   					remove : false,
+	   					// add an item of our own
+	   					my_act : {
+	   						label	: "My own action", 
+	   						icon	: "", // you can set this to a classname or a path to an icon like ./myimage.gif
+	   						visible	: function (NODE, TREE_OBJ) { 
+	   							// this action will be disabled if more than one node is selected
+	   							if(NODE.length != 1) return 0; 
+	   							// this action will not be in the list if condition is met
+	   							if(TREE_OBJ.get_text(NODE) == "Child node 1") return -1; 
+	   							// otherwise - OK
+	   							return 1; 
+	   						}, 
+	   						action	: function (NODE, TREE_OBJ) { 
+	   							alert(TREE_OBJ.get(NODE, "xml_nested", false)); 
+	   						},
+	   						separator_before : true
+	   					}
+	   				}
+	   			}
+	   		}
+	   	});
+
+
+
 // /**
 // 	beforechange: function(NODE,TREE_OBJ) { return true },
 // 				beforeopen	: function(NODE,TREE_OBJ) { return true },

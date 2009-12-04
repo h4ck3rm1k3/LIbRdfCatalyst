@@ -1,5 +1,5 @@
 ({ 
-	attributes: { id : "[% statement.object %]" }, 
+	attributes: { id : "[% statement.object %]" , introspector:"this is a test"}, 
 
 	async : true,
 	// Properties below are only used for NON-leaf nodes
@@ -21,6 +21,7 @@ title: "node [% statement.statement_predicate_res.uri %]  : [% statement.stateme
 
 [% SET TYPE= statement.ObjectStmntPredicate2(RDF.type)  %]
 [% SET TID= TYPE.object  %]
+[% SET PID= statement.predicate  %]
 
 [% PERL %]
 use Gcc::Structure;
@@ -39,18 +40,27 @@ sub CheckObjectFile
     return $val;
 }
 	$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
+	$stash->set("template_name_pid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("PID")) ));
 	my $id = Gcc::Structure::GetRev($stash->get("TID"));
 	my $val = CheckObjectFile($id);
 	$stash->set("template_name_tid" =>  $val );
+
+$id = Gcc::Structure::GetRev($stash->get("PID"));
+$val = CheckObjectFile($id);
+$stash->set("template_name_pid" =>  $val );
+
 [% END %]
 [% SET template_name="jquery/object/${template_name_tid}.tt" %]
 //	attributes: { "template_type" : "[% template_name_tid %]" }, 
 
 	data:{ 
-	       title: "[%template_name_tid %]  node [% statement.statement_predicate_res.uri %] [% statement.predicate %]  / [% statement.statement_object_res.uri%] :  | <b>[% template_name %]</b> ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %]. ",
+	       title: "[%template_name_pid %] [%template_name_tid %]  node [% statement.statement_predicate_res.uri %]   / [% statement.statement_object_res.uri%] :  | <b>[% template_name %]</b> ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].  ",
+
+[%# INCLUDE "$template_name" %]
+
     icon :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]",
 
-[% INCLUDE "$template_name" %]
+
 	       }, 
 
 //    attributes: { "predicate" : "[% statement.statement_predicate_res.uri %]" , "object" : "[% statement.statement_object_res.uri %]" }

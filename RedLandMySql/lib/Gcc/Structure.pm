@@ -23,6 +23,7 @@ sub CreateStash
 
 
     $stash->{'RDF'}{'type'} = '2982895206037061277'; #   http://www.w3.org/1999/02/22-rdf-syntax-ns'; # type1 %]
+    $stash->{'RDF'}{'rdf_type'} = '2982895206037061277'; #   http://www.w3.org/1999/02/22-rdf-syntax-ns'; # type1 %]
 
 
     $stash->{'GCC'}{'addr_expr'} = '15121694316464009706';  #   addr_expr1 %]
