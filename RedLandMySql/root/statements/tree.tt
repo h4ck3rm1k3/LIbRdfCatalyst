@@ -4,4 +4,6 @@
 <div  id="MyTreeView"></div>
 </div>
 </div>
+<div id="log" style="clear: both; min-height: 300px;" class="">Log:<br/>
+</div>
 </body>

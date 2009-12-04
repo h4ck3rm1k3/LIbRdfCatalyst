@@ -1,22 +1,64 @@
 ({ 
-	attributes: { id : "[% statement.object %]"}, 
+	attributes: { id : "[% statement.object %]" }, 
 
 	async : true,
 	// Properties below are only used for NON-leaf nodes
 	state: "open", // or "open"
-  [%IF statement.statement_literal.value %]
-	data:{ title: "node [% statement.statement_predicate_res.uri %]  / [% statement.statement_literal.value %]"   }, 
+
+[%IF statement.statement_literal.value  ## literal nodes, simple data%]
+	data:{ 
+
+title: "node [% statement.statement_predicate_res.uri %]  : [% statement.statement_literal.value %]" ,  
+    icon :  "[% c.uri_for("/static/icons/Literal.png") %]"
+
+}, 
 	opts : {
 	    url : false
 	}
   [%ELSE %]
-	data:{ title: "node [% statement.statement_predicate_res.uri %]  / [% statement.statement_object_res.uri %]"        }, 
+
+
+
+[% SET TYPE= statement.ObjectStmntPredicate2(RDF.type)  %]
+[% SET TID= TYPE.object  %]
+
+[% PERL %]
+use Gcc::Structure;
+sub CheckObjectFile
+{
+    my $val =shift;
+    my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/jquery/";
+    my $template_name=  $temp . "object/${val}.tt";
+    if (! -f $template_name )
+    {
+	warn "creating $val";
+	open OUT,">$template_name";
+	print OUT q{//json body of object : };
+	close OUT;
+    }
+    return $val;
+}
+	$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
+	my $id = Gcc::Structure::GetRev($stash->get("TID"));
+	my $val = CheckObjectFile($id);
+	$stash->set("template_name_tid" =>  $val );
+[% END %]
+[% SET template_name="jquery/object/${template_name_tid}.tt" %]
+//	attributes: { "template_type" : "[% template_name_tid %]" }, 
+
+	data:{ 
+	       title: "[%template_name_tid %]  node [% statement.statement_predicate_res.uri %] [% statement.predicate %]  / [% statement.statement_object_res.uri%] :  | <b>[% template_name %]</b> ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %]. ",
+    icon :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]",
+
+[% INCLUDE "$template_name" %]
+	       }, 
+
+//    attributes: { "predicate" : "[% statement.statement_predicate_res.uri %]" , "object" : "[% statement.statement_object_res.uri %]" }
 
 	opts : {
 	    method : "GET",
 	    url : "[% c.uri_for('/jquery/json/') %][% statement.object %]"
 	}
-
-  [%END %]
+[%END %]
 
 }),

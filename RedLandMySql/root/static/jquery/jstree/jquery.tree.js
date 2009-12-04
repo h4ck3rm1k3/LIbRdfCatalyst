@@ -31,7 +31,12 @@
 				animation	: 0,		// INT - duration of open/close animations in miliseconds
 				scroll_spd	: 4,
 				theme_path	: false,	// Path to the theme CSS file - if set to false and theme_name is not false - will lookup jstree-path-here/themes/theme-name-here/style.css
-				theme_name	: "default",// if set to false no theme will be loaded
+//#				theme_name	: "default",// if set to false no theme will be loaded
+//				theme_name	: "apple",
+//				theme_name	: "checkbox",
+//				theme_name	: "themeroller",
+//				theme_name	: "classic",
+				theme_name	: "introspector",
 				selected_parent_close	: "select_parent", // false, "deselect", "select_parent"
 				selected_delete			: "select_previous" // false, "select_previous"
 			},

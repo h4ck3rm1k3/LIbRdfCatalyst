@@ -12,3 +12,103 @@ $("#MyTreeView").tree({
 }	
 );
 
+
+
+	$.tree.drag_start = function () {
+		$("#log").append("<br />Drag start ");
+	};
+	$.tree.drag = function () {
+		$("#log").append(" .");
+	};
+	$.tree.drag_end = function () {
+		$("#log").append(" Drag end<br />");
+	};
+	$("#MyTreeView").tree({
+
+		callback : {
+			onload : function () { 
+				$("#log").append("Loaded<br />"); 
+			},
+//			onchange : function () { $("#log").append("Focus changed<br />");},
+			onhover : function () 
+			{
+			 //$("#log").append("on hover<br />"); 	
+			},
+			onparse : function () { $("#log").append("on parse<br />");	},
+			ondata : function () { $("#log").append("on data<br />"); 	},
+			onselect : function () { $("#log").append("on select<br />");	},
+			ondeselect : function () { $("#log").append("on deselect<br />");	},
+//			onchange : function () { $("#log").append("on change<br />");	},
+			oncopy : function () { $("#log").append("on copy<br />");	},
+			onrename : function () { $("#log").append("on rename<br />");	},
+			ondelete : function () { $("#log").append("on delete<br />");	},
+			onmove : function () { $("#log").append("on move<br />");	},
+//			onopen : function () { $("#log").append("on open<br />");	},
+			onsearch : function () { $("#log").append("on search<br />");	},
+
+///			beforechange : function () { 
+//				$("#log").append("Before Focus changed<br />");
+//			}
+			
+			}
+
+		});
+// /**
+// 	beforechange: function(NODE,TREE_OBJ) { return true },
+// 				beforeopen	: function(NODE,TREE_OBJ) { return true },
+// 				beforeclose	: function(NODE,TREE_OBJ) { return true },
+// 				beforemove	: function(NODE,REF_NODE,TYPE,TREE_OBJ) { return true }, 
+// 				beforecreate: function(NODE,REF_NODE,TYPE,TREE_OBJ) { return true }, 
+// 				beforerename: function(NODE,LANG,TREE_OBJ) { return true }, 
+// 				beforedelete: function(NODE,TREE_OBJ) { return true }, 
+// 				beforedata	: function(NODE,TREE_OBJ) { return { id : $(NODE).attr("id") || 0 } }, // PARAMETERS PASSED TO SERVER
+// 				ondata		: function(DATA,TREE_OBJ) { return DATA; },		// modify data before parsing it
+// 				onparse		: function(STR,TREE_OBJ) { return STR; },		// modify string before visualizing it
+// 				onhover		: function(NODE,TREE_OBJ) { },					// node hovered
+// 				onselect	: function(NODE,TREE_OBJ) { },					// node selected
+// 				ondeselect	: function(NODE,TREE_OBJ) { },					// node deselected
+// 				onchange	: function(NODE,TREE_OBJ) { },					// focus changed
+// 				onrename	: function(NODE,TREE_OBJ,RB) { },				// node renamed
+// 				onmove		: function(NODE,REF_NODE,TYPE,TREE_OBJ,RB) { },	// move completed
+// 				oncopy		: function(NODE,REF_NODE,TYPE,TREE_OBJ,RB) { },	// copy completed
+// 				oncreate	: function(NODE,REF_NODE,TYPE,TREE_OBJ,RB) { },	// node created
+// 				ondelete	: function(NODE,TREE_OBJ,RB) { },				// node deleted
+// 				onopen		: function(NODE,TREE_OBJ) { },					// node opened
+// 				onopen_all	: function(TREE_OBJ) { },						// all nodes opened
+// 				onclose_all	: function(TREE_OBJ) { },						// all nodes closed
+// 				onclose		: function(NODE,TREE_OBJ) { },					// node closed
+// 				error		: function(TEXT,TREE_OBJ) { },					// error occured
+// 				ondblclk	: function(NODE,TREE_OBJ) { TREE_OBJ.toggle_branch.call(TREE_OBJ, NODE); TREE_OBJ.select_branch.call(TREE_OBJ, NODE); },
+// 				onrgtclk	: function(NODE,TREE_OBJ,EV) { },				// right click - to prevent use: EV.preventDefault(); EV.stopPropagation(); return false
+// 				onload		: function(TREE_OBJ) { },
+// 				oninit		: function(TREE_OBJ) { },
+// 				onfocus		: function(TREE_OBJ) { },
+// 				ondestroy	: function(TREE_OBJ) { },
+// 				onsearch	: function(NODES, TREE_OBJ) { NODES.addClass("search"); },
+// 				ondrop		: function(NODE,REF_NODE,TYPE,TREE_OBJ) { },
+// 				check		: function(RULE,NODE,VALUE,TREE_OBJ) { return VALUE; },
+// 				check_move	: function(NODE,REF_NODE,TYPE,TREE_OBJ) { return true; }
+// */
+// 		}
+
+// /**
+
+// types	: {
+// 				"default" : {
+// 					clickable	: true, // can be function
+// 					renameable	: true, // can be function
+// 					deletable	: true, // can be function
+// 					creatable	: true, // can be function
+// 					draggable	: true, // can be function
+// 					max_children	: -1, // -1 - not set, 0 - no children, 1 - one child, etc // can be function
+// 					max_depth		: -1, // -1 - not set, 0 - no children, 1 - one level of children, etc // can be function
+// 					valid_children	: "all", // all, none, array of values // can be function
+// 					icon : {
+// 						image : false,
+// 						position : false
+// 					}
+// 				}
+// 			},
+// */
+
+//});
