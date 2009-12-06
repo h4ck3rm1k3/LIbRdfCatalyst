@@ -49,7 +49,7 @@ sub MakeIcon
     my $val =shift;
     my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
     my $template_name=  $temp . "/static/icons/${val}.svg";
-    my $png=  $temp . "/static/icons/${val}_64.png";
+    my $png=  $temp . "/static/icons/${val}.png";
 
     if (! -f $template_name )
     {
@@ -64,8 +64,8 @@ sub MakeIcon
 	if ((stat $template_name)[9] > (stat $png)[9]){   # Compare mtime stamps
 	    print "A is newer than B; discarding B.\n";
 #    unlink "B" or die "B: $!\n";
-	    #system("inkscape  $template_name --export-png=$png --export-width=16 --export-height=16 --without-gui ");
-	    system("inkscape  $template_name --export-png=$png --export-width=64 --export-height=64 --without-gui ");
+	    system("inkscape  $template_name --export-png=$png --export-width=16 --export-height=16 --without-gui ");
+#	    system("inkscape  $template_name --export-png=$png --export-width=64 --export-height=64 --without-gui ");
 	}
     }
 
@@ -95,7 +95,7 @@ $stash->set("template_name_pid" =>  $pval );
 
 [%# INCLUDE "$template_name" %]
 [%# c.uri_for("/static/icons/${template_name_tid}.png") %]
-    icon :  "[% c.uri_for("/static/icons/${template_name_tid}_64.png") %]",
+    icon :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]",
 
    }, 
 
