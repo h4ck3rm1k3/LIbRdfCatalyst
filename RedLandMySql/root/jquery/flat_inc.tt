@@ -1,0 +1,1 @@
+[%# create a flat listing of a node. put all interesting constants of the children in it. flatten them out. a tree should have the flat listing in it so that it is easy to read the interesting things like the strg of the identifier node. should not recurse into all the other decls to deeply. %]

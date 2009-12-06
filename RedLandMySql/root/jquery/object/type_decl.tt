@@ -1,1 +1,1 @@
-//json body of object : 
+[% INCLUDE "jquery/data_item.tt" %]

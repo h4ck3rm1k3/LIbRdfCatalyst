@@ -1,0 +1,4 @@
+#   -d, --export-dpi=DPI
+#      -w, 
+# -h, 
+inkscape --export-png=[% filename %] --export-width=16 --export-height=16

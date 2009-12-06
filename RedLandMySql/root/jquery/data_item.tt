@@ -1,3 +1,6 @@
+
+
+
 ({ 
 	attributes: { id : "[% statement.object %]" , introspector:"this is a test"}, 
 
@@ -39,29 +42,62 @@ sub CheckObjectFile
     }
     return $val;
 }
+#### ICON 
+##create an default icon if there is none.
+sub MakeIcon
+{
+    my $val =shift;
+    my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
+    my $template_name=  $temp . "/static/icons/${val}.svg";
+    my $png=  $temp . "/static/icons/${val}_64.png";
+
+    if (! -f $template_name )
+    {
+	warn "creating $val";
+	use File::Copy;
+	copy($temp . "/static/icons/type.svg",$template_name);
+	copy($temp . "/static/icons/type.png",$png);
+
+    }
+    else
+    {
+	if ((stat $template_name)[9] > (stat $png)[9]){   # Compare mtime stamps
+	    print "A is newer than B; discarding B.\n";
+#    unlink "B" or die "B: $!\n";
+	    #system("inkscape  $template_name --export-png=$png --export-width=16 --export-height=16 --without-gui ");
+	    system("inkscape  $template_name --export-png=$png --export-width=64 --export-height=64 --without-gui ");
+	}
+    }
+
+}
+
 	$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
 	$stash->set("template_name_pid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("PID")) ));
 	my $id = Gcc::Structure::GetRev($stash->get("TID"));
 	my $val = CheckObjectFile($id);
+MakeIcon ($val);
 	$stash->set("template_name_tid" =>  $val );
 
 $id = Gcc::Structure::GetRev($stash->get("PID"));
-$val = CheckObjectFile($id);
-$stash->set("template_name_pid" =>  $val );
+my $pval = CheckObjectFile($id);
+MakeIcon ($pval);
+$stash->set("template_name_pid" =>  $pval );
+
+
+
 
 [% END %]
 [% SET template_name="jquery/object/${template_name_tid}.tt" %]
 //	attributes: { "template_type" : "[% template_name_tid %]" }, 
 
 	data:{ 
-	       title: "[%template_name_pid %] [%template_name_tid %]  node [% statement.statement_predicate_res.uri %]   / [% statement.statement_object_res.uri%] :  | <b>[% template_name %]</b> ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].  ",
+	       title: "[%template_name_pid %] [%template_name_tid %]  / [% statement.statement_object_res.uri%] ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].  ",
 
 [%# INCLUDE "$template_name" %]
+[%# c.uri_for("/static/icons/${template_name_tid}.png") %]
+    icon :  "[% c.uri_for("/static/icons/${template_name_tid}_64.png") %]",
 
-    icon :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]",
-
-
-	       }, 
+   }, 
 
 //    attributes: { "predicate" : "[% statement.statement_predicate_res.uri %]" , "object" : "[% statement.statement_object_res.uri %]" }
 

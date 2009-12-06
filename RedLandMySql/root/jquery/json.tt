@@ -4,10 +4,12 @@
    state: "open", 
    children: [ 
    /* an array of child nodes objects */ 
+   [% INCLUDE "jquery/flat_inc.tt" %]
 
 [% # we want to be able to do this for some node types differently. for example to extract data from the children nodes. the strg from the identifier node. %]
 [% FOREACH statement IN statements -%]
 [% INCLUDE "jquery/data_item.tt" %]
+[%# INCLUDE "jquery/data_item_inc.tt" %]
 
 [% END -%]
 	]

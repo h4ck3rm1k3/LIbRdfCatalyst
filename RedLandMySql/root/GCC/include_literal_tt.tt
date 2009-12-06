@@ -25,12 +25,18 @@ sub CheckLiteralFile
     my $val =shift;
     my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
     my $template_name =  $temp . "GCC/literal/${val}.tt";
+    if (!-f $template_name)
     {
 	warn "creating $template_name";
 	my  $basename = dirname($template_name,["tt"]);
+	
+	if (!-d $basename ) 
+	{ 
+	    make_path $basename;
+	    warn "creating  path $basename";
+	} 
 
-	make_path $basename;
-	warn "creating  path $basename";
+	open OUT,">$template_name" or die "cannot open the file $template_name";
 	print OUT "template:$val\n";
 	print OUT "[% component.name %] \n";
 	print OUT "Value :[% statement.statement_literal.value %]\n";

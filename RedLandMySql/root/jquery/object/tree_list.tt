@@ -1,1 +1,1 @@
-//<span class=template_name>jquery/data_item.tt</span><!-- -*- perl -*- -->
+[% INCLUDE "jquery/data_item.tt" %]
