@@ -1,43 +1,19 @@
-{ 
-"attributes": { 
-"id" : "[% statement.object %]" , 
-"introspector":"this is a test"}, 
-"async" : "true",
-"state": "open", 
-[%IF statement.statement_literal.value  ## literal nodes, simple data%]
- "data":{ 
-   "title": "node [% statement.statement_predicate_res.uri %]  : [% statement.statement_literal.value %]" ,  
-   "icon" :  "[% c.uri_for("/static/icons/Literal.png") %]"
- }, 
- "opts" : {
-     "url" : "false"
- }
-  [%ELSE %]
-[% SET TYPE= statement.ObjectStmntPredicate2(RDF.type)  %]
-[% SET STYPE= statement.ObjectStmntPredicate(RDF.type)  %]
-[% SET TID= TYPE.object  %]
-[% SET PID= statement.predicate  %]
-[% SET SID= STYPE.object  %]
-[% stag = "[\%"
-       etag = "%\]"
-%]
-[% PERL %]
-use Gcc::Structure;
-sub CheckObjectFile
-{
+INLINE[%IF objstatement.statement_literal.value%]"node [% objstatement.statement_predicate_res.uri %]  : [% objstatement.statement_literal.value %]",[%ELSE %][% SET TYPE= objstatement.ObjectStmntPredicate2(RDF.type)  %][% SET STYPE= objstatement.ObjectStmntPredicate(RDF.type)  %][% SET TID= TYPE.object  %][% SET PID= objstatement.predicate  %][% SET SID= STYPE.object  %][% stag = "[\%"%][% etag = "%\]"%][% PERL %]
+    use Gcc::Structure;
+sub CheckObjectFile{
     my $val =shift;
     my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/jquery/";
-    my $template_name=  $temp . "object/${val}.tt";
-    if (! -f $template_name )
+    my $template_name=  $temp . "object/${val}.tt";    if (! -f $template_name )
     {
-	warn "creating $val";
+
+
+#.warn "creating $val";
 	open OUT,">$template_name";
-	print OUT q{//json body of object : };
+	print OUT q{template } . $template_name;
 	close OUT;
     }
     return $val;
 }
-
 sub CheckFile
 {
     my $dir =shift;
@@ -50,7 +26,6 @@ sub CheckFile
 	warn "creating $fulldir";
 	mkdir $fulldir;
     }
-
     if (! -f $template_name )
     {
 	warn "creating $val file in $fulldir";
@@ -59,7 +34,6 @@ sub CheckFile
     }
     return "${dir}${val}.tt";;
 }
-
 sub CheckDetailFiles
 {
     my $SUBJECT =shift;
@@ -72,7 +46,6 @@ sub CheckDetailFiles
 	CheckFile("jquery/details/pred/",$PRED),
 	CheckFile("jquery/details/object/",$OBJECT)
 	);
-
     if (! -f $template_name )
     {
 	warn "creating $template_name";
@@ -82,71 +55,46 @@ sub CheckDetailFiles
 	print OUT $stash->get("stag") . q{INCLUDE } . CheckFile("jquery/details/object/",$OBJECT)    .  $stash->get("etag") ;
 	close OUT;
     }
-
 }
-
-#### ICON 
-##create an default icon if there is none.
+#### ICON .
+##create an default icon if there is none
 sub MakeIcon
 {
     my $val =shift;
     my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
     my $template_name=  $temp . "/static/icons/${val}.svg";
     my $png=  $temp . "/static/icons/${val}.png";
-
     if (! -f $template_name )
     {
 	warn "creating $val";
 	use File::Copy;
 	copy($temp . "/static/icons/type.svg",$template_name);
 	copy($temp . "/static/icons/type.png",$png);
-
     }
     else
     {
-	if ((stat $template_name)[9] > (stat $png)[9]){   # Compare mtime stamps
-	    print "A is newer than B; discarding B.\n";
+	if ((stat $template_name)[9] > (stat $png)[9]){   
+# Compare mtime stamps.
+#    print "A is newer than B; discarding B.\n";.
 #    unlink "B" or die "B: $!\n";
 	    system("inkscape  $template_name --export-png=$png --export-width=16 --export-height=16 --without-gui ");
-#	    system("inkscape  $template_name --export-png=$png --export-width=64 --export-height=64 --without-gui ");
+#   system("inkscape  $template_name --export-png=$png --export-width=64 --export-height=64 --without-gui ");
 	}
     }
-
 }
-
-	$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
-	$stash->set("template_name_pid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("PID")) ));
-	$stash->set("template_name_sid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("SID")) ));
-
-CheckDetailFiles (
-    $stash->get("template_name_sid"),
-    $stash->get("template_name_pid"),
-    $stash->get("template_name_tid")
-);
-
+$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
+$stash->set("template_name_pid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("PID")) ));
+$stash->set("template_name_sid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("SID")) ));
+CheckDetailFiles (    $stash->get("template_name_sid"),
+		      $stash->get("template_name_pid"),
+		      $stash->get("template_name_tid")
+    );
 my $id = Gcc::Structure::GetRev($stash->get("TID"));
 my $val = CheckObjectFile($id);
 MakeIcon ($val);
 $stash->set("template_name_tid" =>  $val );
-
 $id = Gcc::Structure::GetRev($stash->get("PID"));
 my $pval = CheckObjectFile($id);
 MakeIcon ($pval);
 $stash->set("template_name_pid" =>  $pval );
-
-[% END %]
-[% SET template_name="jquery/object/${template_name_tid}.tt" %]
-	"data":{ 
-
-[% SET detail_template_name="jquery/details/${template_name_sid}-${template_name_pid}-${template_name_tid}.tt" %]
-	       "title":  " [%template_name_sid %]:[%template_name_pid %]:[%template_name_tid %]|[% INCLUDE "$detail_template_name" %][%node_children %]| / [% statement.statement_object_res.uri%] ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].  ",
-[%# c.uri_for("/static/icons/${template_name_tid}.png") %]
- "icon" :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]" 
-}, 
-"opts" : {
-   	"method" : "GET",
-	"url" : "[% c.uri_for('/jquery/json/') %][% statement.object %]"
-	}
-[%END %]
-
-},
+[% END %][% SET template_name="jquery/object/${template_name_tid}.tt" %][% SET detail_template_name="jquery/details/${template_name_sid}-${template_name_pid}-${template_name_tid}.tt" %][%template_name_sid %]:[%template_name_pid %]:[%template_name_tid %]|[%#INCLUDE "$detail_template_name" %][%node_children %]| / [% objstatement.statement_object_res.uri%] ! [% objstatement.ObjectStmntPredicate(objstatement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].[%END %]INLINEEND

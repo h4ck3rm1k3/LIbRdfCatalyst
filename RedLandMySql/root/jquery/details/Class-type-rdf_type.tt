@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/Class.tt%][%INCLUDE jquery/details/pred/type.tt%][%INCLUDE jquery/details/object/rdf_type.tt%]
