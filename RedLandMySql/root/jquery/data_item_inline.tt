@@ -1,4 +1,13 @@
-INLINE[%IF objstatement.statement_literal.value%]"node [% objstatement.statement_predicate_res.uri %]  : [% objstatement.statement_literal.value %]",[%ELSE %][% SET TYPE= objstatement.ObjectStmntPredicate2(RDF.type)  %][% SET STYPE= objstatement.ObjectStmntPredicate(RDF.type)  %][% SET TID= TYPE.object  %][% SET PID= objstatement.predicate  %][% SET SID= STYPE.object  %][% stag = "[\%"%][% etag = "%\]"%][% PERL %]
+INLINE[%
+
+IF objstatement.statement_literal.value%]"node [%
+ objstatement.statement_predicate_res.uri %]  : [% objstatement.statement_literal.value %]",[%
+
+ELSE %][% 
+
+SET TYPE= objstatement.ObjectStmntPredicate2(RDF.type)  %][% SET STYPE= objstatement.ObjectStmntPredicate(RDF.type)  %][% SET TID= TYPE.object  %][% SET PID= objstatement.predicate  %][% SET SID= STYPE.object  %][% stag = "[\%"%][% etag = "%\]"%][% 
+
+PERL %]
     use Gcc::Structure;
 sub CheckObjectFile{
     my $val =shift;
