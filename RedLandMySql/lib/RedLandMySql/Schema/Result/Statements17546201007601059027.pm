@@ -104,6 +104,7 @@ __PACKAGE__->might_have( statement_subject_stmt_subjs   => 'RedLandMySql::Schema
 __PACKAGE__->might_have( statement_subject_stmt_objs    => 'RedLandMySql::Schema::Result::Statements17546201007601059027',    { 'foreign.object' => 'self.subject' },);
 
 
+
 # robkinyon @ irc.perl.net #dbix-class said :
 #    sub relname { my $self = shift; return $self->search({...}); }
 #

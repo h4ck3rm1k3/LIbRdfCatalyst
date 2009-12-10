@@ -1,13 +1,4 @@
-INLINE[%
-
-IF objstatement.statement_literal.value%]"node [%
- objstatement.statement_predicate_res.uri %]  : [% objstatement.statement_literal.value %]",[%
-
-ELSE %][% 
-
-SET TYPE= objstatement.ObjectStmntPredicate2(RDF.type)  %][% SET STYPE= objstatement.ObjectStmntPredicate(RDF.type)  %][% SET TID= TYPE.object  %][% SET PID= objstatement.predicate  %][% SET SID= STYPE.object  %][% stag = "[\%"%][% etag = "%\]"%][% 
-
-PERL %]
+INLINE[%IF objstatement.statement_literal.value%][% objstatement.statement_predicate_res.uri %]:[% objstatement.statement_literal.value %][%ELSE %][% SET TYPE= objstatement.ObjectStmntPredicate2(RDF.type)  %][% SET STYPE= objstatement.ObjectStmntPredicate(RDF.type)  %][% SET TID= TYPE.object  %][% SET PID= objstatement.predicate  %][% SET SID= STYPE.object  %][% stag = "[\%"%][% etag = "%\]"%][% PERL %]
     use Gcc::Structure;
 sub CheckObjectFile{
     my $val =shift;
@@ -106,4 +97,16 @@ $id = Gcc::Structure::GetRev($stash->get("PID"));
 my $pval = CheckObjectFile($id);
 MakeIcon ($pval);
 $stash->set("template_name_pid" =>  $pval );
-[% END %][% SET template_name="jquery/object/${template_name_tid}.tt" %][% SET detail_template_name="jquery/details/${template_name_sid}-${template_name_pid}-${template_name_tid}.tt" %][%template_name_sid %]:[%template_name_pid %]:[%template_name_tid %]|[%#INCLUDE "$detail_template_name" %][%node_children %]| / [% objstatement.statement_object_res.uri%] ! [% objstatement.ObjectStmntPredicate(objstatement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].[%END %]INLINEEND
+[% 
+
+END %][% 
+
+SET template_name="jquery/object/${template_name_tid}.tt" %][% 
+SET detail_template_name="jquery/details/${template_name_sid}-${template_name_pid}-${template_name_tid}.tt" %][%
+#template_name_sid %]:[%
+#template_name_pid %]:[%
+#template_name_tid %]|[% statement=objstatement %][%
+INCLUDE "$detail_template_name" %]| / [% objstatement.statement_object_res.uri%] ! [%
+ objstatement.ObjectStmntPredicate(objstatement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].[%
+
+END %]INLINEEND
