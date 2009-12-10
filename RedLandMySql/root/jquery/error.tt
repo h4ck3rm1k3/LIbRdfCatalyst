@@ -1,0 +1,4 @@
+[%#SpecificData:%]
+[%#{%]
+[%#    template:"[%"$detail_template_name"%]",%]
+[%#},%]

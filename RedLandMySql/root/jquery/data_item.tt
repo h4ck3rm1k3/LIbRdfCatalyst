@@ -1,30 +1,25 @@
-
-
-
 ({ 
 	attributes: { id : "[% statement.object %]" , introspector:"this is a test"}, 
-
 	async : true,
-	// Properties below are only used for NON-leaf nodes
-	state: "open", // or "open"
-
+	state: "open", 
 [%IF statement.statement_literal.value  ## literal nodes, simple data%]
-	data:{ 
-
-title: "node [% statement.statement_predicate_res.uri %]  : [% statement.statement_literal.value %]" ,  
-    icon :  "[% c.uri_for("/static/icons/Literal.png") %]"
-
-}, 
-	opts : {
-	    url : false
-	}
+ data:{ 
+   title: "node [% statement.statement_predicate_res.uri %]  : [% statement.statement_literal.value %]" ,  
+   icon :  "[% c.uri_for("/static/icons/Literal.png") %]"
+ }, 
+ opts : {
+     url : false
+ }
   [%ELSE %]
-
-
-
 [% SET TYPE= statement.ObjectStmntPredicate2(RDF.type)  %]
+[% SET STYPE= statement.ObjectStmntPredicate(RDF.type)  %]
 [% SET TID= TYPE.object  %]
 [% SET PID= statement.predicate  %]
+[% SET SID= STYPE.object  %]
+
+[% stag = "[\%"
+       etag = "%\]"
+%]
 
 [% PERL %]
 use Gcc::Structure;
@@ -42,6 +37,54 @@ sub CheckObjectFile
     }
     return $val;
 }
+
+sub CheckFile
+{
+    my $dir =shift;
+    my $val =shift;
+    my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/";
+    my $fulldir = $temp . $dir;
+    my $template_name=  $fulldir . "${val}.tt";
+    if (!-d $fulldir)
+    {
+	warn "creating $fulldir";
+	mkdir $fulldir;
+    }
+
+    if (! -f $template_name )
+    {
+	warn "creating $val file in $fulldir";
+	open OUT,">$template_name" or die "canot open $template_name";
+	close OUT;
+    }
+    return "${dir}${val}.tt";;
+}
+
+sub CheckDetailFiles
+{
+    my $SUBJECT =shift;
+    my $PRED =shift;
+    my $OBJECT =shift;
+    my $temp= "/media/sdd2/home/mdupont/2009/11/FirefoxMechanize/gui/LibRdf/RedLandMySql/root/jquery/";
+    my $template_name=  $temp . "details/${SUBJECT}-${PRED}-${OBJECT}.tt";
+    my @file =(
+	CheckFile("jquery/details/subject/",$SUBJECT) ,
+	CheckFile("jquery/details/pred/",$PRED),
+	CheckFile("jquery/details/object/",$OBJECT)
+	);
+
+    if (! -f $template_name )
+    {
+	warn "creating $template_name";
+	open OUT,">$template_name";
+	print OUT $stash->get("stag") . q{INCLUDE } . CheckFile("jquery/details/subject/",$SUBJECT)  .  $stash->get("etag") ;
+	print OUT $stash->get("stag") . q{INCLUDE } . CheckFile("jquery/details/pred/",$PRED)        .  $stash->get("etag") ;
+	print OUT $stash->get("stag") . q{INCLUDE } . CheckFile("jquery/details/object/",$OBJECT)    .  $stash->get("etag") ;
+	close OUT;
+    }
+
+}
+
 #### ICON 
 ##create an default icon if there is none.
 sub MakeIcon
@@ -73,37 +116,37 @@ sub MakeIcon
 
 	$stash->set("template_name_tid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("TID")) ));
 	$stash->set("template_name_pid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("PID")) ));
-	my $id = Gcc::Structure::GetRev($stash->get("TID"));
-	my $val = CheckObjectFile($id);
+	$stash->set("template_name_sid" =>  CheckObjectFile(Gcc::Structure::GetRev($stash->get("SID")) ));
+
+CheckDetailFiles (
+    $stash->get("template_name_sid"),
+    $stash->get("template_name_pid"),
+    $stash->get("template_name_tid")
+);
+
+my $id = Gcc::Structure::GetRev($stash->get("TID"));
+my $val = CheckObjectFile($id);
 MakeIcon ($val);
-	$stash->set("template_name_tid" =>  $val );
+$stash->set("template_name_tid" =>  $val );
 
 $id = Gcc::Structure::GetRev($stash->get("PID"));
 my $pval = CheckObjectFile($id);
 MakeIcon ($pval);
 $stash->set("template_name_pid" =>  $pval );
 
-
-
-
 [% END %]
 [% SET template_name="jquery/object/${template_name_tid}.tt" %]
-//	attributes: { "template_type" : "[% template_name_tid %]" }, 
-
 	data:{ 
-	       title: "[%template_name_pid %] [%template_name_tid %]  / [% statement.statement_object_res.uri%] ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].  ",
 
-[%# INCLUDE "$template_name" %]
+[% SET detail_template_name="jquery/details/${template_name_sid}-${template_name_pid}-${template_name_tid}.tt" %]
+	       title:  " [%template_name_sid %]:[%template_name_pid %]:[%template_name_tid %]|[% INCLUDE "$detail_template_name" %][%node_children %]| / [% statement.statement_object_res.uri%] ! [% statement.ObjectStmntPredicate(statement.predicate).ObjectStmntPredicate2(RDF.type).statement_object_res.uri %].  ",
 [%# c.uri_for("/static/icons/${template_name_tid}.png") %]
-    icon :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]",
-
-   }, 
-
-//    attributes: { "predicate" : "[% statement.statement_predicate_res.uri %]" , "object" : "[% statement.statement_object_res.uri %]" }
-
-	opts : {
-	    method : "GET",
-	    url : "[% c.uri_for('/jquery/json/') %][% statement.object %]"
+ icon :  "[% c.uri_for("/static/icons/${template_name_tid}.png") %]",
+ 
+}, 
+   opts : {
+   	method : "GET",
+	url : "[% c.uri_for('/jquery/json/') %][% statement.object %]"
 	}
 [%END %]
 

@@ -1,0 +1,1 @@
+++ preincrement ( VALUE, VARIABLE) { [%#get child value (low)%][%statement.ObjectStmntPredicate2(GCC.op_1).ObjectStmntPredicate2(GCC.low).statement_literal.value%],[%#get variable name (or subexpression)%][%statement.ObjectStmntPredicate2(GCC.op_0).ObjectStmntPredicate2(GCC.name).ObjectStmntPredicate2(GCC.strg).statement_literal.value%]%]}

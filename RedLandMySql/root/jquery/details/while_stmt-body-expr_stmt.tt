@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/while_stmt.tt%][%INCLUDE jquery/details/pred/body.tt%][%INCLUDE jquery/details/object/expr_stmt.tt%]

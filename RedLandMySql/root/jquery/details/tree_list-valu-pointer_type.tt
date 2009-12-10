@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/tree_list.tt%][%INCLUDE jquery/details/pred/valu.tt%][%INCLUDE jquery/details/object/pointer_type.tt%]

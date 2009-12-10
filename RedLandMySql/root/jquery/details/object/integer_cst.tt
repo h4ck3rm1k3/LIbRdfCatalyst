@@ -1,0 +1,1 @@
+[%SET value_low = statement.ObjectStmntPredicate2(GCC.low).statement_literal.value %][% value_low %]

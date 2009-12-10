@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/identifier_node.tt%][%INCLUDE jquery/details/pred/type.tt%][%INCLUDE jquery/details/object/Class.tt%]

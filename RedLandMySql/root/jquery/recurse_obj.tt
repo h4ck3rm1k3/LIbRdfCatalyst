@@ -1,0 +1,1 @@
+[%#we are going to recurse into the object, as the subject. calls json on it%][%# FOREACH statement IN statement.statement_object_stmt_subjs -%][%# INCLUDE "jquery/data_item_inline.tt" %][%# END -%]

@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/preincrement_expr.tt%][%INCLUDE jquery/details/pred/op_1.tt%][%INCLUDE jquery/details/object/integer_cst.tt%]

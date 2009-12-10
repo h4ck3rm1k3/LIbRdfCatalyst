@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/tree_list.tt%][%INCLUDE jquery/details/pred/chan.tt%][%INCLUDE jquery/details/object/tree_list.tt%]

@@ -1,0 +1,8 @@
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.contextmenu.js') %]"></script> 
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.cookie.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.hotkeys.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.metadata.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.themeroller.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.xml_flat.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.xml_nested.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/jquery/jstree/plugins/jquery.tree.introspector.js') %]"></script>

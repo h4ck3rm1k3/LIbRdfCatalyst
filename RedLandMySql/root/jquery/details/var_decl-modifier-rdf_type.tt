@@ -1,0 +1,1 @@
+[%INCLUDE jquery/details/subject/var_decl.tt%][%INCLUDE jquery/details/pred/modifier.tt%][%INCLUDE jquery/details/object/rdf_type.tt%]

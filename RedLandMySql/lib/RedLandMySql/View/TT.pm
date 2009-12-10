@@ -12,10 +12,10 @@ use Template::Constants qw( :debug );
 __PACKAGE__->config(TEMPLATE_EXTENSION => '.tt',
 		    , EVAL_PERL => 1
 		    , 'RECURSION' => 1
-		    ,		     DEBUG => DEBUG_PARSER | DEBUG_PROVIDER
-#| DEBUG_ALL
+		    ,		     DEBUG => DEBUG_PARSER | DEBUG_PROVIDER    | DEBUG_PLUGINS | DEBUG_CONTEXT | DEBUG_SERVICE | DEBUG_CALLER
 );
-
+#DEBUG_UNDEF
+#DEBUG_PARSER | DEBUG_PROVIDER    | 
 =head1 NAME
 
 RedLandMySql::View::TT - TT View for RedLandMySql
